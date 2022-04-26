@@ -21,13 +21,15 @@ import {
 } from "components/scrollbar/Scrollbar";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import PropTypes from "prop-types";
-
-// Assets
+// Assers
 import { IoMenuOutline } from "react-icons/io5";
+
+// FUNCTIONS
 
 function Sidebar(props) {
   const { routes } = props;
 
+  // this is for the rest of the collapses
   let variantChange = "0.2s linear";
   let shadow = useColorModeValue(
     "14px 17px 40px 4px rgba(112, 144, 176, 0.08)",
@@ -35,7 +37,10 @@ function Sidebar(props) {
   );
   // Chakra Color Mode
   let sidebarBg = useColorModeValue("white", "navy.800");
+  let sidebarRadius = "30px";
   let sidebarMargins = "0px";
+
+  // let isWindows = navigator.platform.startsWith("Win");
 
   // SIDEBAR
   return (
@@ -43,9 +48,16 @@ function Sidebar(props) {
       <Box
         bg={sidebarBg}
         transition={variantChange}
-        w='300px'
-        h='100vh'
+        w='285px'
+        ms={{
+          sm: "16px",
+        }}
+        my={{
+          sm: "16px",
+        }}
+        h='calc(100vh - 32px)'
         m={sidebarMargins}
+        borderRadius={sidebarRadius}
         minH='100%'
         overflowX='hidden'
         boxShadow={shadow}>
@@ -92,7 +104,17 @@ export function SidebarResponsive(props) {
         placement={document.documentElement.dir === "rtl" ? "right" : "left"}
         finalFocusRef={btnRef}>
         <DrawerOverlay />
-        <DrawerContent w='285px' maxW='285px' bg={sidebarBackgroundColor}>
+        <DrawerContent
+          w='285px'
+          maxW='285px'
+          ms={{
+            sm: "16px",
+          }}
+          my={{
+            sm: "16px",
+          }}
+          borderRadius='16px'
+          bg={sidebarBackgroundColor}>
           <DrawerCloseButton
             zIndex='3'
             onClose={onClose}

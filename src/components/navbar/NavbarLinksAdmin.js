@@ -62,10 +62,10 @@ export default function HeaderLinks(props) {
         bg={ethBg}
         display={secondary ? "flex" : "none"}
         borderRadius='30px'
-        ms='auto'
         p='6px'
         align='center'
-        me='6px'>
+        me='6px'
+        ms='auto'>
         <Flex
           align='center'
           justify='center'

@@ -1,19 +1,12 @@
-# [Horizon UI](https://horizon-ui.com/horizon-ui-chakra) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?url=https://horizon-ui.com/&text=Check%20Horizon%20UI,%20the%20trendiest%20open-source%20admin%20template%20for%20Chakra%20UI%20&%20React!)
+# [Horizon UI PRO](https://horizon-ui.com/chakra-pro) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?url=https://horizon-ui.com/pro&text=Check%20Horizon%20UI%20PRO,%20the%20trendiest%20Premium%20admin%20template%20for%20Chakra%20UI!)
 
 ![version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 [![GitHub issues open](https://img.shields.io/github/issues/horizon-ui/horizon-ui-chakra.svg?maxAge=2592000)](https://github.com/horizon-ui/horizon-ui-chakra/issues?q=is%3Aopen+is%3Aissue)
 [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/horizon-ui/horizon-ui-chakra.svg?maxAge=2592000)](https://github.com/horizon-ui/horizon-ui-chakra/issues?q=is%3Aissue+is%3Aclosed)
 
-<p>&nbsp;</p>
-
-[<img alt="Horizon UI" src="https://i.ibb.co/fdyTwz1/introduction-image-2.png" /> ](https://github.com/horizon-ui/horizon-ui-chakra)
-
-<p>&nbsp;</p>
-
-
-Get started and build your dream web app with Horizon UI, the most trendiest &
-innovative Open Source Admin Template for Chakra UI & React!
+Get started and build your dream web app with Horizon UI PRO, the most trendiest &
+innovative Premium Admin Template for Chakra UI & React!
 
 ---
 
@@ -26,30 +19,32 @@ to help you create stunning websites and webapps.
 Save hundreds of hours trying to create and develop a dashboard from scratch.
 The fastest, most responsive & trendiest dashboard is here. Seriously.
 
-With Horizon UI you will find many examples for pages like NFTs Pages,
+With Horizon UI PRO you will find many examples for pages like NFTs Pages,
 Authentication Pages, Profile and so on. Just choose between a Basic Design or a
 cover and you are good to go!
+
+<p>&nbsp;</p>
+
+[<img alt="Horizon UI PRO" src="https://i.ibb.co/R6jFKRM/introduction-image-1.png" /> ](https://github.com/horizon-ui/horizon-ui-chakra)
+
+<p>&nbsp;</p>
 
 ### Documentation
 
 Each element is well presented in a very complex documentation. You can read
 more about the
-<a href="https://horizon-ui.com/documentation/docs/introduction?ref=readme-horizon" target="_blank">documentation
+<a href="https://horizon-ui.com/docs?ref=readme-horizon" target="_blank">documentation
 here.</a>
 
 ### Quick Start
 
 Install Horizon UI by running either of the following:
 
+- Open Horizon UI PRO .zip file
+
 - Install NodeJS LTS from
   [NodeJs Official Page](https://nodejs.org/en/?ref=horizon-documentation)
   (NOTE: Product only works with LTS version)
-
-Clone the repository with the following command:
-
-```bash
-git clone https://github.com/horizon-ui/horizon-ui-chakra.git
-```
 
 Run in terminal this command:
 
@@ -68,7 +63,7 @@ npm start
 If you want to get inspiration or just show something directly to your clients,
 you can jump start your development with our pre-built example pages. You will
 be able to quickly set up the basic structure for your web project. View
-<a href="https://horizon-ui.com/horizon-ui-chakra/?ref=readme-horizon" target="_blank">example
+<a href="https://live.horizon-ui.com/free?ref=readme-horizon" target="_blank">example
 pages here.</a>
 
 ### Versions
@@ -81,7 +76,7 @@ pages here.</a>
 
 Horizon UI is available in Figma format as well! Check it out on Figma
 Community! 🎨
-[See the Horizon UI Figma design files](https://bit.ly/horizon-figma)
+[See the Horizon UI Figma design files](https://horizon-ui.com/figma/)
 
 ### Reporting Issues
 
@@ -109,4 +104,4 @@ new people that already use Horizon UI!
 
 ⭐️ [Copyright 2022 Simmmple ](https://www.simmmple.com/?ref=readme-horizon)
 
-📄 [Horizon UI License](https://www.simmmple.com/licenses?ref=readme-horizon)
+📄 [Horizon UI License](https://www.horizon-ui.com/license?ref=readme-horizon)

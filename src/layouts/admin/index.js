@@ -8,6 +8,7 @@ import { SidebarContext } from "contexts/SidebarContext";
 import React, { useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import routes from "routes.js";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 // Custom Chakra theme
 export default function Dashboard(props) {
@@ -109,7 +110,6 @@ export default function Dashboard(props) {
       }
     });
   };
-  document.documentElement.dir = "ltr";
   const { onOpen } = useDisclosure();
   return (
     <Box>
@@ -155,7 +155,7 @@ export default function Dashboard(props) {
               pt='50px'>
               <Switch>
                 {getRoutes(routes)}
-                <Redirect from='/' to='/admin/default' />
+                <Redirect from='/' to='/admin/dashboards/default' />
               </Switch>
             </Box>
           ) : null}

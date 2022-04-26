@@ -1,0 +1,9 @@
+.dataBox .nftData {
+  display: none;
+}
+.dataBox .defiData {
+  display: none;
+}
+.dataBox .active {
+  display: flex;
+}

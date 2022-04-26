@@ -15,14 +15,14 @@ export default function FixedPlugin(props) {
       h='60px'
       w='60px'
       bg={bgButton}
-      zIndex='99'
       position='fixed'
+      zIndex='99'
       variant='no-effects'
       left={document.documentElement.dir === "rtl" ? "35px" : ""}
       right={document.documentElement.dir === "rtl" ? "" : "35px"}
       bottom='30px'
       border='1px solid'
-      borderColor='#6A53FF'
+      borderColor='#6a53ff'
       borderRadius='50px'
       onClick={toggleColorMode}
       display='flex'

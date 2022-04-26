@@ -7,9 +7,9 @@ import {
   Box,
   Button,
   Flex,
-  Grid,
   HStack,
   Icon,
+  Image,
   Link,
   Menu,
   MenuList,
@@ -22,13 +22,14 @@ import {
 } from "@chakra-ui/react";
 
 // Custom components
-import IconBox from "components/icons/IconBox";
 import { HorizonLogo } from "components/icons/Icons";
 import { SidebarResponsive } from "components/sidebar/Sidebar";
 import { SidebarContext } from "contexts/SidebarContext";
 
 // Assets
-import { GoChevronDown, GoChevronRight } from "react-icons/go";
+import dropdownMain from "assets/img/layout/dropdownMain.png";
+import dropdown from "assets/img/layout/dropdown.png";
+import { GoChevronDown } from "react-icons/go";
 import routes from "routes.js";
 
 export default function AuthNavbar(props) {
@@ -139,8 +140,8 @@ export default function AuthNavbar(props) {
         <NavLink
           key={key}
           to={link.layout + link.path}
-          style={{ maxWidth: "max-content", marginLeft: "40px" }}>
-          <Text color='gray.400' fontSize='sm' fontWeight='normal'>
+          style={{ maxWidth: "max-content" }}>
+          <Text color='gray.400' fontSize='sm' fontWeight='500'>
             {link.name}
           </Text>
         </NavLink>
@@ -153,8 +154,8 @@ export default function AuthNavbar(props) {
         <NavLink
           key={key}
           to={link.layout + link.path}
-          style={{ maxWidth: "max-content", marginLeft: "40px" }}>
-          <Text color='gray.400' fontSize='sm' fontWeight='normal'>
+          style={{ maxWidth: "max-content" }}>
+          <Text color='gray.400' fontSize='sm' fontWeight='500'>
             {link.name}
           </Text>
         </NavLink>
@@ -171,19 +172,14 @@ export default function AuthNavbar(props) {
               spacing='0px'
               align='center'
               cursor='default'>
-              <IconBox bg='brand.500' h='30px' w='30px' me='10px'>
-                {link.icon}
-              </IconBox>
-              <Text fontWeight='bold' fontSize='md' me='auto' color={textColor}>
+              <Text
+                textTransform='uppercase'
+                fontWeight='bold'
+                fontSize='sm'
+                me='auto'
+                color={textColor}>
                 {link.name}
               </Text>
-              <Icon
-                as={GoChevronRight}
-                color={mainText}
-                w='14px'
-                h='14px'
-                fontWeight='2000'
-              />
             </Stack>
             <Stack direction='column' bg={menuBg}>
               {createMainLinks(link.items)}
@@ -192,10 +188,7 @@ export default function AuthNavbar(props) {
         );
       } else {
         return (
-          <NavLink
-            key={key}
-            to={link.layout + link.path}
-            style={{ maxWidth: "max-content", marginLeft: "40px" }}>
+          <NavLink key={key} to={link.layout + link.path}>
             <Text color='gray.400' fontSize='sm' fontWeight='normal'>
               {link.name}
             </Text>
@@ -208,26 +201,20 @@ export default function AuthNavbar(props) {
     return routes.map((link, key) => {
       if (link.collapse === true) {
         return (
-          <Stack key={key} direction='column' my='auto' maxW='max-content'>
+          <Stack key={key} direction='column' maxW='max-content'>
             <Stack
               direction='row'
               spacing='0px'
               align='center'
-              cursor='default'
-              w='max-content'>
-              <IconBox bg='brand.500' h='30px' w='30px' me='10px'>
-                {link.icon}
-              </IconBox>
-              <Text fontWeight='bold' fontSize='md' me='auto' color={textColor}>
+              cursor='default'>
+              <Text
+                textTransform='uppercase'
+                fontWeight='bold'
+                fontSize='sm'
+                me='auto'
+                color={textColor}>
                 {link.name}
               </Text>
-              <Icon
-                as={GoChevronRight}
-                color={mainText}
-                w='14px'
-                h='14px'
-                fontWeight='2000'
-              />
             </Stack>
             <Stack direction='column' bg={menuBg}>
               {createAuthLinks(link.items)}
@@ -236,10 +223,7 @@ export default function AuthNavbar(props) {
         );
       } else {
         return (
-          <NavLink
-            key={key}
-            to={link.layout + link.path}
-            style={{ maxWidth: "max-content", marginLeft: "40px" }}>
+          <NavLink key={key} to={link.layout + link.path}>
             <Text color='gray.400' fontSize='sm' fontWeight='normal'>
               {link.name}
             </Text>
@@ -249,7 +233,7 @@ export default function AuthNavbar(props) {
     });
   };
   const linksAuth = (
-    <HStack display={{ sm: "none", lg: "flex" }} spacing='12px'>
+    <HStack display={{ sm: "none", lg: "flex" }} spacing='20px'>
       <Stack
         direction='row'
         spacing='4px'
@@ -280,11 +264,102 @@ export default function AuthNavbar(props) {
             cursor='default'
             borderRadius='15px'
             position='absolute'
+            w='max-content'
             top='30px'
-            left='-10px'>
-            <Flex flexWrap='wrap' w='300px' gap='16px'>
+            left='-10px'
+            display='flex'>
+            <SimpleGrid columns='1' gap='8px' w='150px'>
               {createDashboardsLinks(dashboardsObject)}
-            </Flex>
+            </SimpleGrid>
+            <Image w='110px' h='110px' borderRadius='16px' src={dropdown} />
+          </MenuList>
+        </Menu>
+      </Stack>
+      <Stack
+        direction='row'
+        spacing='4px'
+        align='center'
+        color='#fff'
+        fontWeight='bold'
+        onMouseEnter={onOpenNft}
+        onMouseLeave={onCloseNft}
+        cursor='pointer'
+        position='relative'>
+        <Text fontSize='sm' color={mainText}>
+          NFTs
+        </Text>
+        <Box>
+          <Icon
+            mt='8px'
+            as={GoChevronDown}
+            color={mainText}
+            w='14px'
+            h='14px'
+            fontWeight='2000'
+          />
+        </Box>
+        <Menu isOpen={isOpenNft}>
+          <MenuList
+            bg={menuBg}
+            p='22px'
+            cursor='default'
+            borderRadius='15px'
+            position='absolute'
+            w='max-content'
+            top='30px'
+            left='-10px'
+            display='flex'>
+            <SimpleGrid columns='1' gap='8px' w='150px'>
+              {createNftsLinks(nftsObject)}
+            </SimpleGrid>
+            <Image w='110px' h='110px' borderRadius='16px' src={dropdown} />
+          </MenuList>
+        </Menu>
+      </Stack>
+      <Stack
+        direction='row'
+        spacing='4px'
+        align='center'
+        color='#fff'
+        fontWeight='bold'
+        onMouseEnter={onOpenMain}
+        onMouseLeave={onCloseMain}
+        cursor='pointer'
+        position='relative'>
+        <Text fontSize='sm' color={mainText}>
+          Main Pages
+        </Text>
+        <Box>
+          <Icon
+            mt='8px'
+            as={GoChevronDown}
+            color={mainText}
+            w='14px'
+            h='14px'
+            fontWeight='2000'
+          />
+        </Box>
+        <Menu isOpen={isOpenMain}>
+          <MenuList
+            bg={menuBg}
+            p='18px'
+            ps='24px'
+            cursor='default'
+            borderRadius='15px'
+            position='absolute'
+            w='max-content'
+            top='30px'
+            left='-10px'
+            display='flex'>
+            <SimpleGrid
+              me='50px'
+              columns='2'
+              align='start'
+              minW='280px'
+              gap='24px'>
+              {createMainLinks(mainObject)}
+            </SimpleGrid>
+            <Image borderRadius='16px' src={dropdownMain} />
           </MenuList>
         </Menu>
       </Stack>
@@ -319,115 +394,18 @@ export default function AuthNavbar(props) {
             borderRadius='15px'
             position='absolute'
             top='30px'
-            left='-10px'>
-            <Flex>
-              <SimpleGrid columns='3' gap='10px' minW='500px' me='20px'>
-                {createAuthLinks(authObject)}
-              </SimpleGrid>
-              {/* <Flex
-                bg='red'
-                direction='column'
-                justify='center'
-                align='center'
-                w='stretch'
-                minH='230px'
-                borderRadius='15px'>
-                <IconBox
-                  bg='white'
-                  color='white'
-                  borderRadius='50%'
-                  h='50px'
-                  w='50px'
-                  mb='12px'>
-                  <Icon as={AiFillStar} w='25px' h='25px' color='blue.500' />
-                </IconBox>
-                <Text
-                  fontSize='xl'
-                  fontWeight='bold'
-                  color='#fff'
-                  maxW='80%'
-                  textAlign='center'>
-                  Explore our utilities pages
-                </Text>
-              </Flex> */}
-            </Flex>
-          </MenuList>
-        </Menu>
-      </Stack>
-      <Stack
-        direction='row'
-        spacing='4px'
-        align='center'
-        color='#fff'
-        fontWeight='bold'
-        onMouseEnter={onOpenMain}
-        onMouseLeave={onCloseMain}
-        cursor='pointer'
-        position='relative'>
-        <Text fontSize='sm' color={mainText}>
-          Main Pages
-        </Text>
-        <Box>
-          <Icon
-            mt='8px'
-            as={GoChevronDown}
-            color={mainText}
-            w='14px'
-            h='14px'
-            fontWeight='2000'
-          />
-        </Box>
-        <Menu isOpen={isOpenMain}>
-          <MenuList
-            bg={menuBg}
-            p='22px'
-            cursor='default'
-            borderRadius='15px'
-            position='absolute'
-            top='30px'
-            left='-10px'>
-            <Flex flexWrap='wrap' align='start' w='500px' gap='16px'>
-              {createMainLinks(mainObject)}
-            </Flex>
-          </MenuList>
-        </Menu>
-      </Stack>
-      <Stack
-        direction='row'
-        spacing='4px'
-        align='center'
-        color='#fff'
-        fontWeight='bold'
-        onMouseEnter={onOpenNft}
-        onMouseLeave={onCloseNft}
-        cursor='pointer'
-        position='relative'>
-        <Text fontSize='sm' color={mainText}>
-          NFTs
-        </Text>
-        <Box>
-          <Icon
-            mt='8px'
-            as={GoChevronDown}
-            color={mainText}
-            w='14px'
-            h='14px'
-            fontWeight='2000'
-          />
-        </Box>
-        <Menu isOpen={isOpenNft}>
-          <MenuList
-            bg={menuBg}
-            p='22px'
-            minW='350px'
-            cursor='default'
-            borderRadius='15px'
-            position='absolute'
-            top='30px'
-            left='-10px'>
-            <Grid templateColumns='repeat(2, 1fr)' gap='16px'>
-              {createNftsLinks(nftsObject)}
-            </Grid>
+            left='-10px'
+            display='flex'
+            w='max-content'>
+            <SimpleGrid
+              me='20px'
+              columns='2'
+              align='start'
+              minW='180px'
+              gap='24px'>
+              {createAuthLinks(authObject)}
+            </SimpleGrid>
+            <Image borderRadius='16px' src={dropdown} />
           </MenuList>
         </Menu>
       </Stack>
