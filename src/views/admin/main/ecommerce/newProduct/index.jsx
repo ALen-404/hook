@@ -1,25 +1,3 @@
-/*!
-  _   _  ___  ____  ___ ________  _   _   _   _ ___   ____  ____   ___  
- | | | |/ _ \|  _ \|_ _|__  / _ \| \ | | | | | |_ _| |  _ \|  _ \ / _ \ 
- | |_| | | | | |_) || |  / / | | |  \| | | | | || |  | |_) | |_) | | | |
- |  _  | |_| |  _ < | | / /| |_| | |\  | | |_| || |  |  __/|  _ <| |_| |
- |_| |_|\___/|_| \_\___/____\___/|_| \_|  \___/|___| |_|   |_| \_\\___/ 
-                                                                                                                                                                                                                                                                                                                                       
-=========================================================
-* Horizon UI Dashboard PRO - v1.0.0
-=========================================================
-
-* Product Page: https://www.horizon-ui.com/pro/
-* Copyright 2022 Horizon UI (https://www.horizon-ui.com/)
-
-* Designed and Coded by Simmmple
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-
 // Chakra imports
 import {
   Box,
@@ -37,243 +15,258 @@ import {
   Tabs,
   Text,
   useColorModeValue,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react'
 
 // Custom components
-import Card from "components/card/Card";
-import InputField from "components/fields/InputField";
-import TextField from "components/fields/TextField";
-import TagsField from "components/fields/TagsField";
-import Dropzone from "views/admin/main/ecommerce/newProduct/components/Dropzone";
-import React, { useRef, useState } from "react";
+import Card from 'components/card/Card'
+import InputField from 'components/fields/InputField'
+import TextField from 'components/fields/TextField'
+import TagsField from 'components/fields/TagsField'
+import Dropzone from 'views/admin/main/ecommerce/newProduct/components/Dropzone'
+import React, { useRef, useState } from 'react'
 
 // Assets
-import { MdOutlineCloudUpload } from "react-icons/md";
+import { MdOutlineCloudUpload } from 'react-icons/md'
 
 export default function NewProduct() {
-  const textColor = useColorModeValue("secondaryGray.900", "white");
+  const textColor = useColorModeValue('secondaryGray.900', 'white')
   const [activeBullets, setActiveBullets] = useState({
     product: true,
     media: false,
     pricing: false,
-  });
+  })
 
-  const productTab = useRef();
-  const mediaTab = useRef();
-  const pricingTab = useRef();
-  const brand = useColorModeValue("brand.500", "brand.400");
+  const productTab = useRef()
+  const mediaTab = useRef()
+  const pricingTab = useRef()
+  const brand = useColorModeValue('brand.500', 'brand.400')
 
   return (
     <Flex
-      direction='column'
-      minH='100vh'
-      align='center'
-      pt={{ sm: "125px", lg: "75px" }}
-      position='relative'>
+      direction="column"
+      minH="100vh"
+      align="center"
+      pt={{ sm: '125px', lg: '75px' }}
+      position="relative"
+    >
       <Box
-        h='45vh'
-        bg='linear-gradient(135deg, #868CFF 0%, #4318FF 100%)'
-        position='absolute'
-        w='100%'
-        borderRadius='30px'></Box>
+        h="45vh"
+        bg="linear-gradient(135deg, #868CFF 0%, #4318FF 100%)"
+        position="absolute"
+        w="100%"
+        borderRadius="30px"
+      ></Box>
 
       <Tabs
-        variant='unstyled'
-        mt={{ base: "60px", md: "165px" }}
-        zIndex='0'
-        display='flex'
-        flexDirection='column'>
+        variant="unstyled"
+        mt={{ base: '60px', md: '165px' }}
+        zIndex="0"
+        display="flex"
+        flexDirection="column"
+      >
         <TabList
-          display='flex'
-          align='center'
-          alignSelf='center'
-          justifySelf='center'>
+          display="flex"
+          align="center"
+          alignSelf="center"
+          justifySelf="center"
+        >
           <Tab
             ref={productTab}
-            _focus='none'
-            w={{ sm: "120px", md: "250px", lg: "300px" }}
+            _focus="none"
+            w={{ sm: '120px', md: '250px', lg: '300px' }}
             onClick={() =>
               setActiveBullets({
                 product: true,
                 media: false,
                 pricing: false,
               })
-            }>
+            }
+          >
             <Flex
-              direction='column'
-              justify='center'
-              align='center'
-              position='relative'
+              direction="column"
+              justify="center"
+              align="center"
+              position="relative"
               _before={{
                 content: "''",
-                width: { sm: "120px", md: "250px", lg: "300px" },
-                height: "3px",
-                bg: activeBullets.media ? "white" : "#8476FF",
-                left: { sm: "12px", md: "40px" },
+                width: { sm: '120px', md: '250px', lg: '300px' },
+                height: '3px',
+                bg: activeBullets.media ? 'white' : '#8476FF',
+                left: { sm: '12px', md: '40px' },
                 top: {
-                  sm: activeBullets.product ? "6px" : "4px",
+                  sm: activeBullets.product ? '6px' : '4px',
                   md: null,
                 },
-                position: "absolute",
-                bottom: activeBullets.product ? "40px" : "38px",
+                position: 'absolute',
+                bottom: activeBullets.product ? '40px' : '38px',
 
-                transition: "all .3s ease",
-              }}>
+                transition: 'all .3s ease',
+              }}
+            >
               <Box
-                zIndex='1'
-                border='2px solid'
-                borderColor={activeBullets.product ? "white" : "#8476FF"}
-                bg='linear-gradient(135deg, #868CFF 0%, #4318FF 100%)'
-                w='16px'
-                h='16px'
-                mb='8px'
-                borderRadius='50%'
+                zIndex="1"
+                border="2px solid"
+                borderColor={activeBullets.product ? 'white' : '#8476FF'}
+                bg="linear-gradient(135deg, #868CFF 0%, #4318FF 100%)"
+                w="16px"
+                h="16px"
+                mb="8px"
+                borderRadius="50%"
               />
               <Text
-                color={activeBullets.product ? "white" : "gray.300"}
-                fontWeight={activeBullets.product ? "bold" : "normal"}
-                display={{ sm: "none", md: "block" }}>
+                color={activeBullets.product ? 'white' : 'gray.300'}
+                fontWeight={activeBullets.product ? 'bold' : 'normal'}
+                display={{ sm: 'none', md: 'block' }}
+              >
                 Product Info
               </Text>
             </Flex>
           </Tab>
           <Tab
             ref={mediaTab}
-            _focus='none'
-            w={{ sm: "120px", md: "250px", lg: "300px" }}
+            _focus="none"
+            w={{ sm: '120px', md: '250px', lg: '300px' }}
             onClick={() =>
               setActiveBullets({
                 product: true,
                 media: true,
                 pricing: false,
               })
-            }>
+            }
+          >
             <Flex
-              direction='column'
-              justify='center'
-              align='center'
-              position='relative'
+              direction="column"
+              justify="center"
+              align="center"
+              position="relative"
               _before={{
                 content: "''",
-                width: { sm: "120px", md: "250px", lg: "300px" },
-                height: "3px",
-                bg: activeBullets.pricing ? "white" : "#8476FF",
-                left: { sm: "12px", md: "28px" },
-                top: "6px",
-                position: "absolute",
-                bottom: activeBullets.media ? "40px" : "38px",
+                width: { sm: '120px', md: '250px', lg: '300px' },
+                height: '3px',
+                bg: activeBullets.pricing ? 'white' : '#8476FF',
+                left: { sm: '12px', md: '28px' },
+                top: '6px',
+                position: 'absolute',
+                bottom: activeBullets.media ? '40px' : '38px',
 
-                transition: "all .3s ease",
-              }}>
+                transition: 'all .3s ease',
+              }}
+            >
               <Box
-                zIndex='1'
-                border='2px solid'
-                borderColor={activeBullets.media ? "white" : "#8476FF"}
-                bg='linear-gradient(135deg, #868CFF 0%, #4318FF 100%)'
-                w='16px'
-                h='16px'
-                mb='8px'
-                borderRadius='50%'
+                zIndex="1"
+                border="2px solid"
+                borderColor={activeBullets.media ? 'white' : '#8476FF'}
+                bg="linear-gradient(135deg, #868CFF 0%, #4318FF 100%)"
+                w="16px"
+                h="16px"
+                mb="8px"
+                borderRadius="50%"
               />
               <Text
-                color={activeBullets.media ? "white" : "gray.300"}
-                fontWeight={activeBullets.media ? "bold" : "normal"}
-                display={{ sm: "none", md: "block" }}>
+                color={activeBullets.media ? 'white' : 'gray.300'}
+                fontWeight={activeBullets.media ? 'bold' : 'normal'}
+                display={{ sm: 'none', md: 'block' }}
+              >
                 Media
               </Text>
             </Flex>
           </Tab>
           <Tab
             ref={pricingTab}
-            _focus='none'
-            w={{ sm: "120px", md: "250px", lg: "300px" }}
+            _focus="none"
+            w={{ sm: '120px', md: '250px', lg: '300px' }}
             onClick={() =>
               setActiveBullets({
                 product: true,
                 media: true,
                 pricing: true,
               })
-            }>
+            }
+          >
             <Flex
-              direction='column'
-              justify='center'
-              align='center'
-              position='relative'>
+              direction="column"
+              justify="center"
+              align="center"
+              position="relative"
+            >
               <Box
-                zIndex='1'
-                border='2px solid'
-                borderColor={activeBullets.pricing ? "white" : "#8476FF"}
-                bg='linear-gradient(135deg, #868CFF 0%, #4318FF 100%)'
-                w='16px'
-                h='16px'
-                mb='8px'
-                borderRadius='50%'
+                zIndex="1"
+                border="2px solid"
+                borderColor={activeBullets.pricing ? 'white' : '#8476FF'}
+                bg="linear-gradient(135deg, #868CFF 0%, #4318FF 100%)"
+                w="16px"
+                h="16px"
+                mb="8px"
+                borderRadius="50%"
               />
               <Text
-                color={activeBullets.pricing ? "white" : "gray.300"}
-                fontWeight={activeBullets.pricing ? "bold" : "normal"}
-                display={{ sm: "none", md: "block" }}>
+                color={activeBullets.pricing ? 'white' : 'gray.300'}
+                fontWeight={activeBullets.pricing ? 'bold' : 'normal'}
+                display={{ sm: 'none', md: 'block' }}
+              >
                 Pricing
               </Text>
             </Flex>
           </Tab>
         </TabList>
-        <TabPanels mt='24px' maxW={{ md: "90%", lg: "100%" }} mx='auto'>
+        <TabPanels mt="24px" maxW={{ md: '90%', lg: '100%' }} mx="auto">
           <TabPanel
-            w={{ sm: "330px", md: "700px", lg: "850px" }}
-            p='0px'
-            mx='auto'>
-            <Card p='30px'>
-              <Text color={textColor} fontSize='2xl' fontWeight='700' mb='20px'>
+            w={{ sm: '330px', md: '700px', lg: '850px' }}
+            p="0px"
+            mx="auto"
+          >
+            <Card p="30px">
+              <Text color={textColor} fontSize="2xl" fontWeight="700" mb="20px">
                 Product Info
               </Text>
-              <Flex direction='column' w='100%'>
-                <SimpleGrid columns={{ base: "1", md: "2" }} gap='20px'>
-                  <Stack direction='column' gap='20px'>
+              <Flex direction="column" w="100%">
+                <SimpleGrid columns={{ base: '1', md: '2' }} gap="20px">
+                  <Stack direction="column" gap="20px">
                     <InputField
-                      mb='0px'
-                      id='name'
-                      placeholder='eg. Elegant Chair'
-                      label='Product Name'
+                      mb="0px"
+                      id="name"
+                      placeholder="eg. Elegant Chair"
+                      label="Product Name"
                     />
                     <InputField
-                      mb='0px'
-                      id='weight'
-                      placeholder='eg. 20kg'
-                      label='Weight'
+                      mb="0px"
+                      id="weight"
+                      placeholder="eg. 20kg"
+                      label="Weight"
                     />
                     <InputField
-                      mb='0px'
-                      id='Color'
-                      placeholder='eg. Purple'
-                      label='Color'
+                      mb="0px"
+                      id="Color"
+                      placeholder="eg. Purple"
+                      label="Color"
                     />
                   </Stack>
-                  <Stack direction='column' gap='20px'>
+                  <Stack direction="column" gap="20px">
                     <InputField
-                      mb='0px'
-                      id='Collection'
-                      placeholder='eg. Classics'
-                      label='Collection'
+                      mb="0px"
+                      id="Collection"
+                      placeholder="eg. Classics"
+                      label="Collection"
                     />
                     <TextField
-                      h='146px'
-                      mb='0px'
-                      id='Description'
-                      placeholder='Short description about the product'
-                      label='Description'
+                      h="146px"
+                      mb="0px"
+                      id="Description"
+                      placeholder="Short description about the product"
+                      label="Description"
                     />
                   </Stack>
                 </SimpleGrid>
-                <Flex justify='space-between' mt='24px'>
+                <Flex justify="space-between" mt="24px">
                   <Button
-                    variant='darkBrand'
-                    fontSize='sm'
-                    borderRadius='16px'
-                    w={{ base: "128px", md: "148px" }}
-                    h='46px'
-                    ms='auto'
-                    onClick={() => mediaTab.current.click()}>
+                    variant="darkBrand"
+                    fontSize="sm"
+                    borderRadius="16px"
+                    w={{ base: '128px', md: '148px' }}
+                    h="46px"
+                    ms="auto"
+                    onClick={() => mediaTab.current.click()}
+                  >
                     Next
                   </Button>
                 </Flex>
@@ -281,11 +274,12 @@ export default function NewProduct() {
             </Card>
           </TabPanel>
           <TabPanel
-            w={{ sm: "330px", md: "700px", lg: "850px" }}
-            p='0px'
-            mx='auto'>
-            <Card p='30px'>
-              <Text color={textColor} fontSize='2xl' fontWeight='700' mb='20px'>
+            w={{ sm: '330px', md: '700px', lg: '850px' }}
+            p="0px"
+            mx="auto"
+          >
+            <Card p="30px">
+              <Text color={textColor} fontSize="2xl" fontWeight="700" mb="20px">
                 Media
               </Text>
               <Dropzone
@@ -293,121 +287,132 @@ export default function NewProduct() {
                   <Box>
                     <Icon
                       as={MdOutlineCloudUpload}
-                      w='80px'
-                      h='80px'
+                      w="80px"
+                      h="80px"
                       color={textColor}
                     />
                     <Text
-                      mx='auto'
-                      mb='12px'
-                      fontSize='lg'
-                      fontWeight='700'
-                      whiteSpace='pre-wrap'
-                      color={textColor}>
-                      Drop your files here, or{" "}
+                      mx="auto"
+                      mb="12px"
+                      fontSize="lg"
+                      fontWeight="700"
+                      whiteSpace="pre-wrap"
+                      color={textColor}
+                    >
+                      Drop your files here, or{' '}
                       <Text
-                        as='span'
-                        fontSize='lg'
-                        fontWeight='700'
-                        color={brand}>
+                        as="span"
+                        fontSize="lg"
+                        fontWeight="700"
+                        color={brand}
+                      >
                         browse
                       </Text>
                     </Text>
                     <Text
-                      fontSize='sm'
-                      fontWeight='500'
-                      color='secondaryGray.500'>
+                      fontSize="sm"
+                      fontWeight="500"
+                      color="secondaryGray.500"
+                    >
                       PNG, JPG and GIF files are allowed
                     </Text>
                   </Box>
                 }
               />
-              <Flex justify='space-between' mt='24px'>
+              <Flex justify="space-between" mt="24px">
                 <Button
-                  variant='light'
-                  fontSize='sm'
-                  borderRadius='16px'
-                  w={{ base: "128px", md: "148px" }}
-                  h='46px'
-                  onClick={() => productTab.current.click()}>
+                  variant="light"
+                  fontSize="sm"
+                  borderRadius="16px"
+                  w={{ base: '128px', md: '148px' }}
+                  h="46px"
+                  onClick={() => productTab.current.click()}
+                >
                   Prev
                 </Button>
                 <Button
-                  variant='darkBrand'
-                  fontSize='sm'
-                  borderRadius='16px'
-                  w={{ base: "128px", md: "148px" }}
-                  h='46px'
-                  onClick={() => pricingTab.current.click()}>
+                  variant="darkBrand"
+                  fontSize="sm"
+                  borderRadius="16px"
+                  w={{ base: '128px', md: '148px' }}
+                  h="46px"
+                  onClick={() => pricingTab.current.click()}
+                >
                   Next
                 </Button>
               </Flex>
             </Card>
           </TabPanel>
           <TabPanel
-            w={{ sm: "330px", md: "700px", lg: "850px" }}
-            p='0px'
-            mx='auto'>
-            <Card p='30px'>
-              <Text color={textColor} fontSize='2xl' fontWeight='700' mb='20px'>
+            w={{ sm: '330px', md: '700px', lg: '850px' }}
+            p="0px"
+            mx="auto"
+          >
+            <Card p="30px">
+              <Text color={textColor} fontSize="2xl" fontWeight="700" mb="20px">
                 Pricing
               </Text>
-              <Flex direction='column' w='100%'>
-                <Stack direction='column' spacing='20px'>
+              <Flex direction="column" w="100%">
+                <Stack direction="column" spacing="20px">
                   <SimpleGrid
-                    columns={{ base: "1", md: "3" }}
-                    gap={{ base: "0px", md: "20px" }}>
+                    columns={{ base: '1', md: '3' }}
+                    gap={{ base: '0px', md: '20px' }}
+                  >
                     <InputField
-                      id='price'
-                      placeholder='eg. $99'
-                      label='Price'
+                      id="price"
+                      placeholder="eg. $99"
+                      label="Price"
                     />
                     <InputField
-                      id='code'
-                      placeholder='eg. 4030120241'
-                      label='Unique Code'
+                      id="code"
+                      placeholder="eg. 4030120241"
+                      label="Unique Code"
                     />
-                    <Flex direction='column' mb='34px'>
+                    <Flex direction="column" mb="34px">
                       <FormLabel
-                        ms='10px'
-                        htmlFor='currency'
-                        fontSize='sm'
+                        ms="10px"
+                        htmlFor="currency"
+                        fontSize="sm"
                         color={textColor}
-                        fontWeight='bold'
-                        _hover={{ cursor: "pointer" }}>
+                        fontWeight="bold"
+                        _hover={{ cursor: 'pointer' }}
+                      >
                         Currency
                       </FormLabel>
                       <Select
-                        fontSize='sm'
-                        id='currency'
-                        variant='main'
-                        h='44px'
-                        maxh='44px'
-                        defaultValue='usd'>
-                        <option value='usd'>USD</option>
-                        <option value='eur'>EUR</option>
-                        <option value='gbp'>GBP</option>
+                        fontSize="sm"
+                        id="currency"
+                        variant="main"
+                        h="44px"
+                        maxh="44px"
+                        defaultValue="usd"
+                      >
+                        <option value="usd">USD</option>
+                        <option value="eur">EUR</option>
+                        <option value="gbp">GBP</option>
                       </Select>
                     </Flex>
                   </SimpleGrid>
                   <TagsField />
                 </Stack>
-                <Flex justify='space-between' mt='24px'>
+                <Flex justify="space-between" mt="24px">
                   <Button
-                    variant='light'
-                    fontSize='sm'
-                    borderRadius='16px'
-                    w={{ base: "128px", md: "148px" }}
-                    h='46px'
-                    onClick={() => mediaTab.current.click()}>
+                    variant="light"
+                    fontSize="sm"
+                    borderRadius="16px"
+                    w={{ base: '128px', md: '148px' }}
+                    h="46px"
+                    onClick={() => mediaTab.current.click()}
+                  >
                     Prev
                   </Button>
                   <Button
-                    variant='darkBrand'
-                    fontSize='sm'
-                    borderRadius='16px'
-                    w={{ base: "128px", md: "148px" }}
-                    h='46px'>
+                    variant="darkBrand"
+                    fontSize="sm"
+                    borderRadius="16px"
+                    w={{ base: '128px', md: '148px' }}
+                    h="46px"
+                  >
                     Submit
                   </Button>
                 </Flex>
@@ -417,5 +422,5 @@ export default function NewProduct() {
         </TabPanels>
       </Tabs>
     </Flex>
-  );
+  )
 }
