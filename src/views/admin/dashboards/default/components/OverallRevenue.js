@@ -39,10 +39,12 @@ export default function OverallRevenue(props) {
           <Flex flexDirection='column' me='20px'>
             <Text
               color={textColor}
-              fontSize='34px'
-              fontWeight='700'
-              lineHeight='100%'>
-              $37.5K
+              fontSize='24px'
+              fontWeight='bold' 
+              lineHeight='100%'
+              font-family="Menlo-Bold, Menlo"
+              >
+             DeFi  VS  GameFi  VS  NFT
             </Text>
             <Text
               color='secondaryGray.600'

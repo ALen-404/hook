@@ -69,7 +69,7 @@ const routes = [
     collapse: true,
     items: [
       {
-        name: "Main Dashboard",
+        name: "Main Overview",
         layout: "/admin",
         path: "/dashboards/default",
         component: DashboardsDefault,
