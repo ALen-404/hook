@@ -1,22 +1,22 @@
 export const tableColumnsMostVisited = [
   {
-    Header: "#",
-    accessor: "page name",
+    Header: '#',
+    accessor: '',
   },
   {
-    Header: "Name",
-    accessor: "visitors",
+    Header: 'Name',
+    accessor: 'name',
   },
   {
-    Header: "Price",
-    accessor: "unique visitors",
+    Header: 'Price',
+    accessor: 'price',
   },
   {
-    Header: "24h",
-    accessor: "clients",
+    Header: '24h',
+    accessor: 'oneDay',
   },
   {
-    Header: "Volume",
-    accessor: "bounce rate",
+    Header: 'Volume',
+    accessor: 'volume',
   },
-];
+]

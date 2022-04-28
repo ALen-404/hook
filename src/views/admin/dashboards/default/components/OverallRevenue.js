@@ -1,4 +1,5 @@
 import React from 'react'
+import { getGraphData } from '../../../../../hook/hook'
 
 // Chakra imports
 import {
@@ -22,8 +23,7 @@ import {
 import { RiArrowUpSFill } from 'react-icons/ri'
 
 export default function OverallRevenue(props) {
-  const { ...rest } = props
-
+  const { chartData, ...rest } = props
   // Chakra Color Mode
   const textColor = useColorModeValue('secondaryGray.900', 'white')
   return (
@@ -43,7 +43,6 @@ export default function OverallRevenue(props) {
               fontSize="24px"
               fontWeight="bold"
               lineHeight="100%"
-              font-family="Menlo-Bold, Menlo"
             >
               DeFi VS GameFi VS NFT
             </Text>
@@ -71,10 +70,12 @@ export default function OverallRevenue(props) {
         </Select>
       </Flex>
       <Box minH="260px" mt="auto">
-        <LineChart
-          chartData={lineChartDataTotalSpent}
-          chartOptions={lineChartOptionsTotalSpent}
-        />
+        {chartData.length > 0 && (
+          <LineChart
+            chartData={chartData}
+            chartOptions={lineChartOptionsTotalSpent}
+          />
+        )}
       </Box>
     </Card>
   )

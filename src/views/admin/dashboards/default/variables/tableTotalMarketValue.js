@@ -1,22 +1,22 @@
 export const tableTotalMarketValue = [
   {
-    Header: "#",
-    accessor: "page name",
+    Header: '#',
+    accessor: '',
   },
   {
-    Header: "Name",
-    accessor: "visitors",
+    Header: 'Collection',
+    accessor: 'collection',
   },
   {
-    Header: "Price",
-    accessor: "unique visitors",
+    Header: 'Floor',
+    accessor: 'price',
   },
   {
-    Header: "24h",
-    accessor: "clients",
+    Header: 'Mkt',
+    accessor: 'mkt',
   },
   {
-    Header: "Volume",
-    accessor: "bounce rate",
+    Header: 'Volume',
+    accessor: 'volume',
   },
-];
+]

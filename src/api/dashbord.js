@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const DefaultUrl = 'http://192.168.31.23:8898/'
+const DefaultUrl = 'https://hook.cool:8890/api'
 
 export async function getFigureData(params) {
   return await axios.get(`${DefaultUrl}/mini/getFigureData`, {
@@ -19,36 +19,26 @@ export async function getMarketCapitalization(params) {
     params,
   })
 }
-export const getOwnerNft = (creator) => {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  }
-  const data = {
-    jsonrpc: '2.0',
-    id: 1,
-    method: 'qn_fetchNFTsByCreator',
-    params: [
-      {
-        creator,
-        page: 1,
-        perPage: 3,
-      },
-    ],
-  }
-  axios
-    .post(
-      'http://sample-endpoint-name.network.quiknode.pro/token-goes-here/',
-      data,
-      config
-    )
-    .then(function (response) {
-      // handle success
-      console.log(response.data)
-    })
-    .catch((err) => {
-      // handle error
-      console.log(err)
-    })
+export async function getSearchHeat(params) {
+  return await axios.get(`${DefaultUrl}/search/getSearchHeat`, {
+    params,
+  })
+}
+export async function getCmcData(params) {
+  return await axios.get(`${DefaultUrl}/mini/getCmcData`, {
+    params,
+  })
+}
+export async function getTag(params) {
+  return await axios.get(`${DefaultUrl}/search/getTag`, {
+    params,
+  })
+}
+export async function setSearchHeat(params) {
+  return await axios.post(`${DefaultUrl}/search/setSearchHeat`, {
+    params,
+  })
+}
+export async function setTag_address(params) {
+  return await axios.get(`${DefaultUrl}/search/setTag_address/${params}`)
 }

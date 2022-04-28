@@ -2,7 +2,11 @@ import {
   getFigureData,
   getGlassnodeFigureData,
   getMarketCapitalization,
-  getOwnerNft,
+  getSearchHeat,
+  getCmcData,
+  getTag,
+  setSearchHeat,
+  setTag_address,
 } from '../api/dashbord'
 
 export const getMarketCapAndVolume = (type) => {
@@ -11,9 +15,13 @@ export const getMarketCapAndVolume = (type) => {
 export const getEthAndBtcData = (methods, type) => {
   return getGlassnodeFigureData({ methods, type })
 }
-export const getGraphData = (time, type) => {
-  return getFigureData({ time, type })
+export const getGraphData = (time) => {
+  return getFigureData({ time })
 }
-export const getOwnerOfNft = (creator) => {
-  return getOwnerNft(creator)
+
+export const getSearchData = (limit) => {
+  return getSearchHeat({ limit })
+}
+export const getCmcDatas = (limit, start, type) => {
+  return getCmcData({ limit, start, type })
 }

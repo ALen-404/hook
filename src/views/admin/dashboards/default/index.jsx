@@ -11,6 +11,7 @@ import DailyTraffic from 'views/admin/dashboards/default/components/DailyTraffic
 import MostVisitedTable from 'views/admin/dashboards/default/components/MostVisitedTable'
 import TotalMarketValue from 'views/admin/dashboards/default/components/TotalMarketValue'
 
+import { tableTotalMarketValue } from './variables/tableTotalMarketValue'
 import { VSeparator } from 'components/separator/Separator'
 import OverallRevenue from 'views/admin/dashboards/default/components/OverallRevenue'
 import ProfitEstimation from 'views/admin/dashboards/default/components/ProfitEstimation'
@@ -18,16 +19,22 @@ import ProjectStatus from 'views/admin/dashboards/default/components/ProjectStat
 import YourCard from 'views/admin/dashboards/default/components/YourCard'
 import YourTransfers from 'views/admin/dashboards/default/components/YourTransfers'
 import { tableColumnsMostVisited } from 'views/admin/dashboards/default/variables/tableColumnsMostVisited'
-import tableDataMostVisited from 'views/admin/dashboards/default/variables/tableDataMostVisited.json'
 import MiniStatistics from 'components/card/MiniStatistics'
-import { getGraphData, getMarketCapAndVolume } from '../../../../hook/hook'
+import {
+  getGraphData,
+  getMarketCapAndVolume,
+  getSearchData,
+  getCmcDatas,
+} from '../../../../hook/hook'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import '../default/index.css'
 export default function Default() {
   const [nftVolumeData, setNftVolumData] = useState(1)
   const [defiVolumData, setDefiVolumData] = useState(1)
-  const [dataType, setDataType] = useState('NFT')
-
+  const [searchData, setSearchData] = useState([])
+  const [chartData, setChartData] = useState([])
+  const [nftRank, setNftRank] = useState([])
+  const [defiRank, setDefiRank] = useState([])
   useEffect(() => {
     getMarketCapAndVolume('NFT').then((res) => {
       setNftVolumData(res.data.data)
@@ -35,15 +42,65 @@ export default function Default() {
     getMarketCapAndVolume('DEFI').then((res) => {
       setDefiVolumData(res.data.data)
     })
+    getGraphData('1d').then((res) => {
+      if (res.data.code === '200') {
+        const GAMEFI = res.data.data.GAMEFI.volume
+        const DEFI = res.data.data.DEFI.volume
+        const NFT = res.data.data.NFT.volume
+        setChartData([
+          {
+            name: 'DEFI',
+            data: DEFI,
+          },
+          {
+            name: 'GAMEFI',
+            data: GAMEFI,
+          },
+          {
+            name: 'NFT',
+            data: NFT,
+          },
+        ])
+      }
+    })
+    getSearchData(10).then((res) => {
+      setSearchData(res.data.data)
+    })
+    getCmcDatas(5, 1, 'NFT').then((res) => {
+      const nftData = res.data.data.NFT.data.collections
+      const nftArr = nftData.map((item) => {
+        return {
+          collection: item.name,
+          mkt: item.marketCapUsd,
+          volume: item.volumeAT,
+          price: item.floorPriceUsd,
+        }
+      })
+      setNftRank(nftArr)
+    })
+    getCmcDatas(5, 1, 'Defi').then((res) => {
+      const defiData = res.data.data.Defi.data.cryptoCurrencyList
+      const returnDate = defiData.map((item) => {
+        return {
+          name: item.symbol,
+          oneDay: item.quotes[2].percentChange24h,
+          volume: item.quotes[2].volume24h,
+          price: item.quotes[2].price,
+        }
+      })
+      setDefiRank(returnDate)
+    })
   }, [])
   // Chakra Color Mode
   const paleGray = useColorModeValue('secondaryGray.400', 'whiteAlpha.100')
+
   return (
     <Flex
       direction={{ base: 'column', xl: 'row' }}
       pt={{ base: '130px', md: '80px', xl: '80px' }}
     >
       <Flex direction="column" width="stretch" className="dataBox">
+        {/* Data */}
         <Tabs variant="soft-rounded" colorScheme="green">
           <TabList>
             <Tab>NFT</Tab>
@@ -65,12 +122,18 @@ export default function Default() {
                   }
                   name="Market Cap"
                   value={nftVolumeData?.marketCap?.toFixed(2)}
+                  fontColor={
+                    nftVolumeData?.marketCapRatio > 0 ? 'green.500' : 'red.500'
+                  }
                 />
                 <MiniStatistics
                   growth={
                     nftVolumeData?.volumeRatio?.toFixed(2) > 0
                       ? `+${nftVolumeData?.volumeRatio * 100?.toFixed(2)}%`
                       : nftVolumeData?.volumeRatio * 100?.toFixed(2) + '%'
+                  }
+                  fontColor={
+                    nftVolumeData?.volumeRatio > 0 ? 'green.500' : 'red.500'
                   }
                   name="Volume"
                   value={nftVolumeData?.volume?.toFixed(2)}
@@ -87,6 +150,11 @@ export default function Default() {
                         '%'
                   }
                   name="Sales"
+                  fontColor={
+                    nftVolumeData?.circulatingSupplyRatio > 0
+                      ? 'green.500'
+                      : 'red.500'
+                  }
                   value={nftVolumeData?.circulatingSupply?.toFixed(2)}
                 />
               </SimpleGrid>
@@ -120,7 +188,7 @@ export default function Default() {
             </TabPanel>
           </TabPanels>
         </Tabs>
-
+        {/* Chart */}
         <Grid
           mb="20px"
           gridTemplateColumns={{ base: 'repeat(2, 1fr)', '2xl': '720fr 350fr' }}
@@ -128,11 +196,11 @@ export default function Default() {
           display={{ base: 'block', lg: 'grid' }}
         >
           <Flex gridArea={{ base: '1 / 1 / 2 / 3', '2xl': '1 / 1 / 2 / 2' }}>
-            <OverallRevenue />
+            <OverallRevenue chartData={chartData} />
           </Flex>
           <Flex gridArea={{ base: '2 / 1 / 3 / 3', '2xl': '1 / 2 / 2 / 3' }}>
-          <TableTopCreators
-              tableData={tableDataTopCreators}
+            <TableTopCreators
+              tableData={searchData}
               columnsData={tableColumnsTopCreators}
             />
           </Flex>
@@ -148,9 +216,7 @@ export default function Default() {
             '2xl': '1fr',
           }}
           mb="20px"
-        >
-          
-        </Grid>
+        ></Grid>
         <Grid
           templateColumns={{ base: 'repeat(2, 1fr)', '2xl': '1fr 1fr' }}
           gap="20px"
@@ -158,14 +224,14 @@ export default function Default() {
         >
           <Flex gridArea={{ base: '1 / 1 / 2 / 3', '2xl': '1 / 1 / 2 / 2' }}>
             <TotalMarketValue
-              tableData={tableDataMostVisited}
+              tableData={defiRank}
               columnsData={tableColumnsMostVisited}
             />
           </Flex>
           <Flex gridArea={{ base: '2 / 1 / 3 / 3', '2xl': '1 / 2 / 2 / 3' }}>
             <MostVisitedTable
-              tableData={tableDataMostVisited}
-              columnsData={tableColumnsMostVisited}
+              tableData={nftRank}
+              columnsData={tableTotalMarketValue}
             />
           </Flex>
         </Grid>

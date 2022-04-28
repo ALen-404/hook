@@ -31,7 +31,6 @@ import Avatar4 from 'assets/img/avatars/avatar4.png'
 
 import { MdDashboard, MdApps } from 'react-icons/md'
 
-import { getOwnerOfNft } from '../../../../hook/hook'
 export default function Collection() {
   const textColor = useColorModeValue('secondaryGray.900', 'white')
   const buttonBg = useColorModeValue('transparent', 'navy.800')
@@ -43,9 +42,7 @@ export default function Collection() {
     { bg: 'gray.200' },
     { bg: 'whiteAlpha.200' }
   )
-  useEffect(() => {
-    getOwnerOfNft('0x6afdf721593A3673451973bEfF8c4dc076d28192')
-  }, [])
+
   // Chakra Color Mode
   return (
     <Box pt={{ base: '180px', md: '80px', xl: '80px' }}>

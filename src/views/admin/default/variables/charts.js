@@ -1,39 +1,14 @@
-import { getGraphData } from '../../../../../hook/hook'
-
-// getGraphData('1d').then((res) => {
-//   if (res.data.code === '200') {
-//     const GAMEFI = res.data.data.GAMEFI.volume
-//     const DEFI = res.data.data.GAMEFI.volume
-//     const NFT = res.data.data.GAMEFI.volume
-//     return [
-//       {
-//         name: 'DEFI',
-//         data: DEFI,
-//       },
-//       {
-//         name: 'GAMEFI',
-//         data: GAMEFI,
-//       },
-//       {
-//         name: 'NFT',
-//         data: NFT,
-//       },
-//     ]
-//   } else {
-//     return []
-//   }
-// })
 export const lineChartDataTotalSpent = [
   {
-    name: 'DEFI',
+    name: 'Revenue',
+    data: [50, 64, 48, 66, 49, 68],
+  },
+  {
+    name: 'Profit',
     data: [30, 40, 24, 46, 20, 46],
   },
   {
-    name: 'GAMEFI',
-    data: [30, 40, 24, 46, 20, 46],
-  },
-  {
-    name: 'NFT',
+    name: 'Profit',
     data: [10, 30, 10, 16, 60, 36],
   },
 ]
@@ -52,7 +27,7 @@ export const lineChartOptionsTotalSpent = {
       color: '#4318FF',
     },
   },
-  colors: ['#7551FF', '#39B8FF', '#FDB640'],
+  colors: ['#4318FF', '#39B8FF'],
   markers: {
     size: 0,
     colors: 'white',
@@ -121,3 +96,42 @@ export const lineChartOptionsTotalSpent = {
   },
   color: ['#7551FF', '#39B8FF'],
 }
+// export const lineChartOptionsTotalSpent = {
+//   series: [
+//     {
+//       name: 'Website Blog',
+//       type: 'column',
+//       data: [440, 505, 414, 671, 227, 413, 201, 352, 752, 320, 257, 160],
+//     },
+//     {
+//       name: 'Social Media',
+//       type: 'line',
+//       data: [23, 42, 35, 27, 43, 22, 17, 31, 22, 22, 12, 16],
+//     },
+//   ],
+//   chart: {
+//     height: 350,
+//     type: 'line',
+//   },
+//   stroke: {
+//     width: [0, 4],
+//   },
+//   title: {
+//     text: 'Traffic Sources',
+//   },
+//   dataLabels: {
+//     enabled: false,
+//     enabledOnSeries: [1],
+//   },
+
+//   xaxis: {
+//     type: 'datetime',
+//   },
+//   yaxis: [
+//     {
+//       title: {
+//         text: 'Website Blog',
+//       },
+//     },
+//   ],
+// }

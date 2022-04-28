@@ -1,15 +1,12 @@
-import React from "react";
+import React from 'react'
 // Chakra imports
-import { Box, Flex, Text, Badge, LightMode, Image } from "@chakra-ui/react";
-import LineChart from "components/charts/LineChart";
-import Vector from "../../../assets/img/logo/Vector.png";
+import { Box, Flex, Text, Badge, LightMode, Image } from '@chakra-ui/react'
+import LineChart from 'components/charts/LineChart'
+import Vector from '../../../assets/img/logo/Vector.png'
 // Custom components
-import {
-  lineChartDataSidebar,
-  lineChartOptionsSidebar,
-} from "variables/charts";
+import { lineChartDataSidebar, lineChartOptionsSidebar } from 'variables/charts'
 export default function SidebarDocs() {
-  const bgColor = "linear-gradient(135deg, #868CFF 0%, #4318FF 100%)";
+  const bgColor = 'linear-gradient(135deg, #868CFF 0%, #4318FF 100%)'
 
   return (
     <Flex
@@ -43,13 +40,15 @@ export default function SidebarDocs() {
         />
       </Flex>
       <Flex marginTop="26px" marginBottom="10px" textAlign="center">
-        <text font-size="16px" font-family="Helvetica" color="#FFFFFF">
+        <text fontSize="16px" color="#FFFFFF">
           Upgrade to PRO
         </text>
       </Flex>
       <Flex textAlign="center" width="229px">
-        <text font-size="14px" font-family="Helvetica" color="#FFFFFF">to get access to all features! Connect with Venus World! </text>
+        <text fontSize="14px" color="#FFFFFF">
+          to get access to all features! Connect with Venus World!{' '}
+        </text>
       </Flex>
     </Flex>
-  );
+  )
 }
