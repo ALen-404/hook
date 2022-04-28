@@ -20,8 +20,8 @@ export function SidebarBrand() {
           width="153px"
           height="42px"
           margin="auto"
-          margin-bottom="39px"
-          margin-top= "48px"
+          marginBottom="39px"
+          marginTop= "48px"
         />
       <HSeparator mb='20px' />
     </Flex>

@@ -1,19 +1,19 @@
 import React from "react";
 
 // Chakra imports
-import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
+import { Avatar,Box,Flex, Text, useColorModeValue } from "@chakra-ui/react";
 
 // Custom components
 import IconBox from "components/icons/IconBox";
 
 export default function Transaction(props) {
-  const { date, sum, icon, name, ...rest } = props;
+  const { date, sum,nameNum,icon,avatar, name, ...rest } = props;
 
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const iconBoxBg = useColorModeValue("secondaryGray.300", "navy.700");
   return (
     <Flex justifyContent='center' alignItems='center' w='100%' {...rest}>
-      <IconBox h='42px' w='42px' bg={iconBoxBg} me='20px' icon={icon} />
+       <Avatar h='34px' w='34px' src={avatar} me='14px' />
       <Flex direction='column' align='start' me='auto'>
         <Text color={textColor} fontSize='md' me='6px' fontWeight='700'>
           {name}
@@ -22,9 +22,15 @@ export default function Transaction(props) {
           {date}
         </Text>
       </Flex>
-      <Text ms='auto' color={textColor} fontSize='sm' me='6px' fontWeight='700'>
+      <Box>
+         <Text ms='auto' color={textColor} fontSize='sm' me='6px' fontWeight='700'>
         {sum}
       </Text>
+      <Text ms='auto' color="#A3AED0" fontSize='14px' marginInlineStart='16px' fontWeight='500'>
+        {nameNum}
+      </Text>
+      </Box>
+     
     </Flex>
   );
 }

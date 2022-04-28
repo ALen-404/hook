@@ -1,74 +1,57 @@
+import React from "react";
+
 // Chakra imports
-import {
-  Box,
-  Button,
-  Flex,
-  Icon,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Icon,Box, Text, useColorModeValue ,Image } from "@chakra-ui/react";
+import avatar1 from "assets/img/logo/Header.png";
 // Custom components
 import Card from "components/card/Card.js";
-import React from "react";
+import Transaction from "components/dataDisplay/Transaction";
+// import { HSeparator } from "components/Separator/Separator";
 // Assets
-import { MdUpload } from "react-icons/md";
-import Dropzone from "views/admin/main/profile/overview/components/Dropzone";
+import {
+  MdOutlineShoppingBasket,
+  MdOutlineDirectionsBus,
+  MdOutlineSubscriptions,
+  MdLocalBar,
+  MdOutlineWeekend,
+} from "react-icons/md";
+import { RiNetflixFill } from "react-icons/ri";
 
-export default function Upload(props) {
-  const { used, total, ...rest } = props;
+export default function YourTransactions(props) {
+  const { ...rest } = props;
+
   // Chakra Color Mode
-  const textColorPrimary = useColorModeValue("secondaryGray.900", "white");
-  const brandColor = useColorModeValue("brand.500", "white");
-  const textColorSecondary = "gray.400";
+  const iconColor = useColorModeValue("brand.500", "white");
+  const greenIcon = useColorModeValue("green.500", "white");
+  const redIcon = useColorModeValue("red.500", "white");
+  const blueIcon = useColorModeValue("blue.500", "white");
+  const yellowIcon = useColorModeValue("yellow.500", "white");
+  const textColor = useColorModeValue("secondaryGray.900", "white");
   return (
-    <Card {...rest} mb='20px' align='center' p='20px'>
-      <Flex h='100%' direction={{ base: "column", "2xl": "row" }}>
-        <Dropzone
-          w={{ base: "100%", "2xl": "268px" }}
-          me='36px'
-          maxH={{ base: "60%", lg: "50%", "2xl": "100%" }}
-          minH={{ base: "60%", lg: "50%", "2xl": "100%" }}
-          content={
-            <Box>
-              <Icon as={MdUpload} w='80px' h='80px' color={brandColor} />
-              <Flex justify='center' mx='auto' mb='12px'>
-                <Text fontSize='xl' fontWeight='700' color={brandColor}>
-                  Upload Files
-                </Text>
-              </Flex>
-              <Text fontSize='sm' fontWeight='500' color='secondaryGray.500'>
-                PNG, JPG and GIF files are allowed
-              </Text>
-            </Box>
-          }
-        />
-        <Flex direction='column' align='start' pe='44px'>
-          <Text
-            color={textColorPrimary}
-            fontWeight='bold'
-            textAlign='start'
-            fontSize='2xl'
-            mt={{ base: "20px", "2xl": "50px" }}>
-            Complete your profile
-          </Text>
-          <Text
-            color={textColorSecondary}
-            fontSize='md'
-            my={{ base: "auto", "2xl": "10px" }}
-            mx='auto'
-            textAlign='start'>
-            Stay on the pulse of distributed projects with an anline whiteboard
-            to plan, coordinate and discuss
-          </Text>
-          <Button
-            mb='50px'
-            mt={{ base: "20px", "2xl": "auto" }}
-            variant='brand'
-            fontWeight='500'>
-            Publish now
-          </Button>
-        </Flex>
-      </Flex>
-    </Card>
+    <Box {...rest} p='34px' background="var(--chakra-colors-navy-800)"
+    marginBottom="20px"
+    borderRadius="30px">
+      <Text fontSize='xl' color={textColor} fontWeight='700' mb='34px'>
+      NFT token
+      </Text>
+      {/* <HSeparator></HSeparator> */}
+      <Transaction
+        mb='26px'
+        name='Public Transport'
+        date='22 September 2022'
+        sum='$1,204.50'
+        // icon={
+        //   <Icon
+        //     as={MdOutlineDirectionsBus}
+        //     color={iconColor}
+        //     w='20px'
+        //     h='18px'
+        //   />
+        // }
+        avatar={avatar1}
+        nameNum="@18.56"
+      />
+   
+    </Box>
   );
 }

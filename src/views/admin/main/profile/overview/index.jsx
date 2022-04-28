@@ -24,7 +24,9 @@ import banner from 'assets/img/auth/banner.png'
 import avatar from 'assets/img/avatars/avatar4.png'
 import React from 'react'
 import fakeGraph from 'assets/img/dashboards/fakeGraph.png'
-
+import ManagementTable from 'views/admin/main/account/application/components/ManagementTable'
+import { tableColumnsManagement } from 'views/admin/main/account/application/variables/tableColumnsManagement'
+import tableDataManagement from 'views/admin/main/account/application/variables/tableDataManagement.json'
 export default function Overview() {
   const {
     isOpen: isOpen1,
@@ -37,7 +39,7 @@ export default function Overview() {
       <Grid
         templateColumns={{
           base: '1fr',
-          lg: '1.34fr 1fr 1.62fr',
+          lg: '1fr 1fr 1fr',
         }}
         templateRows={{
           base: 'repeat(3, 1fr)',
@@ -50,7 +52,7 @@ export default function Overview() {
           banner={banner}
           avatar={avatar}
           name="Adela Parkson"
-          job="Product Designer"
+          job="0X2FA...9448"
           posts="17"
           followers="9.7k"
           following="274"
@@ -60,7 +62,7 @@ export default function Overview() {
           used={25.6}
           total={50}
         />
-        <Upload
+        <Upload 
           gridArea={{
             base: '3 / 1 / 4 / 2',
             lg: '1 / 3 / 2 / 4',
@@ -74,17 +76,17 @@ export default function Overview() {
         mb="20px"
         templateColumns={{
           base: '1fr',
-          lg: 'repeat(2, 1fr)',
-          '2xl': '1.34fr 1.62fr 1fr',
+          lg: 'repeat(1, 1fr)',
+          '2xl': '1',
         }}
         templateRows={{
           base: '1fr',
-          lg: 'repeat(2, 1fr)',
+          lg: 'repeat(1, 1fr)',
           '2xl': '1fr',
         }}
         gap={{ base: '20px', xl: '20px' }}
       >
-        <Projects
+        {/* <Projects
           gridArea="1 / 2 / 2 / 2"
           banner={banner}
           avatar={avatar}
@@ -93,7 +95,7 @@ export default function Overview() {
           posts="17"
           followers="9.7k"
           following="274"
-        />
+        />  
         <General
           gridArea={{ base: '2 / 1 / 3 / 2', lg: '1 / 2 / 2 / 3' }}
           minH="365px"
@@ -107,6 +109,10 @@ export default function Overview() {
             lg: '2 / 1 / 3 / 3',
             '2xl': '1 / 3 / 2 / 4',
           }}
+        /> */}
+         <ManagementTable
+          tableData={tableDataManagement}
+          columnsData={tableColumnsManagement}
         />
       </Grid>
     </Box>

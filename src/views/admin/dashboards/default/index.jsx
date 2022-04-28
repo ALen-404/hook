@@ -174,12 +174,18 @@ export default function Default() {
                   }
                   name="Market Cap"
                   value={defiVolumData?.marketCap?.toFixed(2)}
+                  fontColor={
+                    defiVolumData?.marketCapRatio > 0 ? 'green.500' : 'red.500'
+                  }
                 />
                 <MiniStatistics
                   growth={
                     defiVolumData?.volumeRatio?.toFixed(2) > 0
                       ? `+${defiVolumData?.volumeRatio * 100?.toFixed(2)}%`
                       : defiVolumData?.volumeRatio * 100?.toFixed(2) + '%'
+                  }
+                  fontColor={
+                    defiVolumData?.volumeRatio > 0 ? 'green.500' : 'red.500'
                   }
                   name="Volume"
                   value={defiVolumData?.volume?.toFixed(2)}
