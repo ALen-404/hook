@@ -13,6 +13,7 @@ import {
   Text,
   useColorModeValue,
   useColorMode,
+
 } from "@chakra-ui/react";
 // Custom Components
 import { ItemContent } from "components/menu/ItemContent";
@@ -26,6 +27,7 @@ import { MdNotificationsNone, MdInfoOutline } from "react-icons/md";
 import { IoMdMoon, IoMdSunny } from "react-icons/io";
 import { FaEthereum } from "react-icons/fa";
 import routes from "routes.js";
+import { MdFilterNone } from "react-icons/md"
 export default function HeaderLinks(props) {
   const { secondary } = props;
   const { colorMode, toggleColorMode } = useColorMode();
@@ -261,7 +263,8 @@ export default function HeaderLinks(props) {
               _focus={{ bg: "none" }}
               borderRadius='8px'
               px='14px'>
-              <Text fontSize='sm'>Profile Settings</Text>
+              <Text fontSize='sm'>0X2FA...948</Text>
+              <Icon as={MdFilterNone} boxSize={16} color="red.500"/>
             </MenuItem>
             <MenuItem
               _hover={{ bg: "none" }}

@@ -20,12 +20,13 @@ import {
   Thead,
   Tr,
   useColorModeValue,
+  Box,
 } from "@chakra-ui/react";
 
 // Custom components
 import Card from "components/card/Card.js";
 import Menu from "components/menu/MainMenu";
-
+import { MdCached } from "react-icons/md"
 // Assets
 import { MdEdit } from "react-icons/md";
 
@@ -68,9 +69,15 @@ function ManagementTable(props) {
             fontSize='xl'
             fontWeight='600'
             lineHeight='100%'>
-            Team Management
+           Activities
           </Text>
-          <Menu />
+          {/* <Menu /> */}
+          <Box display="flex" alignItems="center">
+            <Text fontWeight="500" color= "#A3AED0">
+            Data updated 22 secs ago
+            </Text>
+            <Icon marginLeft="5px" as={MdCached} w="24px" h="24px" color="#A3AED0"/>  
+          </Box>
         </Flex>
         <Table {...getTableProps()} variant='simple' color='gray.500'>
           <Thead>
@@ -102,16 +109,16 @@ function ManagementTable(props) {
                 <Tr {...row.getRowProps()} key={index}>
                   {row.cells.map((cell, index) => {
                     let data = "";
-                    if (cell.column.Header === "Name") {
+                    if (cell.column.Header === "Type") {
                       data = (
                         <Flex align='center'>
-                          <Avatar
+                          {/* <Avatar
                             src={cell.value[2]}
                             w='36px'
                             h='36px'
                             me='8px'
                             borderRadius='14px'
-                          />
+                          /> */}
                           <Flex direction='column'>
                             <Text
                               color={textColor}
@@ -128,7 +135,7 @@ function ManagementTable(props) {
                           </Flex>
                         </Flex>
                       );
-                    } else if (cell.column.Header === "Date") {
+                    } else if (cell.column.Header === "Transfer") {
                       data = (
                         <Text color={textColor} fontSize='sm' fontWeight='600'>
                           {cell.value}
@@ -140,7 +147,7 @@ function ManagementTable(props) {
                           {cell.value}
                         </Text>
                       );
-                    } else if (cell.column.Header === "Status") {
+                    } else if (cell.column.Header === "Token") {
                       data = (
                         <Badge
                           colorScheme={
@@ -154,13 +161,13 @@ function ManagementTable(props) {
                           {cell.value.toLowerCase()}
                         </Badge>
                       );
-                    } else if (cell.column.Header === "Price") {
+                    } else if (cell.column.Header === "Value") {
                       data = (
                         <Text color={textColor} fontSize='sm' fontWeight='600'>
                           {cell.value}
                         </Text>
                       );
-                    } else if (cell.column.Header === " ") {
+                    } else if (cell.column.Header === " Link") {
                       data = (
                         <Flex cursor='pointer' h='max-content' w='max-content'>
                           <Icon

@@ -1,26 +1,23 @@
 export const tableColumnsManagement = [
   {
-    Header: "Name",
-    accessor: "name",
+    Header: "Type",
+    accessor: "Type",
   },
   {
-    Header: "Date",
-    accessor: "date",
+    Header: "Transfer",
+    accessor: "Transfer",
   },
   {
-    Header: "Permissions",
-    accessor: "permissions",
+    Header: "Token",
+    accessor: "Token",
   },
   {
-    Header: "Status",
-    accessor: "status",
+    Header: "Value",
+    accessor: "Value",
   },
   {
-    Header: "Price",
-    accessor: "price",
+    Header: "Link",
+    accessor: "Link",
   },
-  {
-    Header: " ",
-    accessor: "button",
-  },
+  
 ];

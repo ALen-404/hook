@@ -30,7 +30,7 @@ export default function YourTransactions(props) {
   return (
     <Card {...rest} p='34px'>
       <Text fontSize='xl' color={textColor} fontWeight='700' mb='34px'>
-        Your transactions
+      Defi token
       </Text>
       <Transaction
         mb='26px'
