@@ -1,19 +1,31 @@
 import { getGraphData, getMarketCapAndVolume } from '../../../../../hook/hook'
-getGraphData().then((res) => {
-  console.log(res)
-})
 
+import { ethers } from 'ethers'
+getGraphData('10m', 'NFT').then((res) => {
+  console.log(res, '------------------------')
+})
+const a = async () => {
+  const provider = new ethers.providers.JsonRpcProvider(
+    'https://old-divine-darkness.quiknode.pro/f1703f233ec311fcaa4907a108e44fbbc03228b5/'
+  )
+  const balance = await provider.getTransactionCount(
+    '0x6afdf721593A3673451973bEfF8c4dc076d28192',
+    'latest'
+  )
+  console.log(balance.toString())
+}
+a()
 export const lineChartDataTotalSpent = [
   {
-    name: 'Revenue',
+    name: 'DEFI',
     data: [50, 64, 48, 66, 49, 68],
   },
   {
-    name: 'Profit',
+    name: 'GAMEFI',
     data: [30, 40, 24, 46, 20, 46],
   },
   {
-    name: 'Profit',
+    name: 'NFT',
     data: [10, 30, 10, 16, 60, 36],
   },
 ]
@@ -32,7 +44,7 @@ export const lineChartOptionsTotalSpent = {
       color: '#4318FF',
     },
   },
-  colors: ['#4318FF', '#39B8FF'],
+  colors: ['#7551FF', '#39B8FF', '#FDB640'],
   markers: {
     size: 0,
     colors: 'white',
