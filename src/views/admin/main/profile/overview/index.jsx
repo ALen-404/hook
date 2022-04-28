@@ -1,6 +1,17 @@
 // Chakra imports
 import { Box, Grid } from '@chakra-ui/react'
-
+import {
+  Flex,
+  Image,
+  Icon,
+  Text,
+  useColorModeValue,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  useDisclosure,
+} from '@chakra-ui/react'
 // Custom components
 import Banner from 'views/admin/main/profile/overview/components/Banner'
 import General from 'views/admin/main/profile/overview/components/General'
@@ -8,13 +19,18 @@ import Notifications from 'views/admin/main/profile/overview/components/Notifica
 import Projects from 'views/admin/main/profile/overview/components/Projects'
 import Storage from 'views/admin/main/profile/overview/components/Storage'
 import Upload from 'views/admin/main/profile/overview/components/Upload'
-
 // Assets
 import banner from 'assets/img/auth/banner.png'
 import avatar from 'assets/img/avatars/avatar4.png'
 import React from 'react'
+import fakeGraph from 'assets/img/dashboards/fakeGraph.png'
 
 export default function Overview() {
+  const {
+    isOpen: isOpen1,
+    onOpen: onOpen1,
+    onClose: onClose1,
+  } = useDisclosure()
   return (
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
       {/* Main Fields */}

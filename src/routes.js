@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import { Icon } from "@chakra-ui/react";
+import { Icon } from '@chakra-ui/react'
 import {
   MdDashboard,
   MdHome,
@@ -8,67 +8,67 @@ import {
   MdSpaceDashboard,
   MdAccountCircle,
   MdOutlineSearch,
-} from "react-icons/md";
+} from 'react-icons/md'
 
 // Admin Imports
-import DashboardsDefault from "views/admin/dashboards/default";
-import DashboardsCarInterface from "views/admin/dashboards/carInterface";
-import DashboardsSmartHome from "views/admin/dashboards/smartHome";
+import DashboardsDefault from 'views/admin/dashboards/default'
+import DashboardsCarInterface from 'views/admin/dashboards/carInterface'
+import DashboardsSmartHome from 'views/admin/dashboards/smartHome'
 
 // NFT Imports
-import NFTMarketplace from "views/admin/nfts/marketplace";
-import NFTPage from "views/admin/nfts/page";
-import NFTCollection from "views/admin/nfts/collection";
-import NFTProfile from "views/admin/nfts/profile";
+import NFTMarketplace from 'views/admin/nfts/marketplace'
+import NFTPage from 'views/admin/nfts/page'
+import NFTCollection from 'views/admin/nfts/collection'
+import NFTProfile from 'views/admin/nfts/profile'
 
 // Main Imports
-import AccountBilling from "views/admin/main/account/billing";
-import AccountApplications from "views/admin/main/account/application";
-import AccountInvoice from "views/admin/main/account/invoice";
-import AccountSettings from "views/admin/main/account/settings";
-import AccountAllCourses from "views/admin/main/account/courses";
-import AccountCoursePage from "views/admin/main/account/coursePage";
+import AccountBilling from 'views/admin/main/account/billing'
+import AccountApplications from 'views/admin/main/account/application'
+import AccountInvoice from 'views/admin/main/account/invoice'
+import AccountSettings from 'views/admin/main/account/settings'
+import AccountAllCourses from 'views/admin/main/account/courses'
+import AccountCoursePage from 'views/admin/main/account/coursePage'
 
-import UserNew from "views/admin/main/users/newUser";
-import UsersOverview from "views/admin/main/users/overview";
-import UsersReports from "views/admin/main/users/reports";
+import UserNew from 'views/admin/main/users/newUser'
+import UsersOverview from 'views/admin/main/users/overview'
+import UsersReports from 'views/admin/main/users/reports'
 
-import ProfileSettings from "views/admin/main/profile/settings";
-import ProfileOverview from "views/admin/main/profile/overview";
+import ProfileSettings from 'views/admin/main/profile/settings'
+import ProfileOverview from 'views/admin/main/profile/overview'
 
-import ApplicationsKanban from "views/admin/main/applications/kanban";
-import ApplicationsDataTables from "views/admin/main/applications/dataTables";
-import ApplicationsCalendar from "views/admin/main/applications/calendar";
+import ApplicationsKanban from 'views/admin/main/applications/kanban'
+import ApplicationsDataTables from 'views/admin/main/applications/dataTables'
+import ApplicationsCalendar from 'views/admin/main/applications/calendar'
 
-import EcommerceNewProduct from "views/admin/main/ecommerce/newProduct";
-import EcommerceProductSettings from "views/admin/main/ecommerce/settingsProduct";
-import EcommerceProductPage from "views/admin/main/ecommerce/pageProduct";
-import EcommerceOrderList from "views/admin/main/ecommerce/orderList";
-import EcommerceOrderDetails from "views/admin/main/ecommerce/orderDetails";
-import EcommerceReferrals from "views/admin/main/ecommerce/referrals";
+import EcommerceNewProduct from 'views/admin/main/ecommerce/newProduct'
+import EcommerceProductSettings from 'views/admin/main/ecommerce/settingsProduct'
+import EcommerceProductPage from 'views/admin/main/ecommerce/pageProduct'
+import EcommerceOrderList from 'views/admin/main/ecommerce/orderList'
+import EcommerceOrderDetails from 'views/admin/main/ecommerce/orderDetails'
+import EcommerceReferrals from 'views/admin/main/ecommerce/referrals'
 
-import OthersNotifications from "views/admin/main/others/notifications";
-import OthersPricing from "views/admin/main/others/pricing";
+import OthersNotifications from 'views/admin/main/others/notifications'
+import OthersPricing from 'views/admin/main/others/pricing'
 
 // Auth Imports
-import ForgotPasswordCentered from "views/auth/forgotPassword/ForgotPasswordCentered.jsx";
-import ForgotPasswordDefault from "views/auth/forgotPassword/ForgotPasswordDefault.jsx";
-import LockCentered from "views/auth/lock/LockCentered.jsx";
-import LockDefault from "views/auth/lock/LockDefault.jsx";
-import SignInCentered from "views/auth/signIn/SignInCentered.jsx";
-import SignInDefault from "views/auth/signIn/SignInDefault.jsx";
-import SignUpCentered from "views/auth/signUp/SignUpCentered.jsx";
-import SignUpDefault from "views/auth/signUp/SignUpDefault.jsx";
-import VerificationCentered from "views/auth/verification/VerificationCentered.jsx";
-import VerificationDefault from "views/auth/verification/VerificationDefault.jsx";
+import ForgotPasswordCentered from 'views/auth/forgotPassword/ForgotPasswordCentered.jsx'
+import ForgotPasswordDefault from 'views/auth/forgotPassword/ForgotPasswordDefault.jsx'
+import LockCentered from 'views/auth/lock/LockCentered.jsx'
+import LockDefault from 'views/auth/lock/LockDefault.jsx'
+import SignInCentered from 'views/auth/signIn/SignInCentered.jsx'
+import SignInDefault from 'views/auth/signIn/SignInDefault.jsx'
+import SignUpCentered from 'views/auth/signUp/SignUpCentered.jsx'
+import SignUpDefault from 'views/auth/signUp/SignUpDefault.jsx'
+import VerificationCentered from 'views/auth/verification/VerificationCentered.jsx'
+import VerificationDefault from 'views/auth/verification/VerificationDefault.jsx'
 
 const routes = [
   // --- Dashboards ---
   {
-    name: "Dashboards",
-    layout: "/admin",
-    path: "/dashboards/default",
-    icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
+    name: 'Dashboards',
+    layout: '/admin',
+    path: '/dashboards/default',
+    icon: <Icon as={MdHome} width="20px" height="20px" color="inherit" />,
     collapse: false,
     component: DashboardsDefault,
     items: [
@@ -94,17 +94,12 @@ const routes = [
   },
   // --- NFTs ---
   {
-    name: "Track",
-    layout: "/admin",
-    path: "/nfts/marketplace",
-    component: NFTMarketplace,
+    name: 'Track',
+    layout: '/admin',
+    path: '/track',
+    component: ProfileOverview,
     icon: (
-      <Icon
-        as={MdSpaceDashboard}
-        width='20px'
-        height='20px'
-        color='inherit'
-      />
+      <Icon as={MdSpaceDashboard} width="20px" height="20px" color="inherit" />
     ),
     collapse: false,
     items: [
@@ -138,7 +133,7 @@ const routes = [
       // },
     ],
   },
-   // --- Search ---
+  // --- Search ---
   //  {
   //   name: "Search",
   //   layout: "/admin",
@@ -186,15 +181,15 @@ const routes = [
   // },
   // ---NFT ---
   {
-    name: "NFT",
-    path: "/main",
-    icon: <Icon as={MdDashboard} width='20px' height='20px' color='inherit' />,
+    name: 'NFT',
+    path: '/main',
+    icon: <Icon as={MdDashboard} width="20px" height="20px" color="inherit" />,
     collapse: true,
     items: [
       {
-        name: "Explore",
-        path: "/main/account/billing",
-        layout: "/admin",
+        name: 'Explore',
+        path: '/main/account/billing',
+        layout: '/admin',
         collapse: false,
         component: AccountBilling,
         items: [
@@ -243,10 +238,10 @@ const routes = [
         ],
       },
       {
-        name: "Customized",
+        name: 'Customized',
         collapse: false,
-        layout: "/admin",
-        path: "/main/ecommerce/new-prodcut",
+        layout: '/admin',
+        path: '/main/ecommerce/new-prodcut',
         exact: false,
         component: EcommerceNewProduct,
         items: [
@@ -295,10 +290,10 @@ const routes = [
         ],
       },
       {
-        name: "Trending",
+        name: 'Trending',
         collapse: false,
-        layout: "/admin",
-        path: "/main/users/new-user",
+        layout: '/admin',
+        path: '/main/users/new-user',
         exact: false,
         component: UserNew,
         items: [
@@ -399,11 +394,11 @@ const routes = [
   },
   // --- Drop ---
   {
-    name: "Drop",
-    icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
+    name: 'Drop',
+    icon: <Icon as={MdLock} width="20px" height="20px" color="inherit" />,
     collapse: false,
-    layout: "/auth",
-    path: "/sign-in/default",
+    layout: '/auth',
+    path: '/sign-in/default',
     items: [
       // --- Sign In ---
       {
@@ -537,19 +532,14 @@ const routes = [
       // },
     ],
   },
-   // --- RSS ---
-   {
-    name: "RSS",
-    layout: "/admin",
-    path: "/nfts/marketplace",
+  // --- RSS ---
+  {
+    name: 'RSS',
+    layout: '/admin',
+    path: '/nfts/marketplace',
     component: NFTMarketplace,
     icon: (
-      <Icon
-        as={MdAccountCircle}
-        width='20px'
-        height='20px'
-        color='inherit'
-      />
+      <Icon as={MdAccountCircle} width="20px" height="20px" color="inherit" />
     ),
     collapse: false,
     items: [
@@ -583,6 +573,6 @@ const routes = [
       // },
     ],
   },
-];
+]
 
-export default routes;
+export default routes
