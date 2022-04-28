@@ -3,9 +3,14 @@ import React, { useEffect, useState } from 'react'
 // Chakra imports
 import { Flex, Grid, useColorModeValue, SimpleGrid } from '@chakra-ui/react'
 // Custom components
-import Balance from 'views/admin/dashboards/default/components/Balance'
+import TableTopCreators from 'views/admin/dashboards/default/components/TableTopCreators'
+import tableDataTopCreators from 'views/admin/dashboards/default/variables/tableDataTopCreators.json'
+import { tableColumnsTopCreators } from 'views/admin/dashboards/default/variables/tableColumnsTopCreators'
+
 import DailyTraffic from 'views/admin/dashboards/default/components/DailyTraffic'
 import MostVisitedTable from 'views/admin/dashboards/default/components/MostVisitedTable'
+import TotalMarketValue from 'views/admin/dashboards/default/components/TotalMarketValue'
+
 import { VSeparator } from 'components/separator/Separator'
 import OverallRevenue from 'views/admin/dashboards/default/components/OverallRevenue'
 import ProfitEstimation from 'views/admin/dashboards/default/components/ProfitEstimation'
@@ -126,7 +131,10 @@ export default function Default() {
             <OverallRevenue />
           </Flex>
           <Flex gridArea={{ base: '2 / 1 / 3 / 3', '2xl': '1 / 2 / 2 / 3' }}>
-            <Balance />
+          <TableTopCreators
+              tableData={tableDataTopCreators}
+              columnsData={tableColumnsTopCreators}
+            />
           </Flex>
         </Grid>
         <Grid
@@ -141,23 +149,18 @@ export default function Default() {
           }}
           mb="20px"
         >
-          <Flex gridArea={{ md: '1 / 1 / 2 / 2', '2xl': '1 / 1 / 2 / 2' }}>
-            <DailyTraffic />
-          </Flex>
-          <Flex gridArea={{ md: '1 / 2 / 2 / 3', '2xl': '1 / 2 / 2 / 3' }}>
-            <ProjectStatus />
-          </Flex>
-          <Flex gridArea={{ md: ' 2 / 1 / 3 / 3', '2xl': '1 / 3 / 2 / 4' }}>
-            <ProfitEstimation />
-          </Flex>
+          
         </Grid>
         <Grid
-          templateColumns={{ base: 'repeat(2, 1fr)', '2xl': '350fr 720fr' }}
+          templateColumns={{ base: 'repeat(2, 1fr)', '2xl': '1fr 1fr' }}
           gap="20px"
           display={{ base: 'block', lg: 'grid' }}
         >
           <Flex gridArea={{ base: '1 / 1 / 2 / 3', '2xl': '1 / 1 / 2 / 2' }}>
-            <YourTransfers />
+            <TotalMarketValue
+              tableData={tableDataMostVisited}
+              columnsData={tableColumnsMostVisited}
+            />
           </Flex>
           <Flex gridArea={{ base: '2 / 1 / 3 / 3', '2xl': '1 / 2 / 2 / 3' }}>
             <MostVisitedTable

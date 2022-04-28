@@ -1,7 +1,8 @@
 import React from "react";
 // Chakra imports
-import { Box, Flex, Text, Badge, LightMode } from "@chakra-ui/react";
+import { Box, Flex, Text, Badge, LightMode, Image } from "@chakra-ui/react";
 import LineChart from "components/charts/LineChart";
+import Vector from "../../../assets/img/logo/Vector.png";
 // Custom components
 import {
   lineChartDataSidebar,
@@ -12,52 +13,42 @@ export default function SidebarDocs() {
 
   return (
     <Flex
-      justify='center'
-      direction='column'
-      align='center'
-      bg={bgColor}
-      borderRadius='30px'
-      me='20px'
-      position='relative'>
+      justify="center"
+      direction="column"
+      align="center"
+      // bg={bgColor}
+
+      background="linear-gradient(135deg, #868CFF 0%, #4318FF 100%)"
+      borderRadius="24px"
+      me="20px"
+      position="relative"
+      width="228px"
+      height="190px"
+    >
       <Flex
-        direction='column'
-        mb='12px'
-        align='center'
-        justify='center'
-        px='15px'
-        pt='30px'>
-        <Text
-          fontSize={{ base: "lg", xl: "2xl" }}
-          color='white'
-          fontWeight='bold'
-          lineHeight='150%'
-          textAlign='center'
-          px='10px'>
-          $3942.58
-        </Text>
-        <Text
-          fontSize='sm'
-          color='white'
-          px='10px'
-          mb='14px'
-          textAlign='center'>
-          Total balance
-        </Text>
-        <LightMode>
-          <Badge
-            colorScheme='green'
-            color='green.500'
-            size='lg'
-            borderRadius='58px'>
-            +2.45%
-          </Badge>
-        </LightMode>
-        <Box h='160px'>
-          <LineChart
-            chartData={lineChartDataSidebar}
-            chartOptions={lineChartOptionsSidebar}
-          />
-        </Box>
+        width="94px"
+        height="94px"
+        background="linear-gradient(135deg, #868CFF 0%, #4318FF 100%)"
+        position="absolute"
+        border="5px solid #111C44"
+        borderRadius="50%"
+        top="-50px"
+      >
+        <Image
+          src={Vector}
+          alt="Horizon UI"
+          width="41px"
+          height="41px"
+          margin="auto"
+        />
+      </Flex>
+      <Flex marginTop="26px" marginBottom="10px" textAlign="center">
+        <text font-size="16px" font-family="Helvetica" color="#FFFFFF">
+          Upgrade to PRO
+        </text>
+      </Flex>
+      <Flex textAlign="center" width="229px">
+        <text font-size="14px" font-family="Helvetica" color="#FFFFFF">to get access to all features! Connect with Venus World! </text>
       </Flex>
     </Flex>
   );

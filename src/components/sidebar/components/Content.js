@@ -33,10 +33,11 @@ function SidebarContent(props) {
         ps='20px'
         pe={{ md: "16px", "2xl": "0px" }}
         mt='60px'
+        mb='100px'
         borderRadius='30px'>
         <SidebarCard />
       </Box>
-      <Flex mt='75px' mb='56px' justifyContent='center' alignItems='center'>
+      {/* <Flex mt='75px' mb='56px' justifyContent='center' alignItems='center'>
         <Avatar h='48px' w='48px' src={avatar4} me='20px' />
         <Box>
           <Text color={textColor} fontSize='md' fontWeight='700'>
@@ -46,7 +47,7 @@ function SidebarContent(props) {
             Product Designer
           </Text>
         </Box>
-      </Flex>
+      </Flex> */}
     </Flex>
   );
 }

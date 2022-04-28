@@ -1,4 +1,4 @@
-export const tableColumnsMostVisited = [
+export const tableTotalMarketValue = [
   {
     Header: "#",
     accessor: "page name",

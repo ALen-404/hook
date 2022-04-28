@@ -5,7 +5,9 @@ import {
   MdDashboard,
   MdHome,
   MdLock,
-  MdOutlineShoppingCart,
+  MdSpaceDashboard,
+  MdAccountCircle,
+  MdOutlineSearch,
 } from "react-icons/md";
 
 // Admin Imports
@@ -64,416 +66,521 @@ const routes = [
   // --- Dashboards ---
   {
     name: "Dashboards",
-    path: "/dashboards",
+    layout: "/admin",
+    path: "/dashboards/default",
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
-    collapse: true,
+    collapse: false,
+    component: DashboardsDefault,
     items: [
-      {
-        name: "Main Overview",
-        layout: "/admin",
-        path: "/dashboards/default",
-        component: DashboardsDefault,
-      },
-      {
-        name: "Car Interface",
-        layout: "/admin",
-        path: "/dashboards/car-interface",
-        component: DashboardsCarInterface,
-      },
-      {
-        name: "Smart Home",
-        layout: "/admin",
-        path: "/dashboards/smart-home",
-        component: DashboardsSmartHome,
-      },
+      // {
+      //   name: "Main Overview",
+      //   layout: "/admin",
+      //   path: "/dashboards/default",
+      //   component: DashboardsDefault,
+      // },
+      // {
+      //   name: "Car Interface",
+      //   layout: "/admin",
+      //   path: "/dashboards/car-interface",
+      //   component: DashboardsCarInterface,
+      // },
+      // {
+      //   name: "Smart Home",
+      //   layout: "/admin",
+      //   path: "/dashboards/smart-home",
+      //   component: DashboardsSmartHome,
+      // },
     ],
   },
   // --- NFTs ---
   {
-    name: "NFTs",
-    path: "/nfts",
+    name: "Track",
+    layout: "/admin",
+    path: "/nfts/marketplace",
+    component: NFTMarketplace,
     icon: (
       <Icon
-        as={MdOutlineShoppingCart}
+        as={MdSpaceDashboard}
         width='20px'
         height='20px'
         color='inherit'
       />
     ),
-    collapse: true,
+    collapse: false,
     items: [
-      {
-        name: "Marketplace",
-        layout: "/admin",
-        path: "/nfts/marketplace",
-        component: NFTMarketplace,
-        secondary: true,
-      },
-      {
-        name: "Collection",
-        layout: "/admin",
-        path: "/nfts/collection",
-        component: NFTCollection,
-        secondary: true,
-      },
-      {
-        name: "NFT Page",
-        layout: "/admin",
-        path: "/nfts/page",
-        component: NFTPage,
-        secondary: true,
-      },
-      {
-        name: "Profile",
-        layout: "/admin",
-        path: "/nfts/profile",
-        component: NFTProfile,
-        secondary: true,
-      },
+      // {
+      //   name: "Marketplace",
+      //   layout: "/admin",
+      //   path: "/nfts/marketplace",
+      //   component: NFTMarketplace,
+      //   secondary: true,
+      // },
+      // {
+      //   name: "Collection",
+      //   layout: "/admin",
+      //   path: "/nfts/collection",
+      //   component: NFTCollection,
+      //   secondary: true,
+      // },
+      // {
+      //   name: "NFT Page",
+      //   layout: "/admin",
+      //   path: "/nfts/page",
+      //   component: NFTPage,
+      //   secondary: true,
+      // },
+      // {
+      //   name: "Profile",
+      //   layout: "/admin",
+      //   path: "/nfts/profile",
+      //   component: NFTProfile,
+      //   secondary: true,
+      // },
     ],
   },
-  // --- Main pages ---
+   // --- Search ---
+  //  {
+  //   name: "Search",
+  //   layout: "/admin",
+  //   path: "/nfts/marketplace",
+  //   component: NFTMarketplace,
+  //   icon: (
+  //     <Icon
+  //       as={MdOutlineSearch}
+  //       width='20px'
+  //       height='20px'
+  //       color='inherit'
+  //     />
+  //   ),
+  //   collapse: false,
+  //   items: [
+  //     // {
+  //     //   name: "Marketplace",
+  //     //   layout: "/admin",
+  //     //   path: "/nfts/marketplace",
+  //     //   component: NFTMarketplace,
+  //     //   secondary: true,
+  //     // },
+  //     // {
+  //     //   name: "Collection",
+  //     //   layout: "/admin",
+  //     //   path: "/nfts/collection",
+  //     //   component: NFTCollection,
+  //     //   secondary: true,
+  //     // },
+  //     // {
+  //     //   name: "NFT Page",
+  //     //   layout: "/admin",
+  //     //   path: "/nfts/page",
+  //     //   component: NFTPage,
+  //     //   secondary: true,
+  //     // },
+  //     // {
+  //     //   name: "Profile",
+  //     //   layout: "/admin",
+  //     //   path: "/nfts/profile",
+  //     //   component: NFTProfile,
+  //     //   secondary: true,
+  //     // },
+  //   ],
+  // },
+  // ---NFT ---
   {
-    name: "Main Pages",
+    name: "NFT",
     path: "/main",
     icon: <Icon as={MdDashboard} width='20px' height='20px' color='inherit' />,
     collapse: true,
     items: [
       {
-        name: "Account",
-        path: "/main/account",
-        collapse: true,
+        name: "Explore",
+        path: "/main/account/billing",
+        layout: "/admin",
+        collapse: false,
+        component: AccountBilling,
         items: [
-          {
-            name: "Billing",
-            layout: "/admin",
-            path: "/main/account/billing",
-            exact: false,
-            component: AccountBilling,
-          },
-          {
-            name: "Application",
-            layout: "/admin",
-            path: "/main/account/application",
-            exact: false,
-            component: AccountApplications,
-          },
-          {
-            name: "Invoice",
-            layout: "/admin",
-            path: "/main/account/invoice",
-            exact: false,
-            component: AccountInvoice,
-          },
-          {
-            name: "Settings",
-            layout: "/admin",
-            path: "/main/account/settings",
-            exact: false,
-            component: AccountSettings,
-          },
-          {
-            name: "All Courses",
-            layout: "/admin",
-            path: "/main/account/all-courses",
-            exact: false,
-            component: AccountAllCourses,
-          },
-          {
-            name: "Course Page",
-            layout: "/admin",
-            path: "/main/account/course-page",
-            exact: false,
-            component: AccountCoursePage,
-          },
+          // {
+          //   name: "Billing",
+          //   layout: "/admin",
+          //   path: "/main/account/billing",
+          //   exact: false,
+          //   component: AccountBilling,
+          // },
+          // {
+          //   name: "Application",
+          //   layout: "/admin",
+          //   path: "/main/account/application",
+          //   exact: false,
+          //   component: AccountApplications,
+          // },
+          // {
+          //   name: "Invoice",
+          //   layout: "/admin",
+          //   path: "/main/account/invoice",
+          //   exact: false,
+          //   component: AccountInvoice,
+          // },
+          // {
+          //   name: "Settings",
+          //   layout: "/admin",
+          //   path: "/main/account/settings",
+          //   exact: false,
+          //   component: AccountSettings,
+          // },
+          // {
+          //   name: "All Courses",
+          //   layout: "/admin",
+          //   path: "/main/account/all-courses",
+          //   exact: false,
+          //   component: AccountAllCourses,
+          // },
+          // {
+          //   name: "Course Page",
+          //   layout: "/admin",
+          //   path: "/main/account/course-page",
+          //   exact: false,
+          //   component: AccountCoursePage,
+          // },
         ],
       },
       {
-        name: "Ecommerce",
-        path: "/main/users",
-        collapse: true,
+        name: "Customized",
+        collapse: false,
+        layout: "/admin",
+        path: "/main/ecommerce/new-prodcut",
+        exact: false,
+        component: EcommerceNewProduct,
         items: [
-          {
-            name: "New Product",
-            layout: "/admin",
-            path: "/main/ecommerce/new-prodcut",
-            exact: false,
-            component: EcommerceNewProduct,
-          },
-          {
-            name: "Product Settings",
-            layout: "/admin",
-            path: "/main/ecommerce/settings",
-            exact: false,
-            component: EcommerceProductSettings,
-          },
-          {
-            name: "Product Page",
-            layout: "/admin",
-            path: "/main/ecommerce/page-example",
-            exact: false,
-            component: EcommerceProductPage,
-          },
-          {
-            name: "Order List",
-            layout: "/admin",
-            path: "/main/ecommerce/order-list",
-            exact: false,
-            component: EcommerceOrderList,
-          },
-          {
-            name: "Order Details",
-            layout: "/admin",
-            path: "/main/ecommerce/order-details",
-            exact: false,
-            component: EcommerceOrderDetails,
-          },
-          {
-            name: "Referrals",
-            layout: "/admin",
-            path: "/main/ecommerce/referrals",
-            exact: false,
-            component: EcommerceReferrals,
-          },
+          // {
+          //   name: "New Product",
+          //   layout: "/admin",
+          //   path: "/main/ecommerce/new-prodcut",
+          //   exact: false,
+          //   component: EcommerceNewProduct,
+          // },
+          // {
+          //   name: "Product Settings",
+          //   layout: "/admin",
+          //   path: "/main/ecommerce/settings",
+          //   exact: false,
+          //   component: EcommerceProductSettings,
+          // },
+          // {
+          //   name: "Product Page",
+          //   layout: "/admin",
+          //   path: "/main/ecommerce/page-example",
+          //   exact: false,
+          //   component: EcommerceProductPage,
+          // },
+          // {
+          //   name: "Order List",
+          //   layout: "/admin",
+          //   path: "/main/ecommerce/order-list",
+          //   exact: false,
+          //   component: EcommerceOrderList,
+          // },
+          // {
+          //   name: "Order Details",
+          //   layout: "/admin",
+          //   path: "/main/ecommerce/order-details",
+          //   exact: false,
+          //   component: EcommerceOrderDetails,
+          // },
+          // {
+          //   name: "Referrals",
+          //   layout: "/admin",
+          //   path: "/main/ecommerce/referrals",
+          //   exact: false,
+          //   component: EcommerceReferrals,
+          // },
         ],
       },
       {
-        name: "Users",
-        path: "/main/users",
-        collapse: true,
+        name: "Trending",
+        collapse: false,
+        layout: "/admin",
+        path: "/main/users/new-user",
+        exact: false,
+        component: UserNew,
         items: [
-          {
-            name: "New User",
-            layout: "/admin",
-            path: "/main/users/new-user",
-            exact: false,
-            component: UserNew,
-          },
-          {
-            name: "Users Overview",
-            layout: "/admin",
-            path: "/main/users/users-overview",
-            exact: false,
-            component: UsersOverview,
-          },
-          {
-            name: "Users Reports",
-            layout: "/admin",
-            path: "/main/users/users-reports",
-            exact: false,
-            component: UsersReports,
-          },
+          // {
+          //   name: "New User",
+          //   layout: "/admin",
+          //   path: "/main/users/new-user",
+          //   exact: false,
+          //   component: UserNew,
+          // },
+          // {
+          //   name: "Users Overview",
+          //   layout: "/admin",
+          //   path: "/main/users/users-overview",
+          //   exact: false,
+          //   component: UsersOverview,
+          // },
+          // {
+          //   name: "Users Reports",
+          //   layout: "/admin",
+          //   path: "/main/users/users-reports",
+          //   exact: false,
+          //   component: UsersReports,
+          // },
         ],
       },
-      {
-        name: "Applications",
-        path: "/main/applications",
-        collapse: true,
-        items: [
-          {
-            name: "Kanban",
-            layout: "/admin",
-            path: "/main/applications/kanban",
-            exact: false,
-            component: ApplicationsKanban,
-          },
-          {
-            name: "Data Tables",
-            layout: "/admin",
-            path: "/main/applications/data-tables",
-            exact: false,
-            component: ApplicationsDataTables,
-          },
-          {
-            name: "Calendar",
-            layout: "/admin",
-            path: "/main/applications/calendar",
-            exact: false,
-            component: ApplicationsCalendar,
-          },
-        ],
-      },
-      {
-        name: "Profile",
-        path: "/main/profile",
-        collapse: true,
-        items: [
-          {
-            name: "Profile Overview",
-            layout: "/admin",
-            path: "/main/profile/overview",
-            exact: false,
-            component: ProfileOverview,
-          },
-          {
-            name: "Profile Settings",
-            layout: "/admin",
-            path: "/main/profile/settings",
-            exact: false,
-            component: ProfileSettings,
-          },
-        ],
-      },
-      {
-        name: "Others",
-        path: "/main/others",
-        collapse: true,
-        items: [
-          {
-            name: "Notifications",
-            layout: "/admin",
-            path: "/main/others/notifications",
-            exact: false,
-            component: OthersNotifications,
-          },
-          {
-            name: "Pricing",
-            layout: "/auth",
-            path: "/main/others/pricing",
-            exact: false,
-            component: OthersPricing,
-          },
-        ],
-      },
+      // {
+      //   name: "Applications",
+      //   path: "/main/applications",
+      //   collapse: true,
+      //   items: [
+      //     {
+      //       name: "Kanban",
+      //       layout: "/admin",
+      //       path: "/main/applications/kanban",
+      //       exact: false,
+      //       component: ApplicationsKanban,
+      //     },
+      //     {
+      //       name: "Data Tables",
+      //       layout: "/admin",
+      //       path: "/main/applications/data-tables",
+      //       exact: false,
+      //       component: ApplicationsDataTables,
+      //     },
+      //     {
+      //       name: "Calendar",
+      //       layout: "/admin",
+      //       path: "/main/applications/calendar",
+      //       exact: false,
+      //       component: ApplicationsCalendar,
+      //     },
+      //   ],
+      // },
+      // {
+      //   name: "Profile",
+      //   path: "/main/profile",
+      //   collapse: true,
+      //   items: [
+      //     {
+      //       name: "Profile Overview",
+      //       layout: "/admin",
+      //       path: "/main/profile/overview",
+      //       exact: false,
+      //       component: ProfileOverview,
+      //     },
+      //     {
+      //       name: "Profile Settings",
+      //       layout: "/admin",
+      //       path: "/main/profile/settings",
+      //       exact: false,
+      //       component: ProfileSettings,
+      //     },
+      //   ],
+      // },
+      // {
+      //   name: "Others",
+      //   path: "/main/others",
+      //   collapse: true,
+      //   items: [
+      //     {
+      //       name: "Notifications",
+      //       layout: "/admin",
+      //       path: "/main/others/notifications",
+      //       exact: false,
+      //       component: OthersNotifications,
+      //     },
+      //     {
+      //       name: "Pricing",
+      //       layout: "/auth",
+      //       path: "/main/others/pricing",
+      //       exact: false,
+      //       component: OthersPricing,
+      //     },
+      //   ],
+      // },
     ],
   },
-  // --- Authentication ---
+  // --- Drop ---
   {
-    name: "Authentication",
-    path: "/auth",
+    name: "Drop",
     icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
-    collapse: true,
+    collapse: false,
+    layout: "/auth",
+    path: "/sign-in/default",
     items: [
       // --- Sign In ---
       {
-        name: "Sign In",
-        path: "/sign-in",
-        collapse: true,
-        items: [
-          {
-            name: "Default",
-            layout: "/auth",
-            path: "/sign-in/default",
-            icon: (
-              <Icon as={MdHome} width='16px' height='16px' color='inherit' />
-            ),
-            component: SignInDefault,
-          },
-          {
-            name: "Centered",
-            layout: "/auth",
-            path: "/sign-in/centered",
-            icon: (
-              <Icon as={MdHome} width='16px' height='16px' color='inherit' />
-            ),
-            component: SignInCentered,
-          },
-        ],
+        // name: "Sign In",
+        // path: "/sign-in",
+        // collapse: true,
+        // items: [
+        //   {
+        //     name: "Default",
+        //     layout: "/auth",
+        //     path: "/sign-in/default",
+        //     icon: (
+        //       <Icon as={MdHome} width='16px' height='16px' color='inherit' />
+        //     ),
+        //     component: SignInDefault,
+        //   },
+        //   {
+        //     name: "Centered",
+        //     layout: "/auth",
+        //     path: "/sign-in/centered",
+        //     icon: (
+        //       <Icon as={MdHome} width='16px' height='16px' color='inherit' />
+        //     ),
+        //     component: SignInCentered,
+        //   },
+        // ],
       },
       // --- Sign Up ---
       {
-        name: "Sign Up",
-        path: "/sign-up",
-        collapse: true,
-        items: [
-          {
-            name: "Default",
-            layout: "/auth",
-            path: "/sign-up/default",
-            icon: (
-              <Icon as={MdHome} width='16px' height='16px' color='inherit' />
-            ),
-            component: SignUpDefault,
-          },
-          {
-            name: "Centered",
-            layout: "/auth",
-            path: "/sign-up/centered",
-            icon: (
-              <Icon as={MdHome} width='16px' height='16px' color='inherit' />
-            ),
-            component: SignUpCentered,
-          },
-        ],
+        // name: "RSS",
+        // path: "/sign-up",
+        // collapse: true,
+        // items: [
+        //   {
+        //     name: "Default",
+        //     layout: "/auth",
+        //     path: "/sign-up/default",
+        //     icon: (
+        //       <Icon as={MdHome} width='16px' height='16px' color='inherit' />
+        //     ),
+        //     component: SignUpDefault,
+        //   },
+        //   {
+        //     name: "Centered",
+        //     layout: "/auth",
+        //     path: "/sign-up/centered",
+        //     icon: (
+        //       <Icon as={MdHome} width='16px' height='16px' color='inherit' />
+        //     ),
+        //     component: SignUpCentered,
+        //   },
+        // ],
       },
       // --- Verification ---
       {
-        name: "Verification",
-        path: "/verification",
-        collapse: true,
-        items: [
-          {
-            name: "Default",
-            layout: "/auth",
-            path: "/verification/default",
-            icon: (
-              <Icon as={MdHome} width='16px' height='16px' color='inherit' />
-            ),
-            component: VerificationDefault,
-          },
-          {
-            name: "Centered",
-            layout: "/auth",
-            path: "/verification/centered",
-            icon: (
-              <Icon as={MdHome} width='16px' height='16px' color='inherit' />
-            ),
-            component: VerificationCentered,
-          },
-        ],
+        // name: "Verification",
+        // path: "/verification",
+        // collapse: true,
+        // items: [
+        //   {
+        //     name: "Default",
+        //     layout: "/auth",
+        //     path: "/verification/default",
+        //     icon: (
+        //       <Icon as={MdHome} width='16px' height='16px' color='inherit' />
+        //     ),
+        //     component: VerificationDefault,
+        //   },
+        //   {
+        //     name: "Centered",
+        //     layout: "/auth",
+        //     path: "/verification/centered",
+        //     icon: (
+        //       <Icon as={MdHome} width='16px' height='16px' color='inherit' />
+        //     ),
+        //     component: VerificationCentered,
+        //   },
+        // ],
       },
       // --- Lock ---
       {
-        name: "Lock",
-        path: "/lock",
-        collapse: true,
-        items: [
-          {
-            name: "Default",
-            layout: "/auth",
-            path: "/lock/default",
-            icon: (
-              <Icon as={MdHome} width='16px' height='16px' color='inherit' />
-            ),
-            component: LockDefault,
-          },
-          {
-            name: "Centered",
-            layout: "/auth",
-            path: "/lock/centered",
-            icon: (
-              <Icon as={MdHome} width='16px' height='16px' color='inherit' />
-            ),
-            component: LockCentered,
-          },
-        ],
+        // name: "Lock",
+        // path: "/lock",
+        // collapse: true,
+        // items: [
+        //   {
+        //     name: "Default",
+        //     layout: "/auth",
+        //     path: "/lock/default",
+        //     icon: (
+        //       <Icon as={MdHome} width='16px' height='16px' color='inherit' />
+        //     ),
+        //     component: LockDefault,
+        //   },
+        //   {
+        //     name: "Centered",
+        //     layout: "/auth",
+        //     path: "/lock/centered",
+        //     icon: (
+        //       <Icon as={MdHome} width='16px' height='16px' color='inherit' />
+        //     ),
+        //     component: LockCentered,
+        //   },
+        // ],
       },
       // --- Forgot Password ---
-      {
-        name: "Forgot Password",
-        path: "/forgot-password",
-        collapse: true,
-        items: [
-          {
-            name: "Default",
-            layout: "/auth",
-            path: "/forgot-password/default",
-            icon: (
-              <Icon as={MdHome} width='16px' height='16px' color='inherit' />
-            ),
-            component: ForgotPasswordDefault,
-          },
-          {
-            name: "Centered",
-            layout: "/auth",
-            path: "/forgot-password/centered",
-            icon: (
-              <Icon as={MdHome} width='16px' height='16px' color='inherit' />
-            ),
-            component: ForgotPasswordCentered,
-          },
-        ],
-      },
+      // {
+      //   name: "Forgot Password",
+      //   path: "/forgot-password",
+      //   collapse: true,
+      //   items: [
+      //     {
+      //       name: "Default",
+      //       layout: "/auth",
+      //       path: "/forgot-password/default",
+      //       icon: (
+      //         <Icon as={MdHome} width='16px' height='16px' color='inherit' />
+      //       ),
+      //       component: ForgotPasswordDefault,
+      //     },
+      //     {
+      //       name: "Centered",
+      //       layout: "/auth",
+      //       path: "/forgot-password/centered",
+      //       icon: (
+      //         <Icon as={MdHome} width='16px' height='16px' color='inherit' />
+      //       ),
+      //       component: ForgotPasswordCentered,
+      //     },
+      //   ],
+      // },
+    ],
+  },
+   // --- RSS ---
+   {
+    name: "RSS",
+    layout: "/admin",
+    path: "/nfts/marketplace",
+    component: NFTMarketplace,
+    icon: (
+      <Icon
+        as={MdAccountCircle}
+        width='20px'
+        height='20px'
+        color='inherit'
+      />
+    ),
+    collapse: false,
+    items: [
+      // {
+      //   name: "Marketplace",
+      //   layout: "/admin",
+      //   path: "/nfts/marketplace",
+      //   component: NFTMarketplace,
+      //   secondary: true,
+      // },
+      // {
+      //   name: "Collection",
+      //   layout: "/admin",
+      //   path: "/nfts/collection",
+      //   component: NFTCollection,
+      //   secondary: true,
+      // },
+      // {
+      //   name: "NFT Page",
+      //   layout: "/admin",
+      //   path: "/nfts/page",
+      //   component: NFTPage,
+      //   secondary: true,
+      // },
+      // {
+      //   name: "Profile",
+      //   layout: "/admin",
+      //   path: "/nfts/profile",
+      //   component: NFTProfile,
+      //   secondary: true,
+      // },
     ],
   },
 ];
