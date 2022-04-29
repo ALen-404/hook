@@ -45,7 +45,7 @@ function TopCreatorTable(props) {
 
   const { getTableProps, getTableBodyProps, headerGroups, page, prepareRow } =
     tableInstance;
-    const balanceBg = useColorModeValue('brand.900', '#1B254B');
+    const balanceBg = useColorModeValue('brand.900', '#111C44');
   const textColor = useColorModeValue("navy.700", "white");
   const textColorSecondary = useColorModeValue("secondaryGray.600", "white");
   const iconColor = useColorModeValue("brand.500", "white");
