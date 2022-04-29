@@ -57,21 +57,22 @@ export default function HeaderLinks(props) {
 
   const [gasPrice, setGasPrice] = useState(0)
   const [ethPrice, setEthPrice] = useState(0)
+  let provider = ethers.getDefaultProvider('homestead')
+
   useEffect(() => {
     if (colorMode !== 'dark') {
       toggleColorMode()
     }
+    setInterval(() => {
+      provider.getGasPrice().then((res) => {
+        setGasPrice(new BigNumber(res.toString()).dividedBy(10 ** 9).toFixed(2))
+      })
+      getEthPrice().then((res) => {
+        setEthPrice(res.data.data.marketPairs[0].price.toFixed(2))
+      })
+    }, 10000)
   }, [])
-  let provider = ethers.getDefaultProvider('homestead')
 
-  setInterval(() => {
-    provider.getGasPrice().then((res) => {
-      setGasPrice(new BigNumber(res.toString()).dividedBy(10 ** 9).toFixed(2))
-    })
-    getEthPrice().then((res) => {
-      setEthPrice(res.data.data.marketPairs[0].price.toFixed(2))
-    })
-  }, 30000)
   return (
     <Flex
       w={{ sm: '100%', md: 'auto' }}
