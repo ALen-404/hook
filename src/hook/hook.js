@@ -7,6 +7,7 @@ import {
   getTag,
   setSearchHeat,
   setTag_address,
+  getSearchData,
 } from '../api/dashbord'
 
 export const getMarketCapAndVolume = (type) => {
@@ -19,9 +20,13 @@ export const getGraphData = (time) => {
   return getFigureData({ time })
 }
 
-export const getSearchData = (limit) => {
+export const getSearchRank = (limit) => {
   return getSearchHeat({ limit })
 }
 export const getCmcDatas = (limit, start, type) => {
   return getCmcData({ limit, start, type })
+}
+
+export const getSearchDatas = (address) => {
+  return getSearchData({ address })
 }

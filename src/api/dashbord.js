@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const DefaultUrl = 'https://hook.cool:8890/api'
+const DefaultUrl = 'https://api.hook.cool'
 
 export async function getFigureData(params) {
   return await axios.get(`${DefaultUrl}/mini/getFigureData`, {
@@ -41,4 +41,10 @@ export async function setSearchHeat(params) {
 }
 export async function setTag_address(params) {
   return await axios.get(`${DefaultUrl}/search/setTag_address/${params}`)
+}
+
+export async function getSearchData(params) {
+  return await axios.get(`${DefaultUrl}/track/tokenbalance`, {
+    params,
+  })
 }

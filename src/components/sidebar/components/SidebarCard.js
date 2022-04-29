@@ -40,14 +40,14 @@ export default function SidebarDocs() {
         />
       </Flex>
       <Flex marginTop="26px" marginBottom="10px" textAlign="center">
-        <text fontSize="16px" color="#FFFFFF">
+        <Text fontSize="16px" color="#FFFFFF">
           Upgrade to PRO
-        </text>
+        </Text>
       </Flex>
       <Flex textAlign="center" width="229px">
-        <text fontSize="14px" color="#FFFFFF">
+        <Text fontSize="14px" color="#FFFFFF">
           to get access to all features! Connect with Venus World!{' '}
-        </text>
+        </Text>
       </Flex>
     </Flex>
   )

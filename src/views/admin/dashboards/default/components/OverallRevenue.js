@@ -24,6 +24,7 @@ import { RiArrowUpSFill } from 'react-icons/ri'
 
 export default function OverallRevenue(props) {
   const { chartData, ...rest } = props
+  console.log(chartData, lineChartDataTotalSpent, 'chartData')
   // Chakra Color Mode
   const textColor = useColorModeValue('secondaryGray.900', 'white')
   return (

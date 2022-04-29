@@ -24,7 +24,7 @@ import fakeGraph from 'assets/img/dashboards/fakeGraph.png'
 import { MdOutlineMoreHoriz, MdDomain, MdElectricCar } from 'react-icons/md'
 
 export default function Balance(props) {
-  const { ...rest } = props
+  const { total2Usd, ...rest } = props
   // Ellipsis modals
   const {
     isOpen: isOpen1,
@@ -62,7 +62,7 @@ export default function Balance(props) {
             fontWeight="700"
             lineHeight="100%"
           >
-            $3942.58
+            ${total2Usd}
           </Text>
         </Flex>
         <Flex flexDirection="column" ms="auto" align="flex-end">

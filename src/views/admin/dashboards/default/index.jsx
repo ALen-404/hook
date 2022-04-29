@@ -23,7 +23,7 @@ import MiniStatistics from 'components/card/MiniStatistics'
 import {
   getGraphData,
   getMarketCapAndVolume,
-  getSearchData,
+  getSearchRank,
   getCmcDatas,
 } from '../../../../hook/hook'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
@@ -63,7 +63,7 @@ export default function Default() {
         ])
       }
     })
-    getSearchData(10).then((res) => {
+    getSearchRank(10).then((res) => {
       setSearchData(res.data.data)
     })
     getCmcDatas(5, 1, 'NFT').then((res) => {

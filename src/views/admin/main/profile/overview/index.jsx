@@ -22,17 +22,54 @@ import Upload from 'views/admin/main/profile/overview/components/Upload'
 // Assets
 import banner from 'assets/img/auth/banner.png'
 import avatar from 'assets/img/avatars/avatar4.png'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import fakeGraph from 'assets/img/dashboards/fakeGraph.png'
 import ManagementTable from 'views/admin/main/account/application/components/ManagementTable'
 import { tableColumnsManagement } from 'views/admin/main/account/application/variables/tableColumnsManagement'
 import tableDataManagement from 'views/admin/main/account/application/variables/tableDataManagement.json'
+
+import BigNumber from 'bignumber.js'
 export default function Overview() {
   const {
     isOpen: isOpen1,
     onOpen: onOpen1,
     onClose: onClose1,
   } = useDisclosure()
+
+  const [total2Usd, setTotal2Usd] = useState(0)
+  const [defi2Usd, setDefi2Usd] = useState(0)
+  const [nft2Usd, setNft2Usd] = useState(0)
+  //   const [searchToken, setSearchToken] = useState([])
+  //   const [nftToken, setNftToken] = useState([])
+  const [defiPercentage, setDefiPercentage] = useState(0)
+
+  const searchAddress = localStorage.getItem('searchAddress')
+  const [searchData, setSearchData] = useState(
+    JSON.parse(localStorage.getItem('searchData'))
+  )
+
+  useEffect(() => {
+    console.log(searchData)
+    setSearchData(searchData)
+    setTotal2Usd(searchData.totalPrice)
+    setDefi2Usd(searchData.totalPrice_defi)
+    setNft2Usd(searchData.totalPrice_nft)
+    console.log(new BigNumber(total2Usd).div(defi2Usd).toString())
+    if (total2Usd && defi2Usd) {
+      setDefiPercentage(
+        new BigNumber(total2Usd).div(defi2Usd).times(100).toFixed(2)
+      )
+    }
+    // setSearchToken(searchData.tokenBalance.data)
+    // const defiToken = searchData.tokenBalance.data.filter(
+    //   (res) => res.tokenInfo.c == null
+    // )
+    // const nftToken = searchData.tokenBalance.data.filter(
+    //   (res) => res.tokenInfo.c != null
+    // )
+    // setDefiToken(defiToken)
+    // setNftToken(nftToken)
+  }, [searchAddress, defi2Usd, searchData, total2Usd])
   return (
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
       {/* Main Fields */}
@@ -52,17 +89,20 @@ export default function Overview() {
           banner={banner}
           avatar={avatar}
           name="Adela Parkson"
-          job="0X2FA...9448"
-          posts="17"
-          followers="9.7k"
-          following="274"
+          searchAddress={searchAddress}
+          total2Usd={total2Usd.toLocaleString()}
+          defi2Usd={defi2Usd.toLocaleString()}
+          nft2Usd={nft2Usd.toLocaleString()}
+          defiPercentage={defiPercentage}
+          nftPercentage={100 - defiPercentage}
         />
         <Storage
           gridArea={{ base: '2 / 1 / 3 / 2', lg: '1 / 2 / 2 / 3' }}
           used={25.6}
           total={50}
+          searchData={searchData}
         />
-        <Upload 
+        <Upload
           gridArea={{
             base: '3 / 1 / 4 / 2',
             lg: '1 / 3 / 2 / 4',
@@ -110,7 +150,7 @@ export default function Overview() {
             '2xl': '1 / 3 / 2 / 4',
           }}
         /> */}
-         <ManagementTable
+        <ManagementTable
           tableData={tableDataManagement}
           columnsData={tableColumnsManagement}
         />

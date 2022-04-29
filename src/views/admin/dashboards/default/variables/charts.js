@@ -26,15 +26,15 @@ import { getGraphData } from '../../../../../hook/hook'
 export const lineChartDataTotalSpent = [
   {
     name: 'DEFI',
-    data: [30, 40, 24, 46, 20, 46],
+    data: [30, 40, 24, 46, 20, 4, 6],
   },
   {
     name: 'GAMEFI',
-    data: [30, 40, 24, 46, 20, 46],
+    data: [30, 40, 24, 44, 6, 20, 46],
   },
   {
     name: 'NFT',
-    data: [10, 30, 10, 16, 60, 36],
+    data: [10, 30, 10, 14, 6, 60, 36],
   },
 ]
 
@@ -80,7 +80,7 @@ export const lineChartOptionsTotalSpent = {
   },
   xaxis: {
     type: 'numeric',
-    categories: ['SEP', 'OCT', 'NOV', 'DEC', 'JAN', 'FEB'],
+    categories: ['SEP', 'OCT', 'NOV', 'DEC', 'JAN', 'FEB', 'FE2B'],
     labels: {
       style: {
         colors: '#A3AED0',
