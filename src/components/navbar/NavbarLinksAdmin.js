@@ -21,7 +21,7 @@ import { ItemContent } from 'components/menu/ItemContent'
 import { SearchBar } from 'components/navbar/searchBar/SearchBar'
 import { SidebarResponsive } from 'components/sidebar/Sidebar'
 import PropTypes from 'prop-types'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 // Assets
 import navImage from 'assets/img/layout/Navbar.png'
 import {
@@ -34,6 +34,9 @@ import { IoMdMoon, IoMdSunny } from 'react-icons/io'
 import { FaEthereum } from 'react-icons/fa'
 import routes from 'routes.js'
 import { MdFilterNone } from 'react-icons/md'
+import { ethers } from 'ethers'
+import BigNumber from 'bignumber.js'
+import { getEthPrice } from '../../api/dashbord'
 export default function HeaderLinks(props) {
   const { secondary } = props
   const { colorMode, toggleColorMode } = useColorMode()
@@ -52,11 +55,23 @@ export default function HeaderLinks(props) {
   )
   const borderButton = useColorModeValue('secondaryGray.500', 'whiteAlpha.200')
 
+  const [gasPrice, setGasPrice] = useState(0)
+  const [ethPrice, setEthPrice] = useState(0)
   useEffect(() => {
     if (colorMode !== 'dark') {
       toggleColorMode()
     }
   }, [])
+  let provider = ethers.getDefaultProvider('homestead')
+
+  setInterval(() => {
+    provider.getGasPrice().then((res) => {
+      setGasPrice(new BigNumber(res.toString()).dividedBy(10 ** 9).toFixed(2))
+    })
+    getEthPrice().then((res) => {
+      setEthPrice(res.data.data.marketPairs[0].price.toFixed(2))
+    })
+  }, 30000)
   return (
     <Flex
       w={{ sm: '100%', md: 'auto' }}
@@ -73,7 +88,7 @@ export default function HeaderLinks(props) {
         me="10px"
         borderRadius="30px"
       />
-      <Flex
+      {/* <Flex
         bg={ethBg}
         display={secondary ? 'flex' : 'none'}
         borderRadius="30px"
@@ -106,7 +121,7 @@ export default function HeaderLinks(props) {
             ETH
           </Text>
         </Text>
-      </Flex>
+      </Flex> */}
       {/* <SidebarResponsive routes={routes} /> */}
       {/* <Menu>
         <MenuButton p="0px">
@@ -252,7 +267,7 @@ export default function HeaderLinks(props) {
           icon={<MdVerticalDistribute />}
         />
         <Text fontWeight="700" color="#fff" fontSize="14px">
-          $1,924
+          ${ethPrice}
         </Text>
       </Box>
       <Box
@@ -275,8 +290,8 @@ export default function HeaderLinks(props) {
           fontSize="16px"
           icon={<MdBolt />}
         />
-        <Text fontWeight="700" color="#fff" fontSize="14px">
-          $1,924
+        <Text fontWeight="700" color="#fff" lineHeight="29px" fontSize="14px">
+          {gasPrice}
         </Text>
       </Box>
       {/* <Button
