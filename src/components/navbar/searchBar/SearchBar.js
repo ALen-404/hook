@@ -48,7 +48,7 @@ export function SearchBar(props) {
         fontWeight="500"
         _placeholder={{ color: 'gray.400', fontSize: '14px' }}
         borderRadius={borderRadius ? borderRadius : '30px'}
-        placeholder={placeholder ? placeholder : 'Search...'}
+        placeholder={placeholder ? placeholder : 'Search...'}  
         onChange={(value) => {
           setInputValue(value.target.value)
         }}

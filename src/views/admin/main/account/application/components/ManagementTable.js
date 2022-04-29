@@ -72,12 +72,12 @@ function ManagementTable(props) {
            Activities
           </Text>
           {/* <Menu /> */}
-          <Box display="flex" alignItems="center">
+          {/* <Box display="flex" alignItems="center">
             <Text fontWeight="500" color= "#A3AED0">
             Data updated 22 secs ago
-            </Text>
+            </Text>   
             <Icon marginLeft="5px" as={MdCached} w="24px" h="24px" color="#A3AED0"/>  
-          </Box>
+          </Box> */}
         </Flex>
         <Table {...getTableProps()} variant='simple' color='gray.500'>
           <Thead>
@@ -107,14 +107,14 @@ function ManagementTable(props) {
               prepareRow(row);
               return (
                 <Tr {...row.getRowProps()} key={index}>
-                  {row.cells.map((cell, index) => {
+                  {row.cells.map((cell, index) => { 
                     let data = "";
                     if (cell.column.Header === "Type") {
                       data = (
                         <Flex align='center'>
                           {/* <Avatar
                             src={cell.value[2]}
-                            w='36px'
+                            w='36px'  
                             h='36px'
                             me='8px'
                             borderRadius='14px'

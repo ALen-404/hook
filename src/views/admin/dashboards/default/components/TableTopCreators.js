@@ -12,25 +12,26 @@ import {
   Thead,
   Tr,
   useColorModeValue,
-} from '@chakra-ui/react'
-import React, { useMemo } from 'react'
+} from "@chakra-ui/react";
+import React, { useMemo } from "react";
 import {
   useGlobalFilter,
   usePagination,
   useSortBy,
   useTable,
-} from 'react-table'
-import { Icon } from '@chakra-ui/react'
-import { MdBarChart, MdOutlineCalendarToday } from 'react-icons/md'
+} from "react-table";
+import { Icon } from "@chakra-ui/react";
+import { MdBarChart, MdOutlineCalendarToday } from "react-icons/md";
 import {
   VSeparator,
   HSeparator,
-} from '../../../../../components/separator/Separator'
-import { IconButton } from '@chakra-ui/react'
+} from "../../../../../components/separator/Separator";
+import { IconButton } from "@chakra-ui/react";
 function TopCreatorTable(props) {
-  const { columnsData, tableData } = props
-  const columns = useMemo(() => columnsData, [columnsData])
-  const data = useMemo(() => tableData, [tableData])
+  const { columnsData, tableData } = props;
+
+  const columns = useMemo(() => columnsData, [columnsData]);
+  const data = useMemo(() => tableData, [tableData]);
 
   const tableInstance = useTable(
     {
@@ -40,29 +41,31 @@ function TopCreatorTable(props) {
     useGlobalFilter,
     useSortBy,
     usePagination
-  )
+  );
+
   const { getTableProps, getTableBodyProps, headerGroups, page, prepareRow } =
-    tableInstance
-  const balanceBg = useColorModeValue('brand.900', '#1B254B')
-  const textColor = useColorModeValue('navy.700', 'white')
-  const textColorSecondary = useColorModeValue('secondaryGray.600', 'white')
-  const iconColor = useColorModeValue('brand.500', 'white')
+    tableInstance;
+    const balanceBg = useColorModeValue('brand.900', '#1B254B');
+  const textColor = useColorModeValue("navy.700", "white");
+  const textColorSecondary = useColorModeValue("secondaryGray.600", "white");
+  const iconColor = useColorModeValue("brand.500", "white");
   return (
     <>
       <Flex
         direction="column"
         w="100%"
-        overflowX={{ sm: 'scroll', lg: 'hidden' }}
+        overflowX={{ sm: "scroll", lg: "hidden" }}
         borderRadius="16px"
         bgColor={balanceBg}
       >
         <Flex
-          align={{ sm: 'flex-start', lg: 'center' }}
+          align={{ sm: "flex-start", lg: "center" }}
           justify="space-between"
           w="100%"
           px="22px"
           pb="20px"
           pt="20px"
+          
         >
           <Text color={textColor} fontSize="24px" fontWeight="600">
             Trending Addresses
@@ -81,11 +84,7 @@ function TopCreatorTable(props) {
         <Table {...getTableProps()} variant="simple" color="gray.500">
           <Thead>
             {headerGroups.map((headerGroup, index) => (
-              <Tr
-                {...headerGroup.getHeaderGroupProps()}
-                key={index}
-                borderBottom="1px"
-              >
+              <Tr {...headerGroup.getHeaderGroupProps()} key={index} borderBottom='1px'>
                 {headerGroup.headers.map((column, index) => (
                   <>
                     <Th
@@ -97,10 +96,10 @@ function TopCreatorTable(props) {
                       <Flex
                         justify="space-between"
                         align="center"
-                        fontSize={{ sm: '10px', lg: '12px' }}
+                        fontSize={{ sm: "10px", lg: "12px" }}
                         color="gray.400"
                       >
-                        {column.render('Header')}
+                        {column.render("Header")}
                       </Flex>
                     </Th>
                   </>
@@ -111,12 +110,12 @@ function TopCreatorTable(props) {
 
           <Tbody {...getTableBodyProps()}>
             {page.map((row, index) => {
-              prepareRow(row)
+              prepareRow(row);
               return (
                 <Tr {...row.getRowProps()} key={index}>
                   {row.cells.map((cell, index) => {
-                    let data = ''
-                    if (cell.column.Header === 'Addresses') {
+                    let data = "";
+                    if (cell.column.Header === "Addresses") {
                       data = (
                         <Flex align="center">
                           {/* <Avatar
@@ -130,15 +129,11 @@ function TopCreatorTable(props) {
                             fontSize="sm"
                             fontWeight="600"
                           >
-                            {cell.value.slice(0, 4)}...
-                            {cell.value.slice(
-                              cell.value.length - 5,
-                              cell.value.length - 1
-                            )}
+                            {cell.value[0]}
                           </Text>
                         </Flex>
-                      )
-                    } else if (cell.column.Header === 'DATE') {
+                      );
+                    } else if (cell.column.Header === "DATE") {
                       data = (
                         <Text
                           color={textColorSecondary}
@@ -147,8 +142,8 @@ function TopCreatorTable(props) {
                         >
                           {cell.value}
                         </Text>
-                      )
-                    } else if (cell.column.Header === 'Search Times') {
+                      );
+                    } else if (cell.column.Header === "Search Times") {
                       data = (
                         <Box>
                           <Progress
@@ -157,28 +152,28 @@ function TopCreatorTable(props) {
                             value={cell.value}
                           />
                         </Box>
-                      )
+                      );
                     }
                     return (
                       <Td
                         {...cell.getCellProps()}
                         key={index}
-                        fontSize={{ sm: '14px' }}
-                        minW={{ sm: '150px', md: '200px', lg: 'auto' }}
+                        fontSize={{ sm: "14px" }}
+                        minW={{ sm: "150px", md: "200px", lg: "auto" }}
                         borderColor="transparent"
                       >
                         {data}
                       </Td>
-                    )
+                    );
                   })}
                 </Tr>
-              )
+              );
             })}
           </Tbody>
         </Table>
       </Flex>
     </>
-  )
+  );
 }
 
-export default TopCreatorTable
+export default TopCreatorTable;

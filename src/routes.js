@@ -2,12 +2,13 @@ import React from 'react'
 
 import { Icon } from '@chakra-ui/react'
 import {
-  MdDashboard,
   MdHome,
   MdLock,
   MdSpaceDashboard,
+  MdDashboard,
+  MdAssessment,
   MdAccountCircle,
-  MdOutlineSearch,
+  MdBrokenImage,
 } from 'react-icons/md'
 
 // Admin Imports
@@ -65,7 +66,7 @@ import VerificationDefault from 'views/auth/verification/VerificationDefault.jsx
 const routes = [
   // --- Dashboards ---
   {
-    name: 'Dashboards',
+    name: 'Overview',
     layout: '/admin',
     path: '/dashboards/default',
     icon: <Icon as={MdHome} width="20px" height="20px" color="inherit" />,
@@ -94,12 +95,12 @@ const routes = [
   },
   // --- NFTs ---
   {
-    name: 'Track',
+    name: 'Trending',
     layout: '/admin',
-    path: '/track',
+    path: '/nfts/collection',
     component: ProfileOverview,
     icon: (
-      <Icon as={MdSpaceDashboard} width="20px" height="20px" color="inherit" />
+      <Icon as={MdAssessment} width="20px" height="20px" color="inherit" />
     ),
     collapse: false,
     items: [
@@ -181,145 +182,148 @@ const routes = [
   // },
   // ---NFT ---
   {
-    name: 'NFT',
-    path: '/main',
-    icon: <Icon as={MdDashboard} width="20px" height="20px" color="inherit" />,
-    collapse: true,
+    name: 'Track',
+    path: '/track',
+    component: ProfileOverview,
+    icon: (
+      <Icon as={MdBrokenImage} width="20px" height="20px" color="inherit" />
+    ),
+    collapse: false,
     items: [
-      {
-        name: 'Explore',
-        path: '/main/account/billing',
-        layout: '/admin',
-        collapse: false,
-        component: AccountBilling,
-        items: [
-          // {
-          //   name: "Billing",
-          //   layout: "/admin",
-          //   path: "/main/account/billing",
-          //   exact: false,
-          //   component: AccountBilling,
-          // },
-          // {
-          //   name: "Application",
-          //   layout: "/admin",
-          //   path: "/main/account/application",
-          //   exact: false,
-          //   component: AccountApplications,
-          // },
-          // {
-          //   name: "Invoice",
-          //   layout: "/admin",
-          //   path: "/main/account/invoice",
-          //   exact: false,
-          //   component: AccountInvoice,
-          // },
-          // {
-          //   name: "Settings",
-          //   layout: "/admin",
-          //   path: "/main/account/settings",
-          //   exact: false,
-          //   component: AccountSettings,
-          // },
-          // {
-          //   name: "All Courses",
-          //   layout: "/admin",
-          //   path: "/main/account/all-courses",
-          //   exact: false,
-          //   component: AccountAllCourses,
-          // },
-          // {
-          //   name: "Course Page",
-          //   layout: "/admin",
-          //   path: "/main/account/course-page",
-          //   exact: false,
-          //   component: AccountCoursePage,
-          // },
-        ],
-      },
-      {
-        name: 'Customized',
-        collapse: false,
-        layout: '/admin',
-        path: '/main/ecommerce/new-prodcut',
-        exact: false,
-        component: EcommerceNewProduct,
-        items: [
-          // {
-          //   name: "New Product",
-          //   layout: "/admin",
-          //   path: "/main/ecommerce/new-prodcut",
-          //   exact: false,
-          //   component: EcommerceNewProduct,
-          // },
-          // {
-          //   name: "Product Settings",
-          //   layout: "/admin",
-          //   path: "/main/ecommerce/settings",
-          //   exact: false,
-          //   component: EcommerceProductSettings,
-          // },
-          // {
-          //   name: "Product Page",
-          //   layout: "/admin",
-          //   path: "/main/ecommerce/page-example",
-          //   exact: false,
-          //   component: EcommerceProductPage,
-          // },
-          // {
-          //   name: "Order List",
-          //   layout: "/admin",
-          //   path: "/main/ecommerce/order-list",
-          //   exact: false,
-          //   component: EcommerceOrderList,
-          // },
-          // {
-          //   name: "Order Details",
-          //   layout: "/admin",
-          //   path: "/main/ecommerce/order-details",
-          //   exact: false,
-          //   component: EcommerceOrderDetails,
-          // },
-          // {
-          //   name: "Referrals",
-          //   layout: "/admin",
-          //   path: "/main/ecommerce/referrals",
-          //   exact: false,
-          //   component: EcommerceReferrals,
-          // },
-        ],
-      },
-      {
-        name: 'Trending',
-        collapse: false,
-        layout: '/admin',
-        path: '/main/users/new-user',
-        exact: false,
-        component: UserNew,
-        items: [
-          // {
-          //   name: "New User",
-          //   layout: "/admin",
-          //   path: "/main/users/new-user",
-          //   exact: false,
-          //   component: UserNew,
-          // },
-          // {
-          //   name: "Users Overview",
-          //   layout: "/admin",
-          //   path: "/main/users/users-overview",
-          //   exact: false,
-          //   component: UsersOverview,
-          // },
-          // {
-          //   name: "Users Reports",
-          //   layout: "/admin",
-          //   path: "/main/users/users-reports",
-          //   exact: false,
-          //   component: UsersReports,
-          // },
-        ],
-      },
+      // {
+        // name: 'Explore',
+        // path: '/main/account/billing',
+        // layout: '/admin',
+        // collapse: false,
+        // component: AccountBilling,
+        // items: [
+        //   // {
+        //   //   name: "Billing",
+        //   //   layout: "/admin",
+        //   //   path: "/main/account/billing",
+        //   //   exact: false,
+        //   //   component: AccountBilling,
+        //   // },
+        //   // {
+        //   //   name: "Application",
+        //   //   layout: "/admin",
+        //   //   path: "/main/account/application",
+        //   //   exact: false,
+        //   //   component: AccountApplications,
+        //   // },
+        //   // {
+        //   //   name: "Invoice",
+        //   //   layout: "/admin",
+        //   //   path: "/main/account/invoice",
+        //   //   exact: false,
+        //   //   component: AccountInvoice,
+        //   // },
+        //   // {
+        //   //   name: "Settings",
+        //   //   layout: "/admin",
+        //   //   path: "/main/account/settings",
+        //   //   exact: false,
+        //   //   component: AccountSettings,
+        //   // },
+        //   // {
+        //   //   name: "All Courses",
+        //   //   layout: "/admin",
+        //   //   path: "/main/account/all-courses",
+        //   //   exact: false,
+        //   //   component: AccountAllCourses,
+        //   // },
+        //   // {
+        //   //   name: "Course Page",
+        //   //   layout: "/admin",
+        //   //   path: "/main/account/course-page",
+        //   //   exact: false,
+        //   //   component: AccountCoursePage,
+        //   // },
+        // ],
+      // },
+      // {
+      //   name: 'Customized',
+      //   collapse: false,
+      //   layout: '/admin',
+      //   path: '/main/ecommerce/new-prodcut',
+      //   exact: false,
+      //   component: EcommerceNewProduct,
+      //   items: [
+      //     // {
+      //     //   name: "New Product",
+      //     //   layout: "/admin",
+      //     //   path: "/main/ecommerce/new-prodcut",
+      //     //   exact: false,
+      //     //   component: EcommerceNewProduct,
+      //     // },
+      //     // {
+      //     //   name: "Product Settings",
+      //     //   layout: "/admin",
+      //     //   path: "/main/ecommerce/settings",
+      //     //   exact: false,
+      //     //   component: EcommerceProductSettings,
+      //     // },
+      //     // {
+      //     //   name: "Product Page",
+      //     //   layout: "/admin",
+      //     //   path: "/main/ecommerce/page-example",
+      //     //   exact: false,
+      //     //   component: EcommerceProductPage,
+      //     // },
+      //     // {
+      //     //   name: "Order List",
+      //     //   layout: "/admin",
+      //     //   path: "/main/ecommerce/order-list",
+      //     //   exact: false,
+      //     //   component: EcommerceOrderList,
+      //     // },
+      //     // {
+      //     //   name: "Order Details",
+      //     //   layout: "/admin",
+      //     //   path: "/main/ecommerce/order-details",
+      //     //   exact: false,
+      //     //   component: EcommerceOrderDetails,
+      //     // },
+      //     // {
+      //     //   name: "Referrals",
+      //     //   layout: "/admin",
+      //     //   path: "/main/ecommerce/referrals",
+      //     //   exact: false,
+      //     //   component: EcommerceReferrals,
+      //     // },
+      //   ],
+      // },
+      // {
+      //   name: 'Trending',
+      //   collapse: false,
+      //   layout: '/admin',
+      //   path: '/main/users/new-user',
+      //   exact: false,
+      //   component: UserNew,
+      //   items: [
+      //     // {
+      //     //   name: "New User",
+      //     //   layout: "/admin",
+      //     //   path: "/main/users/new-user",
+      //     //   exact: false,
+      //     //   component: UserNew,
+      //     // },
+      //     // {
+      //     //   name: "Users Overview",
+      //     //   layout: "/admin",
+      //     //   path: "/main/users/users-overview",
+      //     //   exact: false,
+      //     //   component: UsersOverview,
+      //     // },
+      //     // {
+      //     //   name: "Users Reports",
+      //     //   layout: "/admin",
+      //     //   path: "/main/users/users-reports",
+      //     //   exact: false,
+      //     //   component: UsersReports,
+      //     // },
+      //   ],
+      // },
       // {
       //   name: "Applications",
       //   path: "/main/applications",
@@ -395,7 +399,7 @@ const routes = [
   // --- Drop ---
   {
     name: 'Drop',
-    icon: <Icon as={MdLock} width="20px" height="20px" color="inherit" />,
+    icon: <Icon as={MdDashboard} width="20px" height="20px" color="inherit" />,
     collapse: false,
     layout: '/auth',
     path: '/sign-in/default',
@@ -533,46 +537,46 @@ const routes = [
     ],
   },
   // --- RSS ---
-  {
-    name: 'RSS',
-    layout: '/admin',
-    path: '/nfts/marketplace',
-    component: NFTMarketplace,
-    icon: (
-      <Icon as={MdAccountCircle} width="20px" height="20px" color="inherit" />
-    ),
-    collapse: false,
-    items: [
-      // {
-      //   name: "Marketplace",
-      //   layout: "/admin",
-      //   path: "/nfts/marketplace",
-      //   component: NFTMarketplace,
-      //   secondary: true,
-      // },
-      // {
-      //   name: "Collection",
-      //   layout: "/admin",
-      //   path: "/nfts/collection",
-      //   component: NFTCollection,
-      //   secondary: true,
-      // },
-      // {
-      //   name: "NFT Page",
-      //   layout: "/admin",
-      //   path: "/nfts/page",
-      //   component: NFTPage,
-      //   secondary: true,
-      // },
-      // {
-      //   name: "Profile",
-      //   layout: "/admin",
-      //   path: "/nfts/profile",
-      //   component: NFTProfile,
-      //   secondary: true,
-      // },
-    ],
-  },
+  // {
+  //   name: 'RSS',
+  //   layout: '/admin',
+  //   path: '/nfts/marketplace',
+  //   component: NFTMarketplace,
+  //   icon: (
+  //     <Icon as={MdAccountCircle} width="20px" height="20px" color="inherit" />
+  //   ),
+  //   collapse: false,
+  //   items: [
+  //     // {
+  //     //   name: "Marketplace",
+  //     //   layout: "/admin",
+  //     //   path: "/nfts/marketplace",
+  //     //   component: NFTMarketplace,
+  //     //   secondary: true,
+  //     // },
+  //     // {
+  //     //   name: "Collection",
+  //     //   layout: "/admin",
+  //     //   path: "/nfts/collection",
+  //     //   component: NFTCollection,
+  //     //   secondary: true,
+  //     // },
+  //     // {
+  //     //   name: "NFT Page",
+  //     //   layout: "/admin",
+  //     //   path: "/nfts/page",
+  //     //   component: NFTPage,
+  //     //   secondary: true,
+  //     // },
+  //     // {
+  //     //   name: "Profile",
+  //     //   layout: "/admin",
+  //     //   path: "/nfts/profile",
+  //     //   component: NFTProfile,
+  //     //   secondary: true,
+  //     // },
+  //   ],
+  // },
 ]
 
 export default routes

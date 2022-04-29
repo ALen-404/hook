@@ -6,40 +6,31 @@ import {
   Text,
   useColorModeValue,
   Image,
-} from '@chakra-ui/react'
-import Card from 'components/card/Card.js'
-import React from 'react'
-import Balance from './Balance'
-import { Icon } from '@chakra-ui/react'
-import { MdFilterNone } from 'react-icons/md'
-import NFTLogo from '../../../../../../assets/img/logo/NFTLogo.png'
-import SLogo from '../../../../../../assets/img/logo/SLogo.png'
+} from "@chakra-ui/react";
+import Card from "components/card/Card.js";
+import React from "react";
+import Balance from "./Balance";
+import { Icon } from "@chakra-ui/react";
+import { MdFilterNone } from "react-icons/md";
+import NFTLogo from "../../../../../../assets/img/logo/NFTLogo.png";
+import SLogo from "../../../../../../assets/img/logo/SLogo.png";
+
 
 export default function Banner(props) {
-  const {
-    banner,
-    avatar,
-    name,
-    searchAddress,
-    total2Usd,
-    defi2Usd,
-    nft2Usd,
-    defiPercentage,
-    nftPercentage,
-  } = props
+  const { banner, avatar, name, job, posts, followers, following } = props;
 
-  const cyberAddress = 'https://www.cyber.xyz/@'
+  const cyberAddress = "https://www.cyber.xyz/@";
 
   // Chakra Color Mode
-  const textColorPrimary = useColorModeValue('secondaryGray.900', 'white')
-  const textColorSecondary = 'gray.400'
-  const iconMap = ['user', 'Adela', 'aaaa', 'bbbb']
+  const textColorPrimary = useColorModeValue("secondaryGray.900", "white");
+  const textColorSecondary = "gray.400";
+  const iconMap = ["user", "Adela", "aaaa", "bbbb"];
   const borderColor = useColorModeValue(
-    'white !important',
-    '#111C44 !important'
-  )
+    "white !important",
+    "#111C44 !important"
+  );
   return (
-    <Card mb={{ base: '0px', lg: '20px' }} align="center">
+    <Card mb={{ base: "0px", lg: "20px" }} align="center">
       <Box
         bg={`url(${banner})`}
         bgSize="cover"
@@ -61,7 +52,7 @@ export default function Banner(props) {
       </Text>
       <Flex margin="auto" display="flex" alignItems="center">
         <Text color={textColorSecondary} fontSize="sm" marginRight={2}>
-          {searchAddress}
+          {job}
         </Text>
         <Icon as={MdFilterNone} w={13} h={13} color="#A3AED0" />
       </Flex>
@@ -80,7 +71,7 @@ export default function Banner(props) {
             >
               #{res}
             </Box>
-          )
+          );
         })}
       </Flex>
       <Flex
@@ -92,35 +83,39 @@ export default function Banner(props) {
       >
         <Text
           color="#438EFF"
-          fontSize="14px"
+          font-size="14px"
           onClick={() => {
-            window.open(`https://etherscan.io/address/${searchAddress}`)
+            window.open("https://etherscan.io/address/");
           }}
         >
           Etherscan
         </Text>
         <Text
           onClick={() => {
-            window.open(`https://opensea.io/${searchAddress}`)
+            window.open(
+              "https://opensea.io/0x6afdf721593A3673451973bEfF8c4dc076d28192"
+            );
           }}
           color="#438EFF"
-          fontSize="14px"
+          font-size="14px"
         >
           Opensea
         </Text>
         <Text
           onClick={() => {
-            window.open(`https://www.cyber.xyz/@${searchAddress}`)
+            window.open(
+              "https://www.cyber.xyz/@0x6afdf721593a3673451973beff8c4dc076d28192"
+            );
           }}
           color="#438EFF"
-          fontSize="14px"
+          font-size="14px"
         >
           Cyber.xyz
         </Text>
       </Flex>
-      <Balance total2Usd={total2Usd}></Balance>
-      <Flex display="flex" alignItems="center">
-        <Flex display="flex" alignItems="center">
+      <Balance></Balance>
+      <Flex  display="flex" justifyContent="space-around">
+        <Flex flexDirection="column">
           <Box>
             <Image src={NFTLogo} width="60px" height="60px" alt="Horizon UI" />
           </Box>
@@ -128,37 +123,37 @@ export default function Banner(props) {
             <Box fontSize="16px" color="#A3AED0" fontWeight="500">
               Assets on ERC721
             </Box>
-            <Box display="flex" alignItems="center">
-              <Text fontSize="18px" mr="5px" color="#FFFFFF">
-                ${nft2Usd}
-              </Text>
+            <Box  display="flex" alignItems="center">
               <Text fontSize="18px" color="#FFFFFF">
-                {nftPercentage}%
+                $3,921
+              </Text>
+              <Text fontSize="18px" color="#FFFFFF" marginLeft="10px">
+                94%
               </Text>
             </Box>
           </Box>
         </Flex>
-        <Flex display="flex" alignItems="center" marginLeft="10px">
+        <Flex flexDirection="column"marginLeft="10px">
           <Box>
             <Image src={SLogo} width="60px" height="60px" alt="Horizon UI" />
           </Box>
-          <Box marginLeft="16px">
-            <Box>
+          <Box  marginLeft="16px">
+            <Box >
               <Text fontSize="16px" color="#A3AED0" fontWeight="500">
-                Assets on ERC20
+                Assets on ERC721
               </Text>
             </Box>
             <Box display="flex" alignItems="center">
-              <Text fontSize="18px" mr="5px" color="#FFFFFF">
-                ${defi2Usd}
-              </Text>
               <Text fontSize="18px" color="#FFFFFF">
-                {defiPercentage}%
+                $3,921
+              </Text>
+              <Text fontSize="18px" color="#FFFFFF" marginLeft="10px">
+                94%
               </Text>
             </Box>
           </Box>
         </Flex>
       </Flex>
     </Card>
-  )
+  );
 }
