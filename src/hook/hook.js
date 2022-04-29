@@ -8,6 +8,7 @@ import {
   setSearchHeat,
   setTag_address,
   getSearchData,
+  getTxData,
 } from '../api/dashbord'
 
 export const getMarketCapAndVolume = (type) => {
@@ -29,4 +30,8 @@ export const getCmcDatas = (limit, start, type) => {
 
 export const getSearchDatas = (address) => {
   return getSearchData({ address })
+}
+
+export const getTxDatas = (address, limit, start) => {
+  return getTxData({ address, limit, start })
 }

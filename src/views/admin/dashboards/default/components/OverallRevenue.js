@@ -54,21 +54,10 @@ export default function OverallRevenue(props) {
               mt="4px"
               textAlign="left"
             >
-              Overall Revenue
+              Volume
             </Text>
           </Flex>
         </Flex>
-        <Select
-          fontSize="sm"
-          variant="subtle"
-          defaultValue="monthly"
-          width="unset"
-          fontWeight="700"
-        >
-          <option value="daily">Daily</option>
-          <option value="monthly">Monthly</option>
-          <option value="yearly">Yearly</option>
-        </Select>
       </Flex>
       <Box minH="260px" mt="auto">
         {chartData.length > 0 && (

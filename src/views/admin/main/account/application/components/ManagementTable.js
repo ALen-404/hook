@@ -1,10 +1,10 @@
-import React, { useMemo } from "react";
+import React, { useMemo } from 'react'
 import {
   useGlobalFilter,
   usePagination,
   useSortBy,
   useTable,
-} from "react-table";
+} from 'react-table'
 
 // Chakra imports
 import {
@@ -21,20 +21,20 @@ import {
   Tr,
   useColorModeValue,
   Box,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react'
 
 // Custom components
-import Card from "components/card/Card.js";
-import Menu from "components/menu/MainMenu";
-import { MdCached } from "react-icons/md"
+import Card from 'components/card/Card.js'
+import Menu from 'components/menu/MainMenu'
+import { MdCached } from 'react-icons/md'
 // Assets
-import { MdEdit } from "react-icons/md";
+import { MdLanguage } from 'react-icons/md'
 
 function ManagementTable(props) {
-  const { columnsData, tableData } = props;
+  const { columnsData, tableData } = props
 
-  const columns = useMemo(() => columnsData, [columnsData]);
-  const data = useMemo(() => tableData, [tableData]);
+  const columns = useMemo(() => columnsData, [columnsData])
+  const data = useMemo(() => tableData, [tableData])
 
   const tableInstance = useTable(
     {
@@ -44,57 +44,56 @@ function ManagementTable(props) {
     useGlobalFilter,
     useSortBy,
     usePagination
-  );
+  )
 
   const { getTableProps, getTableBodyProps, headerGroups, page, prepareRow } =
-    tableInstance;
+    tableInstance
 
-  const textColor = useColorModeValue("navy.700", "white");
-  const borderColor = useColorModeValue("secondaryGray.400", "whiteAlpha.100");
+  const textColor = useColorModeValue('navy.700', 'white')
+  const borderColor = useColorModeValue('secondaryGray.400', 'whiteAlpha.100')
 
   return (
     <Card>
       <Flex
-        direction='column'
-        w='100%'
-        overflowX={{ sm: "scroll", lg: "hidden" }}>
+        direction="column"
+        w="100%"
+        overflowX={{ sm: 'scroll', lg: 'hidden' }}
+      >
         <Flex
-          align={{ lg: "center" }}
-          justify={{ base: "space-between" }}
-          w='100%'
-          px='20px'
-          mb='20px'>
+          align={{ lg: 'center' }}
+          justify={{ base: 'space-between' }}
+          w="100%"
+          px="20px"
+          mb="20px"
+        >
           <Text
             color={textColor}
-            fontSize='xl'
-            fontWeight='600'
-            lineHeight='100%'>
-           Activities
+            fontSize="xl"
+            fontWeight="600"
+            lineHeight="100%"
+          >
+            Activities
           </Text>
           {/* <Menu /> */}
-          {/* <Box display="flex" alignItems="center">
-            <Text fontWeight="500" color= "#A3AED0">
-            Data updated 22 secs ago
-            </Text>   
-            <Icon marginLeft="5px" as={MdCached} w="24px" h="24px" color="#A3AED0"/>  
-          </Box> */}
         </Flex>
-        <Table {...getTableProps()} variant='simple' color='gray.500'>
+        <Table {...getTableProps()} variant="simple" color="gray.500">
           <Thead>
             {headerGroups.map((headerGroup, index) => (
               <Tr {...headerGroup.getHeaderGroupProps()} key={index}>
                 {headerGroup.headers.map((column, index) => (
                   <Th
                     {...column.getHeaderProps(column.getSortByToggleProps())}
-                    pe='10px'
+                    pe="10px"
                     key={index}
-                    borderColor={borderColor}>
+                    borderColor={borderColor}
+                  >
                     <Flex
-                      justify='space-between'
-                      align='center'
-                      fontSize={{ sm: "10px", lg: "12px" }}
-                      color='gray.400'>
-                      {column.render("Header")}
+                      justify="space-between"
+                      align="center"
+                      fontSize={{ sm: '10px', lg: '12px' }}
+                      color="gray.400"
+                    >
+                      {column.render('Header')}
                     </Flex>
                   </Th>
                 ))}
@@ -104,14 +103,14 @@ function ManagementTable(props) {
 
           <Tbody {...getTableBodyProps()}>
             {page.map((row, index) => {
-              prepareRow(row);
+              prepareRow(row)
               return (
                 <Tr {...row.getRowProps()} key={index}>
-                  {row.cells.map((cell, index) => { 
-                    let data = "";
-                    if (cell.column.Header === "Type") {
+                  {row.cells.map((cell, index) => {
+                    let data = ''
+                    if (cell.column.Header === 'Type') {
                       data = (
-                        <Flex align='center'>
+                        <Flex align="center">
                           {/* <Avatar
                             src={cell.value[2]}
                             w='36px'  
@@ -119,87 +118,85 @@ function ManagementTable(props) {
                             me='8px'
                             borderRadius='14px'
                           /> */}
-                          <Flex direction='column'>
-                            <Text
-                              color={textColor}
-                              fontSize='sm'
-                              fontWeight='700'>
-                              {cell.value[0]}
-                            </Text>
-                            <Text
-                              color='secondaryGray.500'
-                              fontSize='sm'
-                              fontWeight='600'>
-                              {cell.value[1]}
-                            </Text>
-                          </Flex>
+                          <Text
+                            color={textColor}
+                            fontSize="sm"
+                            fontWeight="700"
+                          >
+                            {cell.value}
+                          </Text>
                         </Flex>
-                      );
-                    } else if (cell.column.Header === "Transfer") {
+                      )
+                    } else if (cell.column.Header === 'Transfer') {
                       data = (
-                        <Text color={textColor} fontSize='sm' fontWeight='600'>
+                        <Text color={textColor} fontSize="sm" fontWeight="600">
                           {cell.value}
                         </Text>
-                      );
-                    } else if (cell.column.Header === "Permissions") {
+                      )
+                    } else if (cell.column.Header === 'Permissions') {
                       data = (
-                        <Text color={textColor} fontSize='sm' fontWeight='600'>
+                        <Text color={textColor} fontSize="sm" fontWeight="600">
                           {cell.value}
                         </Text>
-                      );
-                    } else if (cell.column.Header === "Token") {
+                      )
+                    } else if (cell.column.Header === 'Token') {
                       data = (
                         <Badge
                           colorScheme={
-                            cell.value === "REJECTED" ? "red" : "green"
+                            cell.value === 'REJECTED' ? 'red' : 'green'
                           }
                           color={
-                            cell.value === "REJECTED" ? "red.500" : "green.500"
+                            cell.value === 'REJECTED' ? 'red.500' : 'green.500'
                           }
-                          fontSize='sm'
-                          fontWeight='600'>
-                          {cell.value.toLowerCase()}
-                        </Badge>
-                      );
-                    } else if (cell.column.Header === "Value") {
-                      data = (
-                        <Text color={textColor} fontSize='sm' fontWeight='600'>
+                          fontSize="sm"
+                          fontWeight="600"
+                        >
                           {cell.value}
-                        </Text>
-                      );
-                    } else if (cell.column.Header === " Link") {
+                        </Badge>
+                      )
+                    } else if (cell.column.Header === 'Value') {
                       data = (
-                        <Flex cursor='pointer' h='max-content' w='max-content'>
+                        <Text color={textColor} fontSize="sm" fontWeight="600">
+                          Ξ {cell.value}
+                        </Text>
+                      )
+                    } else if (cell.column.Header === 'Link') {
+                      data = (
+                        <Flex cursor="pointer" h="max-content" w="max-content">
                           <Icon
-                            color='secondaryGray.500'
-                            as={MdEdit}
-                            w='20px'
-                            h='20px'
+                            color="secondaryGray.500"
+                            as={MdLanguage}
+                            w="20px"
+                            h="20px"
+                            onClick={() => {
+                              window.open(cell.value)
+                            }}
                           />
                         </Flex>
-                      );
+                      )
                     }
                     return (
                       <Td
                         {...cell.getCellProps()}
                         key={index}
-                        fontSize={{ sm: "14px" }}
-                        minW={{ sm: "120px", md: "200px", lg: "auto" }}
-                        borderColor='transparent'
-                        mt='20px !important'
-                        py='10px !important'>
+                        fontSize={{ sm: '14px' }}
+                        minW={{ sm: '120px', md: '200px', lg: 'auto' }}
+                        borderColor="transparent"
+                        mt="20px !important"
+                        py="10px !important"
+                      >
                         {data}
                       </Td>
-                    );
+                    )
                   })}
                 </Tr>
-              );
+              )
             })}
           </Tbody>
         </Table>
       </Flex>
     </Card>
-  );
+  )
 }
 
-export default ManagementTable;
+export default ManagementTable

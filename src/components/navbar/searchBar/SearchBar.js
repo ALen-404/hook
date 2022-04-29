@@ -54,7 +54,6 @@ export function SearchBar(props) {
         }}
         onKeyDown={(res) => {
           if (res.keyCode === 13) {
-            // console.log(res)
             getSearchDatas(inputValue.toLowerCase()).then((searchRes) => {
               if (searchRes.data.code == 200) {
                 if (searchRes.data.data.tokenBalance.code == 1) {

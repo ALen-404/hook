@@ -121,7 +121,7 @@ export default function Default() {
                       : nftVolumeData?.marketCapRatio * 100?.toFixed(2) + '%'
                   }
                   name="Market Cap"
-                  value={nftVolumeData?.marketCap?.toFixed(2)}
+                  value={nftVolumeData?.marketCap?.toLocaleString()}
                   fontColor={
                     nftVolumeData?.marketCapRatio > 0 ? 'green.500' : 'red.500'
                   }
@@ -136,7 +136,7 @@ export default function Default() {
                     nftVolumeData?.volumeRatio > 0 ? 'green.500' : 'red.500'
                   }
                   name="Volume"
-                  value={nftVolumeData?.volume?.toFixed(2)}
+                  value={nftVolumeData?.volume?.toLocaleString()}
                 />
                 <MiniStatistics
                   growth={
@@ -155,7 +155,7 @@ export default function Default() {
                       ? 'green.500'
                       : 'red.500'
                   }
-                  value={nftVolumeData?.circulatingSupply?.toFixed(2)}
+                  value={nftVolumeData?.circulatingSupply?.toLocaleString()}
                 />
               </SimpleGrid>
             </TabPanel>
@@ -173,7 +173,7 @@ export default function Default() {
                       : defiVolumData?.marketCapRatio * 100?.toFixed(2) + '%'
                   }
                   name="Market Cap"
-                  value={defiVolumData?.marketCap?.toFixed(2)}
+                  value={defiVolumData?.marketCap?.toLocaleString()}
                   fontColor={
                     defiVolumData?.marketCapRatio > 0 ? 'green.500' : 'red.500'
                   }
@@ -188,7 +188,7 @@ export default function Default() {
                     defiVolumData?.volumeRatio > 0 ? 'green.500' : 'red.500'
                   }
                   name="Volume"
-                  value={defiVolumData?.volume?.toFixed(2)}
+                  value={defiVolumData?.volume?.toLocaleString()}
                 />
               </SimpleGrid>
             </TabPanel>

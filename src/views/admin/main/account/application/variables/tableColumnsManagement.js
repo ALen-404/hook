@@ -1,23 +1,23 @@
 export const tableColumnsManagement = [
   {
     Header: 'Type',
-    accessor: 'Type',
+    accessor: 'type',
   },
   {
-    Header: 'Transfer ',
-    accessor: 'Transfer',
+    Header: 'Transfer',
+    accessor: 'transfer',
   },
+  //   {
+  //     Header: 'Token',
+  //     accessor: 'token',
+  //   },
   {
-    Header: 'Token',
-    accessor: 'Token',
-  },
-  {
-    Header: 'Value  ',
-    accessor: 'Value',
+    Header: 'Value',
+    accessor: 'value',
   },
   {
     Header: 'Link',
-    accessor: 'Link',
+    accessor: 'link',
   },
   // {
   //   Header: ' ',

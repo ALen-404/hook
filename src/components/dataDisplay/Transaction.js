@@ -13,7 +13,7 @@ export default function Transaction(props) {
   const iconBoxBg = useColorModeValue('secondaryGray.300', 'navy.700')
   return (
     <Flex justifyContent="center" alignItems="center" w="100%" {...rest}>
-      <Avatar h="34px" w="34px" src={avatar} me="14px" />
+      {/* <Avatar h="34px" w="34px" src={avatar} me="14px" /> */}
       <Flex direction="column" align="start" me="auto">
         <Text color={textColor} fontSize="md" me="6px" fontWeight="700">
           {name}

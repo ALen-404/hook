@@ -19,6 +19,7 @@ import Notifications from 'views/admin/main/profile/overview/components/Notifica
 import Projects from 'views/admin/main/profile/overview/components/Projects'
 import Storage from 'views/admin/main/profile/overview/components/Storage'
 import Upload from 'views/admin/main/profile/overview/components/Upload'
+import { getTxDatas } from '../../../../../hook/hook'
 // Assets
 import banner from 'assets/img/auth/banner.png'
 import avatar from 'assets/img/avatars/avatar4.png'
@@ -27,7 +28,7 @@ import fakeGraph from 'assets/img/dashboards/fakeGraph.png'
 import ManagementTable from 'views/admin/main/account/application/components/ManagementTable'
 import { tableColumnsManagement } from 'views/admin/main/account/application/variables/tableColumnsManagement'
 import tableDataManagement from 'views/admin/main/account/application/variables/tableDataManagement.json'
-
+import './index.css'
 import BigNumber from 'bignumber.js'
 export default function Overview() {
   const {
@@ -40,21 +41,46 @@ export default function Overview() {
   const [defi2Usd, setDefi2Usd] = useState(0)
   const [nft2Usd, setNft2Usd] = useState(0)
   //   const [searchToken, setSearchToken] = useState([])
-  //   const [nftToken, setNftToken] = useState([])
+  const [txData, setTxData] = useState([])
   const [defiPercentage, setDefiPercentage] = useState(0)
 
-  const searchAddress = localStorage.getItem('searchAddress')
+  const searchAddress =
+    localStorage.getItem('searchAddress') ||
+    '0x3f3a26857b3bde848927fafca975b2ee5bcf1390'
   const [searchData, setSearchData] = useState(
-    JSON.parse(localStorage.getItem('searchData'))
+    JSON.parse(localStorage.getItem('searchData')) || {
+      searchData: { totalPrice: 0, totalPrice_defi: 0, totalPrice_nft: 0 },
+    }
   )
 
   useEffect(() => {
-    console.log(searchData)
+    if (!searchData || !searchAddress) {
+      return
+    }
+    getTxDatas(searchAddress, 10, 1).then((res) => {
+      if (res.data.code == 1) {
+        const txData = res.data.data.map((item) => {
+          return {
+            type: item.functionName,
+            transfer: `To: ${item.to.slice(0, 3)}...${item.to.slice(
+              item.to.length - 5,
+              item.to.length - 1
+            )}   From: ${item.from.slice(0, 3)}...${item.from.slice(
+              item.from.length - 5,
+              item.from.length - 1
+            )} `,
+            value: item.value,
+            token: 1,
+            link: `https://etherscan.io/tx/${item.txid}`,
+          }
+        })
+        setTxData(txData)
+      }
+    })
     setSearchData(searchData)
     setTotal2Usd(searchData.totalPrice)
     setDefi2Usd(searchData.totalPrice_defi)
     setNft2Usd(searchData.totalPrice_nft)
-    console.log(new BigNumber(total2Usd).div(defi2Usd).toString())
     if (total2Usd && defi2Usd) {
       setDefiPercentage(
         new BigNumber(total2Usd).div(defi2Usd).times(100).toFixed(2)
@@ -90,9 +116,9 @@ export default function Overview() {
           avatar={avatar}
           name="Adela Parkson"
           searchAddress={searchAddress}
-          total2Usd={total2Usd.toLocaleString()}
-          defi2Usd={defi2Usd.toLocaleString()}
-          nft2Usd={nft2Usd.toLocaleString()}
+          total2Usd={total2Usd?.toLocaleString()}
+          defi2Usd={defi2Usd?.toLocaleString()}
+          nft2Usd={nft2Usd?.toLocaleString()}
           defiPercentage={defiPercentage}
           nftPercentage={100 - defiPercentage}
         />
@@ -108,8 +134,7 @@ export default function Overview() {
             lg: '1 / 3 / 2 / 4',
           }}
           minH={{ base: 'auto', lg: '420px', '2xl': '365px' }}
-          pe="20px"
-          pb={{ base: '100px', lg: '20px' }}
+          searchData={searchData}
         />
       </Grid>
       <Grid
@@ -151,7 +176,7 @@ export default function Overview() {
           }}
         /> */}
         <ManagementTable
-          tableData={tableDataManagement}
+          tableData={txData}
           columnsData={tableColumnsManagement}
         />
       </Grid>

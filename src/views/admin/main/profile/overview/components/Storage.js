@@ -47,14 +47,19 @@ export default function YourTransactions(props) {
       marginBottom="20px"
       borderRadius="30px"
       {...rest}
-      p="34px"
     >
-      <Text fontSize="xl" color={textColor} fontWeight="700" mb="34px">
+      <Text
+        p="34px"
+        pb="0"
+        fontSize="xl"
+        color={textColor}
+        fontWeight="700"
+        mb="34px"
+      >
         Defi token
       </Text>
-      <Box maxHeight="520px" overflowY="auto">
+      <Box p="34px" pt="0" maxHeight="520px" overflowY="auto">
         {defiToken.map((item, index) => {
-          console.log(item)
           return (
             <Transaction
               key={index + 1}

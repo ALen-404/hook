@@ -48,3 +48,9 @@ export async function getSearchData(params) {
     params,
   })
 }
+
+export async function getTxData(params) {
+  return await axios.get(`${DefaultUrl}/track/normal`, {
+    params,
+  })
+}

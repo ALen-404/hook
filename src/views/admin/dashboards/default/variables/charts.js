@@ -111,6 +111,9 @@ export const lineChartOptionsTotalSpent = {
   },
   legend: {
     show: true,
+    labels: {
+      colors: '#fff',
+    },
   },
   grid: {
     show: false,
