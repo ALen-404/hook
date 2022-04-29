@@ -29,7 +29,8 @@ export default function Footer() {
             base: "center",
             xl: "start",
           }}
-          justifyContent="space-between"
+          // alignItems="center"
+           
           px={{ base: "30px", md: "50px" }}
           pb="30px"
         >
@@ -40,6 +41,7 @@ export default function Footer() {
               xl: "start",
             }}
             mb={{ base: "20px", xl: "0px" }}
+            marginRight="100px"
           >
             Copyright &copy; {1900 + new Date().getYear()}
             <Text as="span" fontWeight="500" ms="4px">
@@ -53,7 +55,7 @@ export default function Footer() {
               ></Link>
             </Text>
           </Text>
-          <Text as="span" fontWeight="500" ms="4px">
+          <Text  as="span" fontWeight="500" ms="4px">
             One-stop Data Analysis For All Blockchains.
           </Text>
         </Flex>
@@ -65,13 +67,13 @@ export default function Footer() {
                 md: "44px",
               }}
             >
-              <Link
+              <Text
                 fontWeight="500"
                 color="#A3AED0"
                 href="mailto:hello@simmmple.com"
               >
                 About
-              </Link>
+              </Text>
             </ListItem>
             <ListItem
               me={{
@@ -79,9 +81,9 @@ export default function Footer() {
                 md: "44px",
               }}
             >
-              <Link fontWeight="500" color="#A3AED0" href="/licenses">
+              <Text fontWeight="500" color="#A3AED0" href="/licenses">
                 API
-              </Link>
+              </Text>
             </ListItem>
             <ListItem
               me={{
@@ -89,65 +91,65 @@ export default function Footer() {
                 md: "44px",
               }}
             >
-              <Link
+              <Text
                 fontWeight="500"
                 color="#A3AED0"
                 href="https://simmmple.com/terms-of-service"
               >
                 Contact
-              </Link>
+              </Text>
             </ListItem>
             <ListItem 
             me={{
               base: "20px",
               md: "44px",
             }}>
-              <Link
+              <Text
                 fontWeight="500"
                 color="#A3AED0"
                 href="https://www.blog.simmmple.com/"
               >
                 Help
-              </Link>
+              </Text>
             </ListItem>
             <ListItem 
             me={{
               base: "20px",
               md: "44px",
             }}>
-              <Link
+              <Text
                 fontWeight="500"
                 color="#A3AED0"
                 href="https://www.blog.simmmple.com/"
               >
                 Jobs
-              </Link>
+              </Text>
             </ListItem>
             <ListItem 
             me={{
               base: "20px",
               md: "44px",
             }}>
-              <Link
+              <Text
                 fontWeight="500"
                 color="#A3AED0"
                 href="https://www.blog.simmmple.com/"
               >
                 Bug Bounty
-              </Link>
+              </Text>
             </ListItem>
             <ListItem 
             me={{
               base: "20px",
               md: "44px",
             }}>
-              <Link
+              <Text
                 fontWeight="500"
                 color="#A3AED0"
                 href="https://www.blog.simmmple.com/"
               >
                 Terms of Service
-              </Link>
+              </Text>
             </ListItem>
           </List>
         </Flex>
