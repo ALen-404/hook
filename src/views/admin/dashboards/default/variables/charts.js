@@ -23,6 +23,10 @@ import { getGraphData } from '../../../../../hook/hook'
 //     return []
 //   }
 // })
+
+const times = localStorage.getItem('time').split('**')
+// lo
+
 export const lineChartDataTotalSpent = [
   {
     name: 'DEFI',
@@ -80,7 +84,7 @@ export const lineChartOptionsTotalSpent = {
   },
   xaxis: {
     type: 'numeric',
-    categories: ['SEP', 'OCT', 'NOV', 'DEC', 'JAN', 'FEB', 'FE2B'],
+    categories: times,
     labels: {
       style: {
         colors: '#A3AED0',

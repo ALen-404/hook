@@ -35,6 +35,7 @@ export default function Default() {
   const [chartData, setChartData] = useState([])
   const [nftRank, setNftRank] = useState([])
   const [defiRank, setDefiRank] = useState([])
+
   useEffect(() => {
     getMarketCapAndVolume('NFT').then((res) => {
       setNftVolumData(res.data.data)
@@ -47,6 +48,11 @@ export default function Default() {
         const GAMEFI = res.data.data.GAMEFI.volume
         const DEFI = res.data.data.DEFI.volume
         const NFT = res.data.data.NFT.volume
+        const time = res.data.data.time.time.map((item) => {
+          const date = new Date(item)
+          return `${date.getMonth() + 1}-${date.getDate()}`
+        })
+        localStorage.setItem('time', time.join('**'))
         setChartData([
           {
             name: 'DEFI',
