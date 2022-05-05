@@ -134,7 +134,7 @@ function TopCreatorTable(props) {
                             fontSize="sm"
                             fontWeight="600"
                           >
-                            {cell.value[0]}
+                            {cell.value}
                           </Text>
                         </Flex>
                       )

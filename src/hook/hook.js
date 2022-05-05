@@ -35,3 +35,6 @@ export const getSearchDatas = (address) => {
 export const getTxDatas = (address, limit, start) => {
   return getTxData({ address, limit, start })
 }
+export const setSearchHeats = (searchName) => {
+  return setSearchHeat(searchName)
+}

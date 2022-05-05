@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react'
 import { SearchIcon } from '@chakra-ui/icons'
 import { useHistory } from 'react-router-dom'
-import { getSearchDatas } from '../../../hook/hook'
+import { getSearchDatas, setSearchHeats } from '../../../hook/hook'
 export function SearchBar(props) {
   // Pass the computed styles into the `__css` prop
   const { variant, background, children, placeholder, borderRadius, ...rest } =
@@ -48,7 +48,7 @@ export function SearchBar(props) {
         fontWeight="500"
         _placeholder={{ color: 'gray.400', fontSize: '14px' }}
         borderRadius={borderRadius ? borderRadius : '30px'}
-        placeholder={placeholder ? placeholder : 'Search...'}  
+        placeholder={placeholder ? placeholder : 'Search...'}
         onChange={(value) => {
           setInputValue(value.target.value)
         }}
@@ -57,7 +57,6 @@ export function SearchBar(props) {
             getSearchDatas(inputValue.toLowerCase()).then((searchRes) => {
               if (searchRes.data.code == 200) {
                 if (searchRes.data.data.tokenBalance.code == 1) {
-                  console.log(searchRes.data.data)
                   localStorage.setItem(
                     'searchData',
                     JSON.stringify(searchRes.data.data)
@@ -66,6 +65,7 @@ export function SearchBar(props) {
                     'searchAddress',
                     inputValue.toLowerCase()
                   )
+                  setSearchHeats(inputValue.toLowerCase())
                   history.push({ pathname: '/admin/track' })
                 } else {
                   alert('false')

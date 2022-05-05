@@ -34,9 +34,9 @@ export async function getTag(params) {
     params,
   })
 }
-export async function setSearchHeat(params) {
+export async function setSearchHeat(searchName) {
   return await axios.post(`${DefaultUrl}/search/setSearchHeat`, {
-    params,
+    searchName,
   })
 }
 export async function setTag_address(params) {
