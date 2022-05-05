@@ -96,12 +96,9 @@ const routes = [
   // --- NFTs ---
   {
     name: 'Trending',
-    layout: '/admin',
-    path: '/nfts/collection',
-    component: ProfileOverview,
-    icon: (
-      <Icon as={MdAssessment} width="20px" height="20px" color="inherit" />
-    ),
+    layout: '',
+    path: '#',
+    icon: <Icon as={MdAssessment} width="20px" height="20px" color="inherit" />,
     collapse: false,
     items: [
       // {
@@ -184,6 +181,7 @@ const routes = [
   {
     name: 'Track',
     path: '/track',
+    layout: '/admin',
     component: ProfileOverview,
     icon: (
       <Icon as={MdBrokenImage} width="20px" height="20px" color="inherit" />
@@ -401,8 +399,8 @@ const routes = [
     name: 'Drop',
     icon: <Icon as={MdDashboard} width="20px" height="20px" color="inherit" />,
     collapse: false,
-    layout: '/auth',
-    path: '/sign-in/default',
+    layout: '',
+    path: '#',
     items: [
       // --- Sign In ---
       {

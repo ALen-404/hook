@@ -54,3 +54,8 @@ export async function getTxData(params) {
     params,
   })
 }
+export async function getEthPrice() {
+  return await axios.get(
+    'https://api.coinmarketcap.com/data-api/v3/cryptocurrency/market-pairs/latest?slug=ethereum&start=1&limit=1&category=spot&sort=cmc_rank_advanced'
+  )
+}

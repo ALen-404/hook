@@ -16,7 +16,17 @@ import NFTLogo from '../../../../../../assets/img/logo/NFTLogo.png'
 import SLogo from '../../../../../../assets/img/logo/SLogo.png'
 
 export default function Banner(props) {
-  const { banner, avatar, name, job, posts, followers, following } = props
+  const {
+    banner,
+    avatar,
+    name,
+    searchAddress,
+    total2Usd,
+    defi2Usd,
+    nft2Usd,
+    defiPercentage,
+    nftPercentage,
+  } = props
 
   const cyberAddress = 'https://www.cyber.xyz/@'
 
@@ -51,7 +61,7 @@ export default function Banner(props) {
       </Text>
       <Flex margin="auto" display="flex" alignItems="center">
         <Text color={textColorSecondary} fontSize="sm" marginRight={2}>
-          {job}
+          {searchAddress}
         </Text>
         <Icon as={MdFilterNone} w={13} h={13} color="#A3AED0" />
       </Flex>
@@ -84,16 +94,14 @@ export default function Banner(props) {
           color="#438EFF"
           font-size="14px"
           onClick={() => {
-            window.open('https://etherscan.io/address/')
+            window.open(`https://etherscan.io/address/${searchAddress}`)
           }}
         >
           Etherscan
         </Text>
         <Text
           onClick={() => {
-            window.open(
-              'https://opensea.io/0x6afdf721593A3673451973bEfF8c4dc076d28192'
-            )
+            window.open(`https://opensea.io/${searchAddress}`)
           }}
           color="#438EFF"
           font-size="14px"
@@ -102,9 +110,7 @@ export default function Banner(props) {
         </Text>
         <Text
           onClick={() => {
-            window.open(
-              'https://www.cyber.xyz/@0x6afdf721593a3673451973beff8c4dc076d28192'
-            )
+            window.open(`https://www.cyber.xyz/@${searchAddress}`)
           }}
           color="#438EFF"
           font-size="14px"
@@ -112,7 +118,7 @@ export default function Banner(props) {
           Cyber.xyz
         </Text>
       </Flex>
-      <Balance></Balance>
+      <Balance total2Usd={total2Usd}></Balance>
       <Flex display="flex" justifyContent="space-around">
         <Flex flexDirection="column">
           <Box>
@@ -124,10 +130,10 @@ export default function Banner(props) {
             </Box>
             <Box display="flex" alignItems="center">
               <Text fontSize="18px" color="#FFFFFF">
-                $3,921
+                ${nft2Usd}
               </Text>
               <Text fontSize="18px" color="#FFFFFF" marginLeft="10px">
-                94%
+                {nftPercentage}%
               </Text>
             </Box>
           </Box>
@@ -139,15 +145,15 @@ export default function Banner(props) {
           <Box marginLeft="16px">
             <Box>
               <Text fontSize="16px" color="#A3AED0" fontWeight="500">
-                Assets on ERC721
+                Assets on ERC20
               </Text>
             </Box>
             <Box display="flex" alignItems="center">
               <Text fontSize="18px" color="#FFFFFF">
-                $3,921
+                ${defi2Usd}
               </Text>
               <Text fontSize="18px" color="#FFFFFF" marginLeft="10px">
-                94%
+                {defiPercentage}%
               </Text>
             </Box>
           </Box>
