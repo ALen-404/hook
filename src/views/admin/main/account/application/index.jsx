@@ -46,7 +46,7 @@ export default function Application() {
                     +20%
                   </Text>
                   <Text color="white" fontSize="sm" fontWeight="500">
-                    Since last month
+                    Since last 24h
                   </Text>
                 </Flex>
               }
@@ -82,7 +82,7 @@ export default function Application() {
                     fontSize="sm"
                     fontWeight="500"
                   >
-                    Since last month
+                    Since last 24h
                   </Text>
                 </Flex>
               }
@@ -109,7 +109,7 @@ export default function Application() {
                     fontSize="sm"
                     fontWeight="500"
                   >
-                    Since last month
+                    Since last 24h
                   </Text>
                 </Flex>
               }
@@ -145,7 +145,7 @@ export default function Application() {
                     fontSize="sm"
                     fontWeight="500"
                   >
-                    Since last month
+                    Since last 24h
                   </Text>
                 </Flex>
               }

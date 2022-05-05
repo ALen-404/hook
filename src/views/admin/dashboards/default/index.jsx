@@ -28,6 +28,7 @@ import {
 } from '../../../../hook/hook'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import '../default/index.css'
+import BigNumber from 'bignumber.js'
 export default function Default() {
   const [nftVolumeData, setNftVolumData] = useState(1)
   const [defiVolumData, setDefiVolumData] = useState(1)
@@ -123,11 +124,15 @@ export default function Default() {
                 <MiniStatistics
                   growth={
                     nftVolumeData?.marketCapRatio?.toFixed(2) > 0
-                      ? `+${nftVolumeData?.marketCapRatio * 100?.toFixed(2)}%`
-                      : nftVolumeData?.marketCapRatio * 100?.toFixed(2) + '%'
+                      ? `+${new BigNumber(nftVolumeData?.marketCapRatio || 0)
+                          .times(100)
+                          .toFixed(2)}%`
+                      : new BigNumber(nftVolumeData?.marketCapRatio || 0)
+                          .times(100)
+                          .toFixed(2) + '%'
                   }
                   name="Market Cap"
-                  value={nftVolumeData?.marketCap?.toLocaleString()}
+                  value={'$' + nftVolumeData?.marketCap?.toLocaleString()}
                   fontColor={
                     nftVolumeData?.marketCapRatio > 0 ? 'green.500' : 'red.500'
                   }
@@ -135,25 +140,32 @@ export default function Default() {
                 <MiniStatistics
                   growth={
                     nftVolumeData?.volumeRatio?.toFixed(2) > 0
-                      ? `+${nftVolumeData?.volumeRatio * 100?.toFixed(2)}%`
-                      : nftVolumeData?.volumeRatio * 100?.toFixed(2) + '%'
+                      ? `+${new BigNumber(nftVolumeData?.volumeRatio || 0)
+                          .times(100)
+                          .toFixed(2)}%`
+                      : new BigNumber(nftVolumeData?.volumeRatio || 0)
+                          .times(100)
+                          .toFixed(2) + '%'
                   }
                   fontColor={
                     nftVolumeData?.volumeRatio > 0 ? 'green.500' : 'red.500'
                   }
                   name="Volume"
-                  value={nftVolumeData?.volume?.toLocaleString()}
+                  value={'$' + nftVolumeData?.volume?.toLocaleString()}
                 />
                 <MiniStatistics
                   growth={
                     nftVolumeData?.circulatingSupplyRatio?.toFixed(2) > 0
-                      ? `+${
-                          nftVolumeData?.circulatingSupplyRatio *
-                          100?.toFixed(2)
-                        }%`
-                      : nftVolumeData?.circulatingSupplyRatio *
-                          100?.toFixed(2) +
-                        '%'
+                      ? `+${new BigNumber(
+                          nftVolumeData?.circulatingSupplyRatio || 0
+                        )
+                          .times(100)
+                          .toFixed(2)}%`
+                      : new BigNumber(
+                          nftVolumeData?.circulatingSupplyRatio || 0
+                        )
+                          .times(100)
+                          .toFixed(2) + '%'
                   }
                   name="Sales"
                   fontColor={
@@ -175,11 +187,15 @@ export default function Default() {
                 <MiniStatistics
                   growth={
                     defiVolumData?.marketCapRatio?.toFixed(2) > 0
-                      ? `+${defiVolumData?.marketCapRatio * 100?.toFixed(2)}%`
-                      : defiVolumData?.marketCapRatio * 100?.toFixed(2) + '%'
+                      ? `+${new BigNumber(defiVolumData?.marketCapRatio || 0)
+                          .times(100)
+                          .toFixed(2)}%`
+                      : new BigNumber(defiVolumData?.marketCapRatio || 0)
+                          .times(100)
+                          .toFixed(2) + '%'
                   }
                   name="Market Cap"
-                  value={defiVolumData?.marketCap?.toLocaleString()}
+                  value={'$' + defiVolumData?.marketCap?.toLocaleString()}
                   fontColor={
                     defiVolumData?.marketCapRatio > 0 ? 'green.500' : 'red.500'
                   }
@@ -187,14 +203,18 @@ export default function Default() {
                 <MiniStatistics
                   growth={
                     defiVolumData?.volumeRatio?.toFixed(2) > 0
-                      ? `+${defiVolumData?.volumeRatio * 100?.toFixed(2)}%`
-                      : defiVolumData?.volumeRatio * 100?.toFixed(2) + '%'
+                      ? `+${new BigNumber(defiVolumData?.volumeRatio || 0)
+                          .times(100)
+                          .toFixed(2)}%`
+                      : new BigNumber(defiVolumData?.volumeRatio || 0)
+                          .times(100)
+                          .toFixed(2) + '%'
                   }
                   fontColor={
                     defiVolumData?.volumeRatio > 0 ? 'green.500' : 'red.500'
                   }
                   name="Volume"
-                  value={defiVolumData?.volume?.toLocaleString()}
+                  value={'$' + defiVolumData?.volume?.toLocaleString()}
                 />
               </SimpleGrid>
             </TabPanel>

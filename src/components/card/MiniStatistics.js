@@ -52,7 +52,7 @@ export default function Default(props) {
                 {growth}
               </Text>
               <Text color="secondaryGray.600" fontSize="xs" fontWeight="400">
-                since last month
+                since last 24h
               </Text>
             </Flex>
           ) : null}
