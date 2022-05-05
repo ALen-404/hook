@@ -20,10 +20,9 @@ export function SidebarBrand() {
           width="153px"
           height="42px"
           margin="auto"
-          marginBottom="39px"
-          marginTop= "48px"
+          marginBottom="66px"
+          marginTop= "25px"
         />
-      <HSeparator mb='20px' />
     </Flex>
   );
 }
