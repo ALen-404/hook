@@ -24,7 +24,7 @@ import { getGraphData } from '../../../../../hook/hook'
 //   }
 // })
 
-const times = localStorage.getItem('time').split('**')
+const times = localStorage.getItem('time')?.split('**')
 // lo
 
 export const lineChartDataTotalSpent = [
