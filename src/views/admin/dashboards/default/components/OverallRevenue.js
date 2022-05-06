@@ -44,6 +44,7 @@ export default function OverallRevenue(props) {
               fontWeight="bold"
               lineHeight="100%"
             >
+              
               DeFi VS GameFi VS NFT
             </Text>
             <Text

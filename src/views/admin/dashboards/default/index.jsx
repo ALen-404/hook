@@ -237,7 +237,7 @@ export default function Default() {
             />
           </Flex>
         </Grid>
-        <Grid
+        {/* <Grid
           gap="20px"
           gridTemplateColumns={{
             md: 'repeat(2, 1fr)',
@@ -248,7 +248,7 @@ export default function Default() {
             '2xl': '1fr',
           }}
           mb="20px"
-        ></Grid>
+        ></Grid> */}
         <Grid
           templateColumns={{ base: 'repeat(2, 1fr)', '2xl': '1fr 1fr' }}
           gap="20px"

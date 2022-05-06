@@ -81,6 +81,7 @@ export default function AdminNavbar(props) {
       }}
       pt='8px'
       top={{ base: "12px", md: "16px", xl: "18px" }}
+      paddingLeft="0px !important"
       w={{
         base: "calc(100vw - 6%)",
         md: "calc(100vw - 8%)",
@@ -97,7 +98,7 @@ export default function AdminNavbar(props) {
         alignItems={{ xl: "center" }}
         mb={gap}>
         <Box mb={{ sm: "8px", md: "0px" }}>
-          <Breadcrumb>
+          {/* <Breadcrumb>
             <BreadcrumbItem color={secondaryText} fontSize='sm' mb='5px'>
               <BreadcrumbLink href='#' color={secondaryText}>
                 Pages
@@ -109,7 +110,7 @@ export default function AdminNavbar(props) {
                 {brandText}
               </BreadcrumbLink>
             </BreadcrumbItem>
-          </Breadcrumb>
+          </Breadcrumb> */}
           {/* Here we create navbar brand, based on route name */}
           <Link
             color={mainText}
@@ -118,6 +119,7 @@ export default function AdminNavbar(props) {
             borderRadius='inherit'
             fontWeight='bold'
             fontSize='34px'
+            line-height="42px"
             _hover={{ color: { mainText } }}
             _active={{
               bg: "inherit",

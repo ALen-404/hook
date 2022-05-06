@@ -69,7 +69,7 @@ const routes = [
     name: 'Overview',
     layout: '/admin',
     path: '/dashboards/default',
-    icon: <Icon as={MdHome} width="20px" height="20px" color="inherit" />,
+    icon: <span className='iconfont icon-Overview'>&#xe615;</span>,
     collapse: false,
     component: DashboardsDefault,
     items: [
@@ -93,99 +93,12 @@ const routes = [
       // },
     ],
   },
-  // --- NFTs ---
-  {
-    name: 'Trending',
-    layout: '',
-    path: '#',
-    icon: <Icon as={MdAssessment} width="20px" height="20px" color="inherit" />,
-    collapse: false,
-    items: [
-      // {
-      //   name: "Marketplace",
-      //   layout: "/admin",
-      //   path: "/nfts/marketplace",
-      //   component: NFTMarketplace,
-      //   secondary: true,
-      // },
-      // {
-      //   name: "Collection",
-      //   layout: "/admin",
-      //   path: "/nfts/collection",
-      //   component: NFTCollection,
-      //   secondary: true,
-      // },
-      // {
-      //   name: "NFT Page",
-      //   layout: "/admin",
-      //   path: "/nfts/page",
-      //   component: NFTPage,
-      //   secondary: true,
-      // },
-      // {
-      //   name: "Profile",
-      //   layout: "/admin",
-      //   path: "/nfts/profile",
-      //   component: NFTProfile,
-      //   secondary: true,
-      // },
-    ],
-  },
-  // --- Search ---
-  //  {
-  //   name: "Search",
-  //   layout: "/admin",
-  //   path: "/nfts/marketplace",
-  //   component: NFTMarketplace,
-  //   icon: (
-  //     <Icon
-  //       as={MdOutlineSearch}
-  //       width='20px'
-  //       height='20px'
-  //       color='inherit'
-  //     />
-  //   ),
-  //   collapse: false,
-  //   items: [
-  //     // {
-  //     //   name: "Marketplace",
-  //     //   layout: "/admin",
-  //     //   path: "/nfts/marketplace",
-  //     //   component: NFTMarketplace,
-  //     //   secondary: true,
-  //     // },
-  //     // {
-  //     //   name: "Collection",
-  //     //   layout: "/admin",
-  //     //   path: "/nfts/collection",
-  //     //   component: NFTCollection,
-  //     //   secondary: true,
-  //     // },
-  //     // {
-  //     //   name: "NFT Page",
-  //     //   layout: "/admin",
-  //     //   path: "/nfts/page",
-  //     //   component: NFTPage,
-  //     //   secondary: true,
-  //     // },
-  //     // {
-  //     //   name: "Profile",
-  //     //   layout: "/admin",
-  //     //   path: "/nfts/profile",
-  //     //   component: NFTProfile,
-  //     //   secondary: true,
-  //     // },
-  //   ],
-  // },
-  // ---NFT ---
   {
     name: 'Track',
     path: '/track',
     layout: '/admin',
     component: ProfileOverview,
-    icon: (
-      <Icon as={MdBrokenImage} width="20px" height="20px" color="inherit" />
-    ),
+    icon:<span className='iconfont icon-drop'>&#xe618;</span>,
     collapse: false,
     items: [
       // {
@@ -394,10 +307,96 @@ const routes = [
       // },
     ],
   },
+  // --- NFTs ---
+  {
+    name: 'Trending',
+    layout: '',
+    path: '#',
+    icon:<span className='iconfont icon-drop'>&#xe616;</span>,
+    collapse: false,
+    items: [
+      // {
+      //   name: "Marketplace",
+      //   layout: "/admin",
+      //   path: "/nfts/marketplace",
+      //   component: NFTMarketplace,
+      //   secondary: true,
+      // },
+      // {
+      //   name: "Collection",
+      //   layout: "/admin",
+      //   path: "/nfts/collection",
+      //   component: NFTCollection,
+      //   secondary: true,
+      // },
+      // {
+      //   name: "NFT Page",
+      //   layout: "/admin",
+      //   path: "/nfts/page",
+      //   component: NFTPage,
+      //   secondary: true,
+      // },
+      // {
+      //   name: "Profile",
+      //   layout: "/admin",
+      //   path: "/nfts/profile",
+      //   component: NFTProfile,
+      //   secondary: true,
+      // },
+    ],
+  },
+  // --- Search ---
+  //  {
+  //   name: "Search",
+  //   layout: "/admin",
+  //   path: "/nfts/marketplace",
+  //   component: NFTMarketplace,
+  //   icon: (
+  //     <Icon
+  //       as={MdOutlineSearch}
+  //       width='20px'
+  //       height='20px'
+  //       color='inherit'
+  //     />
+  //   ),
+  //   collapse: false,
+  //   items: [
+  //     // {
+  //     //   name: "Marketplace",
+  //     //   layout: "/admin",
+  //     //   path: "/nfts/marketplace",
+  //     //   component: NFTMarketplace,
+  //     //   secondary: true,
+  //     // },
+  //     // {
+  //     //   name: "Collection",
+  //     //   layout: "/admin",
+  //     //   path: "/nfts/collection",
+  //     //   component: NFTCollection,
+  //     //   secondary: true,
+  //     // },
+  //     // {
+  //     //   name: "NFT Page",
+  //     //   layout: "/admin",
+  //     //   path: "/nfts/page",
+  //     //   component: NFTPage,
+  //     //   secondary: true,
+  //     // },
+  //     // {
+  //     //   name: "Profile",
+  //     //   layout: "/admin",
+  //     //   path: "/nfts/profile",
+  //     //   component: NFTProfile,
+  //     //   secondary: true,
+  //     // },
+  //   ],
+  // },
+  // ---NFT ---
+
   // --- Drop ---
   {
     name: 'Drop',
-    icon: <Icon as={MdDashboard} width="20px" height="20px" color="inherit" />,
+    icon:  <span className='iconfont icon-drop' >&#xe601;</span>,
     collapse: false,
     layout: '',
     path: '#',

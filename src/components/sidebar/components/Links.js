@@ -73,7 +73,9 @@ export function SidebarLinks(props) {
                       <Flex
                         w='100%'
                         alignItems='center'
-                        justifyContent='center'>
+                        justifyContent='center'
+                        marginBottom="10px"
+                        >
                         <Box
                           color={
                             activeRoute(route.path.toLowerCase())
@@ -81,7 +83,7 @@ export function SidebarLinks(props) {
                               : inactiveColor
                           }
                           me='12px'
-                          mt='6px'>
+                          >
                           {route.icon}
                         </Box>
                         <Text
@@ -160,7 +162,7 @@ export function SidebarLinks(props) {
                   spacing={
                     activeRoute(route.path.toLowerCase()) ? "22px" : "26px"
                   }>
-                  <Flex w='100%' alignItems='center' justifyContent='center'>
+                  <Flex w='100%' alignItems='center' justifyContent='center'  marginBottom="10px">
                     <Box
                       color={
                         activeRoute(route.path.toLowerCase())
@@ -168,7 +170,7 @@ export function SidebarLinks(props) {
                           : inactiveColor
                       }
                       me='12px'
-                      mt='6px'>
+                     >
                       {route.icon}
                     </Box>
                     <Text
@@ -186,7 +188,7 @@ export function SidebarLinks(props) {
               </Flex>
             ) : (
               <ListItem ms={null}>
-                <Flex ps='34px' alignItems='center' mb='8px'>
+                <Flex ps='34px' alignItems='center' mb='8px' >
                   <Text
                     color={
                       activeRoute(route.path.toLowerCase())
@@ -194,7 +196,7 @@ export function SidebarLinks(props) {
                         : inactiveColor
                     }
                     fontWeight='500'
-                    fontSize='sm'>
+                    fontSize='16px'>
                     {route.name}
                   </Text>
                 </Flex>
