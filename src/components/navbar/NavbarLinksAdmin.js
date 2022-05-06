@@ -21,6 +21,8 @@ import { ItemContent } from 'components/menu/ItemContent'
 import { SearchBar } from 'components/navbar/searchBar/SearchBar'
 import { SidebarResponsive } from 'components/sidebar/Sidebar'
 import PropTypes from 'prop-types'
+import { useHistory } from 'react-router-dom'
+
 import React, { useEffect, useState } from 'react'
 // Assets
 import navImage from 'assets/img/layout/Navbar.png'
@@ -72,6 +74,7 @@ export default function HeaderLinks(props) {
       })
     }, 10000)
   }, [])
+  const history = useHistory()
 
   return (
     <Flex
@@ -123,8 +126,8 @@ export default function HeaderLinks(props) {
           </Text>
         </Text>
       </Flex> */}
-      {/* <SidebarResponsive routes={routes} /> */}
-      {/* <Menu>
+      <SidebarResponsive routes={routes} />
+      <Menu>
         <MenuButton p="0px">
           <Icon
             display="flex"
@@ -177,14 +180,11 @@ export default function HeaderLinks(props) {
               borderRadius="8px"
               mb="10px"
             >
-              <ItemContent
-                info="Horizon Design System Free"
-                aName="Josh Henry"
-              />
+              <ItemContent info="aa" aName="Josh Henry" />
             </MenuItem>
           </Flex>
         </MenuList>
-      </Menu> */}
+      </Menu>
 
       {/* <Menu>
         <MenuButton p="0px">
@@ -313,10 +313,28 @@ export default function HeaderLinks(props) {
           as={colorMode === "light" ? IoMdMoon : IoMdSunny}
         />
       </Button> */}
-      {/* <Menu>
+      <Button
+        backgroundImage="linear-gradient(to bottom, #868CFF, #4318FF)"
+        marginRight="10px"
+        borderRadius="49px"
+        width="117px"
+        fontSize="14px"
+        _hover={{
+          backgroundImage: 'linear-gradient(to bottom, #868CFF, #4318FF)',
+        }}
+        _active={{
+          backgroundImage: 'linear-gradient(to bottom, #868CFF, #4318FF)',
+        }}
+        onClick={() => {
+          history.push({ pathname: '/auth/sign-in/default' })
+        }}
+      >
+        Sign In
+      </Button>
+      <Menu>
         <MenuButton p="0px">
           <Avatar
-            _hover={{ cursor: "pointer" }}
+            _hover={{ cursor: 'pointer' }}
             color="white"
             name="Adela Parkson"
             bg="#11047A"
@@ -349,26 +367,26 @@ export default function HeaderLinks(props) {
             </Text>
           </Flex>
           <Flex flexDirection="column" p="10px">
-            <MenuItem
-              _hover={{ bg: "none" }}
-              _focus={{ bg: "none" }}
+            {/* <MenuItem
+              _hover={{ bg: 'none' }}
+              _focus={{ bg: 'none' }}
               borderRadius="8px"
               px="14px"
             >
               <Text fontSize="sm">0X2FA...948</Text>
               <Icon as={MdFilterNone} boxSize={16} color="red.500" />
-            </MenuItem>
+            </MenuItem> */}
             <MenuItem
-              _hover={{ bg: "none" }}
-              _focus={{ bg: "none" }}
+              _hover={{ bg: 'none' }}
+              _focus={{ bg: 'none' }}
               borderRadius="8px"
               px="14px"
             >
               <Text fontSize="sm">Newsletter Settings</Text>
             </MenuItem>
             <MenuItem
-              _hover={{ bg: "none" }}
-              _focus={{ bg: "none" }}
+              _hover={{ bg: 'none' }}
+              _focus={{ bg: 'none' }}
               color="red.400"
               borderRadius="8px"
               px="14px"
@@ -377,7 +395,7 @@ export default function HeaderLinks(props) {
             </MenuItem>
           </Flex>
         </MenuList>
-      </Menu> */}
+      </Menu>
     </Flex>
   )
 }

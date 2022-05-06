@@ -17,7 +17,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 // Assets
-import illustration from 'assets/img/auth/auth.png'
+import illustration from 'assets/img/auth/sign.svg'
 import { HSeparator } from 'components/separator/Separator'
 import DefaultAuth from 'layouts/auth/types/Default'
 import { NavLink } from 'react-router-dom'

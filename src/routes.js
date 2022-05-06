@@ -69,7 +69,7 @@ const routes = [
     name: 'Overview',
     layout: '/admin',
     path: '/dashboards/default',
-    icon: <span className='iconfont icon-Overview'>&#xe615;</span>,
+    icon: <span className="iconfont icon-Overview">&#xe615;</span>,
     collapse: false,
     component: DashboardsDefault,
     items: [
@@ -98,59 +98,59 @@ const routes = [
     path: '/track',
     layout: '/admin',
     component: ProfileOverview,
-    icon:<span className='iconfont icon-drop'>&#xe618;</span>,
+    icon: <span className="iconfont icon-drop">&#xe618;</span>,
     collapse: false,
     items: [
       // {
-        // name: 'Explore',
-        // path: '/main/account/billing',
-        // layout: '/admin',
-        // collapse: false,
-        // component: AccountBilling,
-        // items: [
-        //   // {
-        //   //   name: "Billing",
-        //   //   layout: "/admin",
-        //   //   path: "/main/account/billing",
-        //   //   exact: false,
-        //   //   component: AccountBilling,
-        //   // },
-        //   // {
-        //   //   name: "Application",
-        //   //   layout: "/admin",
-        //   //   path: "/main/account/application",
-        //   //   exact: false,
-        //   //   component: AccountApplications,
-        //   // },
-        //   // {
-        //   //   name: "Invoice",
-        //   //   layout: "/admin",
-        //   //   path: "/main/account/invoice",
-        //   //   exact: false,
-        //   //   component: AccountInvoice,
-        //   // },
-        //   // {
-        //   //   name: "Settings",
-        //   //   layout: "/admin",
-        //   //   path: "/main/account/settings",
-        //   //   exact: false,
-        //   //   component: AccountSettings,
-        //   // },
-        //   // {
-        //   //   name: "All Courses",
-        //   //   layout: "/admin",
-        //   //   path: "/main/account/all-courses",
-        //   //   exact: false,
-        //   //   component: AccountAllCourses,
-        //   // },
-        //   // {
-        //   //   name: "Course Page",
-        //   //   layout: "/admin",
-        //   //   path: "/main/account/course-page",
-        //   //   exact: false,
-        //   //   component: AccountCoursePage,
-        //   // },
-        // ],
+      // name: 'Explore',
+      // path: '/main/account/billing',
+      // layout: '/admin',
+      // collapse: false,
+      // component: AccountBilling,
+      // items: [
+      //   // {
+      //   //   name: "Billing",
+      //   //   layout: "/admin",
+      //   //   path: "/main/account/billing",
+      //   //   exact: false,
+      //   //   component: AccountBilling,
+      //   // },
+      //   // {
+      //   //   name: "Application",
+      //   //   layout: "/admin",
+      //   //   path: "/main/account/application",
+      //   //   exact: false,
+      //   //   component: AccountApplications,
+      //   // },
+      //   // {
+      //   //   name: "Invoice",
+      //   //   layout: "/admin",
+      //   //   path: "/main/account/invoice",
+      //   //   exact: false,
+      //   //   component: AccountInvoice,
+      //   // },
+      //   // {
+      //   //   name: "Settings",
+      //   //   layout: "/admin",
+      //   //   path: "/main/account/settings",
+      //   //   exact: false,
+      //   //   component: AccountSettings,
+      //   // },
+      //   // {
+      //   //   name: "All Courses",
+      //   //   layout: "/admin",
+      //   //   path: "/main/account/all-courses",
+      //   //   exact: false,
+      //   //   component: AccountAllCourses,
+      //   // },
+      //   // {
+      //   //   name: "Course Page",
+      //   //   layout: "/admin",
+      //   //   path: "/main/account/course-page",
+      //   //   exact: false,
+      //   //   component: AccountCoursePage,
+      //   // },
+      // ],
       // },
       // {
       //   name: 'Customized',
@@ -312,7 +312,7 @@ const routes = [
     name: 'Trending',
     layout: '',
     path: '#',
-    icon:<span className='iconfont icon-drop'>&#xe616;</span>,
+    icon: <span className="iconfont icon-drop">&#xe616;</span>,
     collapse: false,
     items: [
       // {
@@ -396,7 +396,7 @@ const routes = [
   // --- Drop ---
   {
     name: 'Drop',
-    icon:  <span className='iconfont icon-drop' >&#xe601;</span>,
+    icon: <span className="iconfont icon-drop">&#xe601;</span>,
     collapse: false,
     layout: '',
     path: '#',
@@ -532,6 +532,15 @@ const routes = [
       //   ],
       // },
     ],
+  },
+  {
+    name: 'none',
+    layout: '/auth',
+    path: '/sign-in/default',
+    icon: <></>,
+    component: SignInDefault,
+    collapse: false,
+    items: [],
   },
   // --- RSS ---
   // {

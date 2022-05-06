@@ -62,7 +62,7 @@ export default function Footer() {
             color={textColor}
             href="mailto:hello@simmmple.com"
           >
-            Support
+            About
           </Link>
         </ListItem>
         <ListItem
@@ -72,7 +72,7 @@ export default function Footer() {
           }}
         >
           <Link fontWeight="500" color={textColor} href="/licenses">
-            License
+            Contact Us
           </Link>
         </ListItem>
         <ListItem

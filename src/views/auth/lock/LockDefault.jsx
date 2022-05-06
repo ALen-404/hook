@@ -17,7 +17,7 @@ import {
 import DefaultAuth from 'layouts/auth/types/Default'
 
 // Assets
-import illustration from 'assets/img/auth/auth.png'
+import illustration from 'assets/img/auth/sign.svg'
 
 function ForgotPassword() {
   // Chakra color mode

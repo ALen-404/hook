@@ -36,16 +36,18 @@ export default function Footer() {
         mb={{ base: '20px', lg: '0px' }}
       >
         {' '}
-        &copy; {1900 + new Date().getYear()}
+        &copy; {1900 + new Date().getYear()} Hook. All Rights Reserved. Powered
+        by
         <Text as="span" fontWeight="500" ms="4px">
-          HOOK
           <Link
             mx="3px"
             color={textColor}
-            href=""
             target="_blank"
             fontWeight="700"
-          ></Link>
+            href="https://theapis.xyz/"
+          >
+            The APIS!
+          </Link>
         </Text>
       </Text>
       <List display="flex">
@@ -60,7 +62,7 @@ export default function Footer() {
             color={linkColor}
             href="mailto:hello@simmmple.com"
           >
-            Support
+            About
           </Link>
         </ListItem>
         <ListItem
@@ -70,7 +72,7 @@ export default function Footer() {
           }}
         >
           <Link fontWeight="500" color={linkColor} href="/licenses">
-            License
+            Contact Us
           </Link>
         </ListItem>
         <ListItem
