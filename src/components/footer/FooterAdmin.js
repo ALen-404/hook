@@ -66,13 +66,13 @@ export default function Footer() {
                 md: '44px',
               }}
             >
-              <Text
+              <Link
                 fontWeight="500"
                 color="#A3AED0"
-                href="mailto:hello@simmmple.com"
+                href="https://app.gitbook.com/o/dHoRYUVnGdpDW6kzvwKH/s/8MYNEydsCb1yG0qhMpJZ/products/hook"
               >
                 About
-              </Text>
+              </Link>
             </ListItem>
             <ListItem
               me={{
@@ -146,13 +146,13 @@ export default function Footer() {
                 md: '44px',
               }}
             >
-              <Text
+              <Link
                 fontWeight="500"
                 color="#A3AED0"
-                href="https://www.blog.simmmple.com/"
+                href="https://app.gitbook.com/o/dHoRYUVnGdpDW6kzvwKH/s/8MYNEydsCb1yG0qhMpJZ/docs/terms-and-conditions"
               >
                 Terms of Service
-              </Text>
+              </Link>
             </ListItem>
           </List>
         </Flex>

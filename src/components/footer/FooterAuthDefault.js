@@ -93,7 +93,7 @@ export default function Footer() {
           <Link
             fontWeight="500"
             color={linkColor}
-            href="https://www.blog.simmmple.com/"
+            href="https://theapisxyz.medium.com/"
           >
             Blog
           </Link>
