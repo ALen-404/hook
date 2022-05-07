@@ -35,7 +35,7 @@ import UsersOverview from 'views/admin/main/users/overview'
 import UsersReports from 'views/admin/main/users/reports'
 
 import ProfileSettings from 'views/admin/main/profile/settings'
-import ProfileOverview from 'views/admin/main/profile/overview'
+import ProfileOverview from 'views/admin/main/profile/portfolioTrack'
 
 import ApplicationsKanban from 'views/admin/main/applications/kanban'
 import ApplicationsDataTables from 'views/admin/main/applications/dataTables'
@@ -539,6 +539,15 @@ const routes = [
     path: '/sign-in/default',
     icon: <></>,
     component: SignInDefault,
+    collapse: false,
+    items: [],
+  },
+  {
+    name: 'none',
+    layout: '/auth',
+    path: '/sign-up',
+    icon: <></>,
+    component: SignUpDefault,
     collapse: false,
     items: [],
   },

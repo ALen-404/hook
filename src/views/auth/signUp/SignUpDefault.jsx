@@ -114,7 +114,7 @@ function SignUp() {
           </Flex>
           <FormControl>
             <SimpleGrid
-              columns={{ base: '1', md: '2' }}
+              columns={{ base: '1', md: '1' }}
               gap={{ sm: '10px', md: '26px' }}
             >
               <Flex direction="column">
@@ -126,19 +126,19 @@ function SignUp() {
                   color={textColor}
                   mb="8px"
                 >
-                  First name<Text color={brandStars}>*</Text>
+                  User Name<Text color={brandStars}>*</Text>
                 </FormLabel>
                 <Input
                   isRequired={true}
                   fontSize="sm"
                   ms={{ base: '0px', md: '4px' }}
-                  placeholder="First name"
+                  placeholder="User Name"
                   variant="auth"
                   mb="24px"
                   size="lg"
                 />
               </Flex>
-              <Flex direction="column">
+              {/* <Flex direction="column">
                 <FormLabel
                   display="flex"
                   ms="4px"
@@ -157,7 +157,7 @@ function SignUp() {
                   mb="24px"
                   size="lg"
                 />
-              </Flex>
+              </Flex> */}
             </SimpleGrid>
             <FormLabel
               display="flex"
@@ -174,7 +174,7 @@ function SignUp() {
               variant="auth"
               fontSize="sm"
               type="email"
-              placeholder="mail@simmmple.com"
+              placeholder="mail@theapis.xyz"
               mb="24px"
               size="lg"
             />
@@ -208,13 +208,16 @@ function SignUp() {
                 />
               </InputRightElement>
             </InputGroup>
-            <Flex justifyContent="space-between" align="center" mb="24px">
-              <FormControl display="flex" alignItems="start">
+                 
+            <Flex justifyContent="space-between" align="center" mb="24px" >
+              <FormControl display="flex" alignItems="start"  > 
                 <Checkbox
                   id="remember-login"
                   colorScheme="brandScheme"
                   me="10px"
                   mt="3px"
+                  color='#fff'
+                  _checked={{color:'#fff'}}
                 />
                 <FormLabel
                   htmlFor="remember-login"
