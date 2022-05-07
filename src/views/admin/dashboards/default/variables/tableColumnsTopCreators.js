@@ -4,11 +4,7 @@ export const tableColumnsTopCreators = [
     accessor: 'searchName',
   },
   {
-    Header: 'DATE',
-    accessor: 'heat',
-  },
-  {
     Header: 'Search Times',
-    accessor: 'rank',
+    accessor: 'heat',
   },
 ]

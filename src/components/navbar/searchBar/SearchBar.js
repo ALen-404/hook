@@ -66,13 +66,12 @@ export function SearchBar(props) {
                     inputValue.toLowerCase()
                   )
                   setSearchHeats(inputValue.toLowerCase())
-                  history.push({ pathname: '/admin/track' })
+                  history.push({ pathname: '/admin/info' })
                 } else {
                   alert('false')
                 }
               }
             })
-            // history.push({ pathname: '/admin/track' })
           }
         }}
       />

@@ -134,7 +134,8 @@ function TopCreatorTable(props) {
                             fontSize="sm"
                             fontWeight="600"
                           >
-                            {cell.value}
+                            {cell.value.slice(0, 4)}...
+                            {cell.value.slice(13, 17)}
                           </Text>
                         </Flex>
                       )
@@ -150,13 +151,20 @@ function TopCreatorTable(props) {
                       )
                     } else if (cell.column.Header === 'Search Times') {
                       data = (
-                        <Box>
-                          <Progress
-                            variant="table"
-                            colorScheme="brandScheme"
-                            value={cell.value}
-                          />
-                        </Box>
+                        <>
+                          <Flex alignItems="center">
+                            <Box>
+                              <Progress
+                                mr="10px"
+                                ml="10px"
+                                variant="table"
+                                colorScheme="brandScheme"
+                                value={cell.value}
+                              />
+                            </Box>
+                            <Text>{cell.value}</Text>
+                          </Flex>
+                        </>
                       )
                     }
                     return (

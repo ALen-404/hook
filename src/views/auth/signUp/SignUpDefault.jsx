@@ -21,10 +21,11 @@ import illustration from 'assets/img/auth/sign.svg'
 import { HSeparator } from 'components/separator/Separator'
 import DefaultAuth from 'layouts/auth/types/Default'
 import { NavLink } from 'react-router-dom'
-import React from 'react'
+import React, { useState } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import { MdOutlineRemoveRedEye } from 'react-icons/md'
 import { RiEyeCloseLine } from 'react-icons/ri'
+import { userRegister } from '../../../hook/hook'
 
 function SignUp() {
   // Chakra color mode
@@ -45,6 +46,12 @@ function SignUp() {
   )
   const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
+
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [isAgree, setAgree] = useState('')
+
   return (
     <DefaultAuth illustrationBackground={illustration} image={illustration}>
       <Flex
@@ -136,6 +143,9 @@ function SignUp() {
                   variant="auth"
                   mb="24px"
                   size="lg"
+                  onChange={(e) => {
+                    setUsername(e.target.value)
+                  }}
                 />
               </Flex>
               {/* <Flex direction="column">
@@ -177,6 +187,9 @@ function SignUp() {
               placeholder="mail@theapis.xyz"
               mb="24px"
               size="lg"
+              onChange={(e) => {
+                setEmail(e.target.value)
+              }}
             />
             <FormLabel
               ms="4px"
@@ -198,6 +211,9 @@ function SignUp() {
                 mb="24px"
                 size="lg"
                 type={show ? 'text' : 'password'}
+                onChange={(e) => {
+                  setPassword(e.target.value)
+                }}
               />
               <InputRightElement display="flex" alignItems="center" mt="4px">
                 <Icon
@@ -208,16 +224,19 @@ function SignUp() {
                 />
               </InputRightElement>
             </InputGroup>
-                 
-            <Flex justifyContent="space-between" align="center" mb="24px" >
-              <FormControl display="flex" alignItems="start"  > 
+
+            <Flex justifyContent="space-between" align="center" mb="24px">
+              <FormControl display="flex" alignItems="start">
                 <Checkbox
                   id="remember-login"
                   colorScheme="brandScheme"
                   me="10px"
                   mt="3px"
-                  color='#fff'
-                  _checked={{color:'#fff'}}
+                  color="#fff"
+                  _checked={{ color: '#fff' }}
+                  onChange={(e) => {
+                    setAgree(e.target.checked)
+                  }}
                 />
                 <FormLabel
                   htmlFor="remember-login"

@@ -21,6 +21,7 @@ import {
   useTable,
 } from 'react-table'
 import { MdMoreHoriz } from 'react-icons/md'
+import BigNumber from 'bignumber.js'
 
 function TotalMarketValue(props) {
   const { columnsData, tableData } = props
@@ -64,7 +65,7 @@ function TotalMarketValue(props) {
             fontWeight="700"
             lineHeight="100%"
           >
-            Total market value
+            DeFi Trending
           </Text>
           {/* <Button
             bg={boxBg}
@@ -142,7 +143,7 @@ function TotalMarketValue(props) {
                     } else if (cell.column.Header === 'Price') {
                       data = (
                         <Text color={textColor} fontSize="sm" fontWeight="600">
-                          {cell.value}
+                          ${new BigNumber(cell.value).toFixed(4)}
                         </Text>
                       )
                     } else if (cell.column.Header === '24h') {
@@ -158,7 +159,7 @@ function TotalMarketValue(props) {
                     } else if (cell.column.Header === 'Volume') {
                       data = (
                         <Text fontSize="sm" fontWeight="600">
-                          {cell.value}
+                          ${new BigNumber(cell.value).toFixed(2)}
                         </Text>
                       )
                     }

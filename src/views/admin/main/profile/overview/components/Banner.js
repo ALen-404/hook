@@ -91,6 +91,7 @@ export default function Banner(props) {
         marginBottom="20px"
       >
         <Text
+          cursor="pointer"
           color="#438EFF"
           font-size="14px"
           onClick={() => {
@@ -100,6 +101,7 @@ export default function Banner(props) {
           Etherscan
         </Text>
         <Text
+          cursor="pointer"
           onClick={() => {
             window.open(`https://opensea.io/${searchAddress}`)
           }}
@@ -109,6 +111,7 @@ export default function Banner(props) {
           Opensea
         </Text>
         <Text
+          cursor="pointer"
           onClick={() => {
             window.open(`https://www.cyber.xyz/@${searchAddress}`)
           }}

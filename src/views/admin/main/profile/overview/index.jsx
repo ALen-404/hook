@@ -30,6 +30,24 @@ import { tableColumnsManagement } from 'views/admin/main/account/application/var
 import tableDataManagement from 'views/admin/main/account/application/variables/tableDataManagement.json'
 import './index.css'
 import BigNumber from 'bignumber.js'
+
+export const initTime = (timestamp) => {
+  let date = new Date(timestamp)
+  const Y = date.getFullYear() + '-'
+  const M =
+    (date.getMonth() + 1 < 10
+      ? '0' + (date.getMonth() + 1)
+      : date.getMonth() + 1) + '-'
+  const D = date.getDate() >= 10 ? date.getDate() + ' ' : `0${date.getDate()} `
+  const h =
+    date.getHours() >= 10 ? date.getHours() + ':' : `0${date.getHours()}:`
+  const m =
+    date.getMinutes() >= 10 ? date.getMinutes() : `0${date.getMinutes()}`
+  const s = date.getSeconds()
+
+  return Y + M + D + h + m
+}
+
 export default function Overview() {
   const {
     isOpen: isOpen1,
@@ -60,6 +78,7 @@ export default function Overview() {
     getTxDatas(searchAddress, 10, 1).then((res) => {
       if (res.data.code == 1) {
         const txData = res.data.data.map((item) => {
+          console.log(initTime(item.time * 1000))
           return {
             type: item.functionName,
             transfer: `To: ${item.to.slice(0, 3)}...${item.to.slice(
@@ -72,6 +91,7 @@ export default function Overview() {
             value: item.value,
             token: 1,
             link: `https://etherscan.io/tx/${item.txid}`,
+            time: initTime(item.time * 1000),
           }
         })
         setTxData(txData)

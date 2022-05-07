@@ -35,7 +35,8 @@ import UsersOverview from 'views/admin/main/users/overview'
 import UsersReports from 'views/admin/main/users/reports'
 
 import ProfileSettings from 'views/admin/main/profile/settings'
-import ProfileOverview from 'views/admin/main/profile/portfolioTrack'
+import ProfileOverview from 'views/admin/main/profile/overview'
+import ProfileTrack from 'views/admin/main/profile/portfolioTrack/index'
 
 import ApplicationsKanban from 'views/admin/main/applications/kanban'
 import ApplicationsDataTables from 'views/admin/main/applications/dataTables'
@@ -97,7 +98,7 @@ const routes = [
     name: 'Track',
     path: '/track',
     layout: '/admin',
-    component: ProfileOverview,
+    component: ProfileTrack,
     icon: <span className="iconfont icon-drop">&#xe618;</span>,
     collapse: false,
     items: [
@@ -545,12 +546,22 @@ const routes = [
   {
     name: 'none',
     layout: '/auth',
-    path: '/sign-up',
+    path: '/sign-up/default',
     icon: <></>,
     component: SignUpDefault,
     collapse: false,
     items: [],
   },
+  {
+    name: 'none',
+    layout: '/admin',
+    path: '/info',
+    icon: <></>,
+    component: ProfileOverview,
+    collapse: false,
+    items: [],
+  },
+
   // --- RSS ---
   // {
   //   name: 'RSS',

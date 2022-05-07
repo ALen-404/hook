@@ -19,8 +19,8 @@ export const tableColumnsManagement = [
     Header: 'Link',
     accessor: 'link',
   },
-  // {
-  //   Header: ' ',
-  //   accessor: 'button',
-  // },
+  {
+    Header: 'time',
+    accessor: 'time',
+  },
 ]

@@ -21,6 +21,7 @@ import {
   useTable,
 } from 'react-table'
 import { MdMoreHoriz } from 'react-icons/md'
+import BigNumber from 'bignumber.js'
 
 function TotalMarketValue(props) {
   const { columnsData, tableData } = props
@@ -63,7 +64,7 @@ function TotalMarketValue(props) {
             fontWeight="700"
             lineHeight="100%"
           >
-            Total market value
+            NFT Trending
           </Text>
           {/* <Button
               bg={boxBg}
@@ -141,19 +142,19 @@ function TotalMarketValue(props) {
                     } else if (cell.column.Header === 'Floor') {
                       data = (
                         <Text color={textColor} fontSize="sm" fontWeight="600">
-                          {cell.value}
+                          ${new BigNumber(cell.value).toFixed(2)}
                         </Text>
                       )
                     } else if (cell.column.Header === 'Mkt') {
                       data = (
                         <Text fontSize="sm" fontWeight="600">
-                          {cell.value}
+                          ${new BigNumber(cell.value).toFixed(2)}
                         </Text>
                       )
                     } else if (cell.column.Header === 'Volume') {
                       data = (
                         <Text fontSize="sm" fontWeight="600">
-                          {cell.value}
+                          ${new BigNumber(cell.value).toFixed(2)}
                         </Text>
                       )
                     }

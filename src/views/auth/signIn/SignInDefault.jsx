@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 // Chakra imports
 import {
@@ -24,6 +24,7 @@ import illustration from 'assets/img/auth/sign.svg'
 import { FcGoogle } from 'react-icons/fc'
 import { MdOutlineRemoveRedEye } from 'react-icons/md'
 import { RiEyeCloseLine } from 'react-icons/ri'
+import { userLoginByPwd } from '../../../hook/hook'
 
 function SignIn() {
   // Chakra color mode
@@ -44,6 +45,10 @@ function SignIn() {
   )
   const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [isAgree, setIsAgree] = useState(false)
+  const [isPending, setIsPending] = useState(false)
   return (
     <DefaultAuth illustrationBackground={illustration} image={illustration}>
       <Flex
@@ -125,10 +130,13 @@ function SignIn() {
               fontSize="sm"
               ms={{ base: '0px', md: '0px' }}
               type="email"
-              placeholder="mail@simmmple.com"
+              placeholder="mail@theapis.xyz"
               mb="24px"
               fontWeight="500"
               size="lg"
+              onChange={(e) => {
+                setEmail(e.target.value)
+              }}
             />
             <FormLabel
               ms="4px"
@@ -149,6 +157,10 @@ function SignIn() {
                 size="lg"
                 type={show ? 'text' : 'password'}
                 variant="auth"
+                defaultValue={localStorage.getItem('email')}
+                onChange={(e) => {
+                  setPassword(e.target.value)
+                }}
               />
               <InputRightElement display="flex" alignItems="center" mt="4px">
                 <Icon
@@ -165,6 +177,12 @@ function SignIn() {
                   id="remember-login"
                   colorScheme="brandScheme"
                   me="10px"
+                  onChange={(e) => {
+                    setIsAgree(e.target.checked)
+                    if (e.target.checked) {
+                      localStorage.setItem('email', email)
+                    }
+                  }}
                 />
                 <FormLabel
                   htmlFor="remember-login"
@@ -194,6 +212,15 @@ function SignIn() {
               w="100%"
               h="50"
               mb="24px"
+              onClick={() => {
+                userLoginByPwd(email, password).then((res) => {
+                  if (res.data.code == 200) {
+                    console.log(res, 'login')
+                  } else {
+                    alert(res.data.msg)
+                  }
+                })
+              }}
             >
               Sign In
             </Button>
@@ -207,7 +234,7 @@ function SignIn() {
           >
             <Text color={textColorDetails} fontWeight="400" fontSize="14px">
               Not registered yet?
-              <NavLink to="/auth/sign-up">
+              <NavLink to="/auth/sign-up/default">
                 <Text
                   color={textColorBrand}
                   as="span"

@@ -32,7 +32,6 @@ import { MdLanguage } from 'react-icons/md'
 
 function ManagementTable(props) {
   const { columnsData, tableData } = props
-
   const columns = useMemo(() => columnsData, [columnsData])
   const data = useMemo(() => tableData, [tableData])
 
@@ -133,7 +132,7 @@ function ManagementTable(props) {
                           {cell.value}
                         </Text>
                       )
-                    } else if (cell.column.Header === 'Permissions') {
+                    } else if (cell.column.Header === 'time') {
                       data = (
                         <Text color={textColor} fontSize="sm" fontWeight="600">
                           {cell.value}

@@ -11,6 +11,20 @@ import {
   getTxData,
 } from '../api/dashbord'
 
+import {
+  register,
+  getUser,
+  setUserAddress,
+  setUpdataLoginPwdByCode,
+  setUpdataLoginPwdByPwd,
+  setUpdataUser,
+  isLogin,
+  loginByCode,
+  loginByPwd,
+  logout,
+} from '../api/user'
+
+// overview
 export const getMarketCapAndVolume = (type) => {
   return getMarketCapitalization({ type })
 }
@@ -28,6 +42,8 @@ export const getCmcDatas = (limit, start, type) => {
   return getCmcData({ limit, start, type })
 }
 
+// track
+
 export const getSearchDatas = (address) => {
   return getSearchData({ address })
 }
@@ -37,4 +53,37 @@ export const getTxDatas = (address, limit, start) => {
 }
 export const setSearchHeats = (searchName) => {
   return setSearchHeat(searchName)
+}
+
+// user
+
+export const userRegister = (email, password, code) => {
+  return register({ email, password, code })
+}
+export const getUserInfo = (email) => {
+  return getUser({ email })
+}
+export const setAddress = (uid, address) => {
+  return setUserAddress({ uid, address })
+}
+export const updataLoginPwdByCode = (uid, code, passwordNew) => {
+  return setUpdataLoginPwdByCode({ uid, code, passwordNew })
+}
+export const updataLoginPwdByPwd = (uid, password, passwordNew) => {
+  return setUpdataLoginPwdByPwd({ uid, password, passwordNew })
+}
+export const UpdataUser = (uId) => {
+  return setUpdataUser({ uId })
+}
+export const userIsLogin = () => {
+  return isLogin()
+}
+export const userLoginByCode = (email, code) => {
+  return loginByCode({ email, code })
+}
+export const userLoginByPwd = (email, password) => {
+  return loginByPwd({ email, password })
+}
+export const userLogout = (uId) => {
+  return logout({ uId })
 }
