@@ -22,6 +22,7 @@ import { SearchBar } from 'components/navbar/searchBar/SearchBar'
 import { SidebarResponsive } from 'components/sidebar/Sidebar'
 import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
+import { getUserInfo, userIsLogin, userLogout } from '../../hook/hook'
 
 import React, { useEffect, useState } from 'react'
 // Assets
@@ -59,6 +60,8 @@ export default function HeaderLinks(props) {
 
   const [gasPrice, setGasPrice] = useState(0)
   const [ethPrice, setEthPrice] = useState(0)
+  const [isLogin, setIsLogin] = useState(false)
+  const [userData, setUserData] = useState({})
   let provider = ethers.getDefaultProvider('homestead')
 
   useEffect(() => {
@@ -70,11 +73,50 @@ export default function HeaderLinks(props) {
         setGasPrice(new BigNumber(res.toString()).dividedBy(10 ** 9).toFixed(2))
       })
       getEthPrice().then((res) => {
-        setEthPrice(res.data.data.marketPairs[0].price.toFixed(2))
+        setEthPrice(res?.data?.data?.marketPairs[0]?.price?.toFixed(2))
       })
     }, 10000)
   }, [])
   const history = useHistory()
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    const email = localStorage.getItem('email')
+    if (!token || !email) {
+      setIsLogin(false)
+      return
+    }
+    setInterval(() => {
+      userIsLogin(token).then((res) => {
+        if (res.data.code == '200') {
+          setIsLogin(res.data.data)
+          if (res.data.data) {
+            getUserInfo(email).then((infoRes) => {
+              if (infoRes.data.code == '200') {
+                setUserData(infoRes.data.data)
+              }
+            })
+          }
+        } else {
+          setIsLogin(false)
+        }
+      })
+    }, 100000)
+    userIsLogin(token).then((res) => {
+      if (res.data.code == '200') {
+        setIsLogin(res.data.data)
+        if (res.data.data) {
+          getUserInfo(email, token).then((infoRes) => {
+            if (infoRes.data.code == '200') {
+              setUserData(infoRes.data.data)
+            }
+          })
+        }
+      } else {
+        setIsLogin(false)
+      }
+    })
+  }, [])
 
   return (
     <Flex
@@ -313,89 +355,107 @@ export default function HeaderLinks(props) {
           as={colorMode === "light" ? IoMdMoon : IoMdSunny}
         />
       </Button> */}
-      <Button
-        backgroundImage="linear-gradient(to bottom, #868CFF, #4318FF)"
-        marginRight="10px"
-        borderRadius="49px"
-        width="117px"
-        fontSize="14px"
-        _hover={{
-          backgroundImage: 'linear-gradient(to bottom, #868CFF, #4318FF)',
-        }}
-        _active={{
-          backgroundImage: 'linear-gradient(to bottom, #868CFF, #4318FF)',
-        }}
-        onClick={() => {
-          history.push({ pathname: '/auth/sign-in/default' })
-        }}
-      >
-        Sign In
-      </Button>
-      <Menu>
-        <MenuButton p="0px">
-          <Avatar
-            _hover={{ cursor: 'pointer' }}
-            color="white"
-            name="Adela Parkson"
-            bg="#11047A"
-            size="sm"
-            w="40px"
-            h="40px"
-          />
-        </MenuButton>
-        <MenuList
-          boxShadow={shadow}
-          p="0px"
-          mt="10px"
-          borderRadius="20px"
-          bg={menuBg}
-          border="none"
+      {isLogin ? (
+        <Menu>
+          <MenuButton p="0px">
+            <Avatar
+              _hover={{ cursor: 'pointer' }}
+              color="white"
+              name={userData.userName}
+              bg="#11047A"
+              size="sm"
+              w="40px"
+              h="40px"
+            />
+          </MenuButton>
+          <MenuList
+            boxShadow={shadow}
+            p="0px"
+            mt="10px"
+            borderRadius="20px"
+            bg={menuBg}
+            border="none"
+          >
+            <Flex w="100%" mb="0px">
+              <Text
+                ps="20px"
+                pt="16px"
+                pb="10px"
+                w="100%"
+                borderBottom="1px solid"
+                borderColor={borderColor}
+                fontSize="sm"
+                fontWeight="700"
+                color={textColor}
+              >
+                👋&nbsp; Hey, {userData.userName}
+              </Text>
+            </Flex>
+            <Flex flexDirection="column" p="10px">
+              {/* <MenuItem
+                _hover={{ bg: 'none' }}
+                _focus={{ bg: 'none' }}
+                borderRadius="8px"
+                px="14px"
+              >
+                <Text fontSize="sm">0X2FA...948</Text>
+                <Icon as={MdFilterNone} boxSize={16} color="red.500" />
+              </MenuItem> */}
+              {/* <MenuItem
+                _hover={{ bg: 'none' }}
+                _focus={{ bg: 'none' }}
+                borderRadius="8px"
+                px="14px"
+              >
+                <Text fontSize="sm">Newsletter Settings</Text>
+              </MenuItem> */}
+              <MenuItem
+                _hover={{ bg: 'none' }}
+                _focus={{ bg: 'none' }}
+                color="red.400"
+                borderRadius="8px"
+                px="14px"
+              >
+                <Text
+                  fontSize="sm"
+                  onClick={() => {
+                    const token = localStorage.getItem('token')
+                    if (!token) {
+                      return
+                    }
+                    userLogout(userData.uid, token).then((res) => {
+                      if (res.data.code == '200') {
+                        setIsLogin(false)
+                      }
+                    })
+                  }}
+                >
+                  Log out
+                </Text>
+              </MenuItem>
+            </Flex>
+          </MenuList>
+        </Menu>
+      ) : (
+        <Button
+          backgroundImage="linear-gradient(to bottom, #868CFF, #4318FF)"
+          marginRight="10px"
+          borderRadius="49px"
+          width="117px"
+          fontSize="14px"
+          _hover={{
+            backgroundImage: 'linear-gradient(to bottom, #868CFF, #4318FF)',
+          }}
+          _active={{
+            backgroundImage: 'linear-gradient(to bottom, #868CFF, #4318FF)',
+          }}
+          onClick={() => {
+            history.push({ pathname: '/auth/sign-in/default' })
+          }}
         >
-          <Flex w="100%" mb="0px">
-            <Text
-              ps="20px"
-              pt="16px"
-              pb="10px"
-              w="100%"
-              borderBottom="1px solid"
-              borderColor={borderColor}
-              fontSize="sm"
-              fontWeight="700"
-              color={textColor}
-            >
-              👋&nbsp; Hey, Adela
-            </Text>
-          </Flex>
-          <Flex flexDirection="column" p="10px">
-            {/* <MenuItem
-              _hover={{ bg: 'none' }}
-              _focus={{ bg: 'none' }}
-              borderRadius="8px"
-              px="14px"
-            >
-              <Text fontSize="sm">0X2FA...948</Text>
-              <Icon as={MdFilterNone} boxSize={16} color="red.500" />
-            </MenuItem> */}
-            <MenuItem
-              _hover={{ bg: 'none' }}
-              _focus={{ bg: 'none' }}
-              borderRadius="8px"
-              px="14px"
-            >
-              <Text fontSize="sm">Newsletter Settings</Text>
-            </MenuItem>
-            <MenuItem
-              _hover={{ bg: 'none' }}
-              _focus={{ bg: 'none' }}
-              color="red.400"
-              borderRadius="8px"
-              px="14px"
-            >
-              <Text fontSize="sm">Log out</Text>
-            </MenuItem>
-          </Flex>
-        </MenuList>
-      </Menu>
+          Sign In
+        </Button>
+      )}
     </Flex>
   )
 }

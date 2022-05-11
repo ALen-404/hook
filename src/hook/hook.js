@@ -22,6 +22,7 @@ import {
   loginByCode,
   loginByPwd,
   logout,
+  emailCode,
 } from '../api/user'
 
 // overview
@@ -57,11 +58,11 @@ export const setSearchHeats = (searchName) => {
 
 // user
 
-export const userRegister = (email, password, code) => {
-  return register({ email, password, code })
+export const userRegister = (email, password, code, userName) => {
+  return register({ email, password, code, userName })
 }
-export const getUserInfo = (email) => {
-  return getUser({ email })
+export const getUserInfo = (email, token) => {
+  return getUser({ email }, token)
 }
 export const setAddress = (uid, address) => {
   return setUserAddress({ uid, address })
@@ -75,8 +76,8 @@ export const updataLoginPwdByPwd = (uid, password, passwordNew) => {
 export const UpdataUser = (uId) => {
   return setUpdataUser({ uId })
 }
-export const userIsLogin = () => {
-  return isLogin()
+export const userIsLogin = (token) => {
+  return isLogin(token)
 }
 export const userLoginByCode = (email, code) => {
   return loginByCode({ email, code })
@@ -84,6 +85,9 @@ export const userLoginByCode = (email, code) => {
 export const userLoginByPwd = (email, password) => {
   return loginByPwd({ email, password })
 }
-export const userLogout = (uId) => {
-  return logout({ uId })
+export const userLogout = (uId, token) => {
+  return logout({ uId }, token)
+}
+export const sendCode = (email) => {
+  return emailCode({ email })
 }

@@ -299,7 +299,7 @@ const routes = [
       //     },
       //     {
       //       name: "Pricing",
-      //       layout: "/auth",
+      //       layout: "/auth",q q q q
       //       path: "/main/others/pricing",
       //       exact: false,
       //       component: OthersPricing,
@@ -561,7 +561,24 @@ const routes = [
     collapse: false,
     items: [],
   },
-
+  {
+    name: 'none',
+    layout: '/auth',
+    path: '/forgot-password/default',
+    icon: <></>,
+    component: ForgotPasswordDefault,
+    collapse: false,
+    items: [],
+  },
+  {
+    name: 'none',
+    layout: '/auth',
+    path: '/lock/default',
+    icon: <></>,
+    component: LockDefault,
+    collapse: false,
+    items: [],
+  },
   // --- RSS ---
   // {
   //   name: 'RSS',

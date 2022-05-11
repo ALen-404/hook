@@ -127,7 +127,7 @@ function SignIn() {
               fontSize="sm"
               ms={{ base: '0px', md: '0px' }}
               type="email"
-              placeholder="mail@simmmple.com"
+              placeholder="mail@theapis.xyz"
               mb="24px"
               fontWeight="500"
               size="lg"

@@ -25,7 +25,8 @@ import React, { useState } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import { MdOutlineRemoveRedEye } from 'react-icons/md'
 import { RiEyeCloseLine } from 'react-icons/ri'
-import { userRegister } from '../../../hook/hook'
+import { userRegister, sendCode } from '../../../hook/hook'
+import { useHistory } from 'react-router-dom'
 
 function SignUp() {
   // Chakra color mode
@@ -44,13 +45,38 @@ function SignUp() {
     { bg: 'secondaryGray.300' },
     { bg: 'whiteAlpha.200' }
   )
+
+  const history = useHistory()
+
   const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
 
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [isAgree, setAgree] = useState('')
+  const [isAgree, setAgree] = useState(false)
+  const [code, setCode] = useState('')
+  const [codeTips, setCodeTips] = useState('Send')
+  const [isSend, setIsSend] = useState(true)
+  const sendEmailCode = () => {
+    if (!isSend) {
+      return
+    }
+    setIsSend(false)
+    let codeTimeStamp = 60
+
+    sendCode(email).then((res) => {
+      const codeTime = setInterval(() => {
+        codeTimeStamp--
+        setCodeTips(codeTimeStamp)
+        if (codeTimeStamp == 1) {
+          clearInterval(codeTime)
+          setCodeTips('resend')
+          setIsSend(true)
+        }
+      }, 1000)
+    })
+  }
 
   return (
     <DefaultAuth illustrationBackground={illustration} image={illustration}>
@@ -224,7 +250,40 @@ function SignUp() {
                 />
               </InputRightElement>
             </InputGroup>
-
+            <FormLabel
+              ms="4px"
+              fontSize="sm"
+              fontWeight="500"
+              isRequired={true}
+              color={textColor}
+              display="flex"
+            >
+              Code<Text color={brandStars}>*</Text>
+            </FormLabel>
+            <InputGroup size="md">
+              <Input
+                isRequired={true}
+                variant="auth"
+                fontSize="sm"
+                ms={{ base: '0px', md: '4px' }}
+                placeholder="Enter email verification code"
+                mb="24px"
+                size="lg"
+                onChange={(e) => {
+                  setCode(e.target.value)
+                }}
+              />
+              <InputRightElement display="flex" alignItems="center" mt="4px">
+                <Text
+                  color={textColorSecondary}
+                  _hover={{ cursor: 'pointer' }}
+                  fontSize="12px"
+                  onClick={sendEmailCode}
+                >
+                  {codeTips}
+                </Text>
+              </InputRightElement>
+            </InputGroup>
             <Flex justifyContent="space-between" align="center" mb="24px">
               <FormControl display="flex" alignItems="start">
                 <Checkbox
@@ -269,6 +328,14 @@ function SignUp() {
               w="100%"
               h="50"
               mb="24px"
+              disabled={!isAgree}
+              onClick={() => {
+                userRegister(email, password, code, username).then((res) => {
+                  if (res.data.code == '200') {
+                    history.push({ pathname: '/auth/sign-in/default' })
+                  }
+                })
+              }}
             >
               Create my account
             </Button>

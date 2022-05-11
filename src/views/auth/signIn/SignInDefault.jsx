@@ -25,7 +25,7 @@ import { FcGoogle } from 'react-icons/fc'
 import { MdOutlineRemoveRedEye } from 'react-icons/md'
 import { RiEyeCloseLine } from 'react-icons/ri'
 import { userLoginByPwd } from '../../../hook/hook'
-
+import { useHistory } from 'react-router-dom'
 function SignIn() {
   // Chakra color mode
   const textColor = useColorModeValue('navy.700', 'white')
@@ -43,12 +43,15 @@ function SignIn() {
     { bg: 'secondaryGray.300' },
     { bg: 'whiteAlpha.200' }
   )
+
   const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isAgree, setIsAgree] = useState(false)
   const [isPending, setIsPending] = useState(false)
+  const history = useHistory()
+
   return (
     <DefaultAuth illustrationBackground={illustration} image={illustration}>
       <Flex
@@ -137,6 +140,7 @@ function SignIn() {
               onChange={(e) => {
                 setEmail(e.target.value)
               }}
+              defaultValue={isAgree ? localStorage.getItem('email') : ''}
             />
             <FormLabel
               ms="4px"
@@ -157,7 +161,6 @@ function SignIn() {
                 size="lg"
                 type={show ? 'text' : 'password'}
                 variant="auth"
-                defaultValue={localStorage.getItem('email')}
                 onChange={(e) => {
                   setPassword(e.target.value)
                 }}
@@ -179,9 +182,6 @@ function SignIn() {
                   me="10px"
                   onChange={(e) => {
                     setIsAgree(e.target.checked)
-                    if (e.target.checked) {
-                      localStorage.setItem('email', email)
-                    }
                   }}
                 />
                 <FormLabel
@@ -194,7 +194,7 @@ function SignIn() {
                   Keep me logged in
                 </FormLabel>
               </FormControl>
-              <NavLink to="/auth/forgot-password">
+              <NavLink to="/auth/forgot-password/default">
                 <Text
                   color={textColorBrand}
                   fontSize="sm"
@@ -215,7 +215,9 @@ function SignIn() {
               onClick={() => {
                 userLoginByPwd(email, password).then((res) => {
                   if (res.data.code == 200) {
-                    console.log(res, 'login')
+                    localStorage.setItem('token', res.data.data)
+                    localStorage.setItem('email', email)
+                    history.push({ pathname: '/admin/dashboards/default' })
                   } else {
                     alert(res.data.msg)
                   }
@@ -248,6 +250,7 @@ function SignIn() {
           </Flex>
         </Flex>
       </Flex>
+      {/*  */}
     </DefaultAuth>
   )
 }

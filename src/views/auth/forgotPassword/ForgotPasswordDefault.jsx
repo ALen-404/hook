@@ -85,7 +85,7 @@ function ForgotPassword() {
               variant="auth"
               fontSize="sm"
               type="email"
-              placeholder="mail@simmmple.com"
+              placeholder="mail@theapis.xyz"
               mb="24px"
               size="lg"
             />

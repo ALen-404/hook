@@ -8,9 +8,12 @@ export async function register(params) {
     ...params,
   })
 }
-export async function getUser(params) {
-  return await axios.post(`${DefaultUrl}/user/getUser`, {
-    ...params,
+export async function getUser(params, token) {
+  return await axios.get(`${DefaultUrl}/user/getUser`, {
+    params,
+    headers: {
+      Authorization: 'Bearer ' + token,
+    },
   })
 }
 export async function setUserAddress(params) {
@@ -33,8 +36,12 @@ export async function setUpdataUser(params) {
     ...params,
   })
 }
-export async function isLogin() {
-  return await axios.get(`${DefaultUrl}/user/isLogin`)
+export async function isLogin(token) {
+  return await axios.get(`${DefaultUrl}/user/isLogin`, {
+    headers: {
+      Authorization: 'Bearer ' + token,
+    },
+  })
 }
 
 export async function loginByCode(params) {
@@ -48,8 +55,21 @@ export async function loginByPwd(params) {
     ...params,
   })
 }
-export async function logout(params) {
-  return await axios.post(`${DefaultUrl}/user/logout`, {
+export async function logout(params, token) {
+  return await axios.post(
+    `${DefaultUrl}/user/logout`,
+    {
+      ...params,
+    },
+    {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    }
+  )
+}
+export async function emailCode(params) {
+  return await axios.post(`${DefaultUrl}/email/setEmailCode`, {
     ...params,
   })
 }
