@@ -91,7 +91,7 @@ export default function Track(props) {
                       inputValue.toLowerCase()
                     )
                     setSearchHeats(inputValue.toLowerCase())
-                    history.push({ pathname: '/admin/info ' })
+                    history.push({ pathname: '/admin/info' })
                   } else {
                     alert('false')
                   }

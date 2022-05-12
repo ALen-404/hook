@@ -15,6 +15,7 @@ import {
   SimpleGrid,
   Text,
   useColorModeValue,
+  Image,
 } from '@chakra-ui/react'
 // Assets
 import illustration from 'assets/img/auth/sign.svg'
@@ -27,6 +28,7 @@ import { MdOutlineRemoveRedEye } from 'react-icons/md'
 import { RiEyeCloseLine } from 'react-icons/ri'
 import { userRegister, sendCode } from '../../../hook/hook'
 import { useHistory } from 'react-router-dom'
+import LoadingImg from '../../../assets/img/users/loading.gif'
 
 function SignUp() {
   // Chakra color mode
@@ -58,6 +60,9 @@ function SignUp() {
   const [code, setCode] = useState('')
   const [codeTips, setCodeTips] = useState('Send')
   const [isSend, setIsSend] = useState(true)
+  const [isPending, setIsPending] = useState(false)
+  const [errMsg, setErrMsg] = useState('')
+
   const sendEmailCode = () => {
     if (!isSend) {
       return
@@ -151,6 +156,8 @@ function SignUp() {
               gap={{ sm: '10px', md: '26px' }}
             >
               <Flex direction="column">
+                <FormLabel color="red">{errMsg}</FormLabel>
+
                 <FormLabel
                   display="flex"
                   ms="4px"
@@ -331,14 +338,29 @@ function SignUp() {
               mb="24px"
               disabled={!isAgree}
               onClick={() => {
+                setIsPending(true)
+
                 userRegister(email, password, code, username).then((res) => {
                   if (res.data.code == '200') {
                     history.push({ pathname: '/auth/sign-in/default' })
+                    setIsPending(false)
+                  } else {
+                    setErrMsg(res.data.msg)
+                    setIsPending(false)
                   }
                 })
               }}
             >
               Create my account
+              {isPending && (
+                <Image
+                  marginLeft="10px"
+                  width="20px"
+                  src={LoadingImg}
+                  alt=""
+                  srcset=""
+                />
+              )}
             </Button>
           </FormControl>
           <Flex

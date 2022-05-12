@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 // const DefaultUrl = 'https://api.hook.cool'
-const DefaultUrl = 'https://192.168.31.23:8898'
+// const DefaultUrl = 'https://192.168.31.23:8898'
+const DefaultUrl = 'http://devhook.natapp1.cc/'
 
 export async function register(params) {
   return await axios.post(`${DefaultUrl}/user/register`, {
@@ -70,6 +71,12 @@ export async function logout(params, token) {
 }
 export async function emailCode(params) {
   return await axios.post(`${DefaultUrl}/email/setEmailCode`, {
+    ...params,
+  })
+}
+
+export async function forgotPassword(params) {
+  return await axios.post(`${DefaultUrl}/user/forgotPassword`, {
     ...params,
   })
 }

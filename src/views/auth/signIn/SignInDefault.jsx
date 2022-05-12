@@ -15,6 +15,7 @@ import {
   InputRightElement,
   Text,
   useColorModeValue,
+  Image,
 } from '@chakra-ui/react'
 // Custom components
 import { HSeparator } from 'components/separator/Separator'
@@ -26,6 +27,7 @@ import { MdOutlineRemoveRedEye } from 'react-icons/md'
 import { RiEyeCloseLine } from 'react-icons/ri'
 import { userLoginByPwd } from '../../../hook/hook'
 import { useHistory } from 'react-router-dom'
+import LoadingImg from '../../../assets/img/users/loading.gif'
 function SignIn() {
   // Chakra color mode
   const textColor = useColorModeValue('navy.700', 'white')
@@ -50,6 +52,8 @@ function SignIn() {
   const [password, setPassword] = useState('')
   const [isAgree, setIsAgree] = useState(false)
   const [isPending, setIsPending] = useState(false)
+  const [errMsg, setErrMsg] = useState('')
+
   const history = useHistory()
 
   return (
@@ -117,6 +121,7 @@ function SignIn() {
             <HSeparator />
           </Flex>
           <FormControl>
+            <FormLabel color="red">{errMsg}</FormLabel>
             <FormLabel
               display="flex"
               ms="4px"
@@ -213,18 +218,32 @@ function SignIn() {
               h="50"
               mb="24px"
               onClick={() => {
+                setIsPending(true)
+
                 userLoginByPwd(email, password).then((res) => {
                   if (res.data.code == 200) {
                     localStorage.setItem('token', res.data.data)
                     localStorage.setItem('email', email)
+                    setIsPending(false)
+
                     history.push({ pathname: '/admin/dashboards/default' })
                   } else {
-                    alert(res.data.msg)
+                    setErrMsg(res.data.msg)
+                    setIsPending(false)
                   }
                 })
               }}
             >
               Sign In
+              {isPending && (
+                <Image
+                  marginLeft="10px"
+                  width="20px"
+                  src={LoadingImg}
+                  alt=""
+                  srcset=""
+                />
+              )}
             </Button>
           </FormControl>
           <Flex
@@ -250,6 +269,7 @@ function SignIn() {
           </Flex>
         </Flex>
       </Flex>
+
       {/*  */}
     </DefaultAuth>
   )

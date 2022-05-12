@@ -96,6 +96,7 @@ export default function Overview() {
           }
         })
         setTxData(txData)
+        setIsShowSkeleton(false)
       }
     })
     setSearchData(searchData)
@@ -110,7 +111,7 @@ export default function Overview() {
     // setSearchToken(searchData.tokenBalance.data)
     // const defiToken = searchData.tokenBalance.data.filter(
     //   (res) => res.tokenInfo.c == null
-    // ) 
+    // )
     // const nftToken = searchData.tokenBalance.data.filter(
     //   (res) => res.tokenInfo.c != null
     // )
@@ -120,61 +121,63 @@ export default function Overview() {
   return (
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
       {/* Main Fields */}
-      {isShowSkeleton?(<Skeleton></Skeleton>):(
+      {isShowSkeleton ? (
+        <Skeleton></Skeleton>
+      ) : (
         <>
-        <Grid
-        templateColumns={{
-          base: '1fr',
-          lg: '1fr 1fr 1fr',
-        }}
-        templateRows={{
-          base: 'repeat(3, 1fr)',
-          lg: '1fr',
-        }}
-        gap={{ base: '20px', xl: '20px' }}
-      >
-        <Banner
-          gridArea="1 / 1 / 2 / 2"
-          banner={banner}
-          avatar={avatar}
-          name="Adela Parkson"
-          searchAddress={searchAddress}
-          total2Usd={total2Usd?.toLocaleString()}
-          defi2Usd={defi2Usd?.toLocaleString()}
-          nft2Usd={nft2Usd?.toLocaleString()}
-          defiPercentage={defiPercentage}
-          nftPercentage={100 - defiPercentage}
-        />
-        <Storage
-          gridArea={{ base: '2 / 1 / 3 / 2', lg: '1 / 2 / 2 / 3' }}
-          used={25.6}
-          total={50}
-          searchData={searchData}
-        />
-        <Upload
-          gridArea={{
-            base: '3 / 1 / 4 / 2',
-            lg: '1 / 3 / 2 / 4',
-          }}
-          minH={{ base: 'auto', lg: '420px', '2xl': '365px' }}
-          searchData={searchData}
-        />
-      </Grid>
-      <Grid
-        mb="20px"
-        templateColumns={{
-          base: '1fr',
-          lg: 'repeat(1, 1fr)',
-          '2xl': '1',
-        }}
-        templateRows={{
-          base: '1fr',
-          lg: 'repeat(1, 1fr)',
-          '2xl': '1fr',
-        }}
-        gap={{ base: '20px', xl: '20px' }}
-      >
-        {/* <Projects
+          <Grid
+            templateColumns={{
+              base: '1fr',
+              lg: '1fr 1fr 1fr',
+            }}
+            templateRows={{
+              base: 'repeat(3, 1fr)',
+              lg: '1fr',
+            }}
+            gap={{ base: '20px', xl: '20px' }}
+          >
+            <Banner
+              gridArea="1 / 1 / 2 / 2"
+              banner={banner}
+              avatar={avatar}
+              name="Adela Parkson"
+              searchAddress={searchAddress}
+              total2Usd={total2Usd?.toLocaleString()}
+              defi2Usd={defi2Usd?.toLocaleString()}
+              nft2Usd={nft2Usd?.toLocaleString()}
+              defiPercentage={defiPercentage}
+              nftPercentage={100 - defiPercentage}
+            />
+            <Storage
+              gridArea={{ base: '2 / 1 / 3 / 2', lg: '1 / 2 / 2 / 3' }}
+              used={25.6}
+              total={50}
+              searchData={searchData}
+            />
+            <Upload
+              gridArea={{
+                base: '3 / 1 / 4 / 2',
+                lg: '1 / 3 / 2 / 4',
+              }}
+              minH={{ base: 'auto', lg: '420px', '2xl': '365px' }}
+              searchData={searchData}
+            />
+          </Grid>
+          <Grid
+            mb="20px"
+            templateColumns={{
+              base: '1fr',
+              lg: 'repeat(1, 1fr)',
+              '2xl': '1',
+            }}
+            templateRows={{
+              base: '1fr',
+              lg: 'repeat(1, 1fr)',
+              '2xl': '1fr',
+            }}
+            gap={{ base: '20px', xl: '20px' }}
+          >
+            {/* <Projects
           gridArea="1 / 2 / 2 / 2"
           banner={banner}
           avatar={avatar}
@@ -198,15 +201,13 @@ export default function Overview() {
             '2xl': '1 / 3 / 2 / 4',
           }}
         /> */}
-        <ManagementTable
-          tableData={txData}
-          columnsData={tableColumnsManagement}
-        />
-      </Grid>
-      </> 
+            <ManagementTable
+              tableData={txData}
+              columnsData={tableColumnsManagement}
+            />
+          </Grid>
+        </>
       )}
-     
-      
     </Box>
   )
 }

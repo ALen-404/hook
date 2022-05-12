@@ -23,6 +23,7 @@ import {
   loginByPwd,
   logout,
   emailCode,
+  forgotPassword,
 } from '../api/user'
 
 // overview
@@ -90,4 +91,7 @@ export const userLogout = (uId, token) => {
 }
 export const sendCode = (email) => {
   return emailCode({ email })
+}
+export const forgotPwd = (email) => {
+  return forgotPassword({ email })
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // Chakra imports
 import {
@@ -11,6 +11,7 @@ import {
   Input,
   useColorModeValue,
   Text,
+  Image,
 } from '@chakra-ui/react'
 
 // Custom components
@@ -18,12 +19,16 @@ import DefaultAuth from 'layouts/auth/types/Default'
 
 // Assets
 import illustration from 'assets/img/auth/sign.svg'
-
+import LoadingImg from '../../../assets/img/users/loading.gif'
+import { forgotPwd } from '../../../hook/hook'
 function ForgotPassword() {
   // Chakra color mode
   const textColor = useColorModeValue('navy.700', 'white')
   const textColorSecondary = 'gray.400'
   const brandStars = useColorModeValue('brand.500', 'brand.400')
+  const [email, setEmail] = useState('')
+  const [isPending, setIsPending] = useState(false)
+  const [errMsg, setErrMsg] = useState('')
   return (
     <DefaultAuth illustrationBackground={illustration} image={illustration}>
       <Flex
@@ -70,6 +75,8 @@ function ForgotPassword() {
           align="start"
         >
           <FormControl>
+            <FormLabel color="red">{errMsg}</FormLabel>
+
             <FormLabel
               display="flex"
               ms="4px"
@@ -77,6 +84,9 @@ function ForgotPassword() {
               fontWeight="500"
               color={textColor}
               mb="8px"
+              onChange={(e) => {
+                setEmail(e.target.value)
+              }}
             >
               Email<Text color={brandStars}>*</Text>
             </FormLabel>
@@ -96,8 +106,31 @@ function ForgotPassword() {
               w="100%"
               h="50"
               mb="24px"
+              onClick={() => {
+                setIsPending(true)
+
+                forgotPwd(email).then((res) => {
+                  if (res.data.code == 200) {
+                    localStorage.setItem('token', res.data.data)
+                    localStorage.setItem('email', email)
+                    setIsPending(false)
+                  } else {
+                    setErrMsg(res.data.msg)
+                    setIsPending(false)
+                  }
+                })
+              }}
             >
               Email password reset link
+              {isPending && (
+                <Image
+                  marginLeft="10px"
+                  width="20px"
+                  src={LoadingImg}
+                  alt=""
+                  srcset=""
+                />
+              )}
             </Button>
           </FormControl>
         </Flex>
