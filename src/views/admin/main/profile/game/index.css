@@ -1,0 +1,20 @@
+.Gaming {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 68px;
+  line-height: 82px;
+  text-align: center;
+  letter-spacing: -1.0625px;
+  color: #FFFFFF;
+  margin-bottom: 47.8px;
+}
+.challenge {
+  width: 347px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+  color: #8D8CAB;
+  margin: auto;
+}

@@ -295,6 +295,7 @@ function SignUp() {
                   _checked={{ color: '#fff' }}
                   onChange={(e) => {
                     setAgree(e.target.checked)
+                    // setIsDisable(!e.target.checked)
                   }}
                 />
                 <FormLabel
