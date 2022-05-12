@@ -30,7 +30,7 @@ import { tableColumnsManagement } from 'views/admin/main/account/application/var
 import tableDataManagement from 'views/admin/main/account/application/variables/tableDataManagement.json'
 import './index.css'
 import BigNumber from 'bignumber.js'
-
+import Skeleton from './Skeleton/index'
 export const initTime = (timestamp) => {
   let date = new Date(timestamp)
   const Y = date.getFullYear() + '-'
@@ -61,6 +61,7 @@ export default function Overview() {
   //   const [searchToken, setSearchToken] = useState([])
   const [txData, setTxData] = useState([])
   const [defiPercentage, setDefiPercentage] = useState(0)
+  const [isShowSkeleton, setIsShowSkeleton] = useState(true)
 
   const searchAddress =
     localStorage.getItem('searchAddress') ||
@@ -119,7 +120,9 @@ export default function Overview() {
   return (
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
       {/* Main Fields */}
-      <Grid
+      {isShowSkeleton?(<Skeleton></Skeleton>):(
+        <>
+        <Grid
         templateColumns={{
           base: '1fr',
           lg: '1fr 1fr 1fr',
@@ -200,6 +203,10 @@ export default function Overview() {
           columnsData={tableColumnsManagement}
         />
       </Grid>
+      </> 
+      )}
+     
+      
     </Box>
   )
 }
