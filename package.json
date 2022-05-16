@@ -42,7 +42,7 @@
     "react-scripts": "5.0.0",
     "react-table": "^7.7.0",
     "react-to-print": "^2.14.6",
-    "swiper": "^8.1.4",
+    "swiper": "^4.5.0",
     "url": "^0.11.0",
     "web-vitals": "^1.1.2"
   },
