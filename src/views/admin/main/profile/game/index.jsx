@@ -1,5 +1,5 @@
 import "./index.css";
-import { Box, Flex, Grid } from "@chakra-ui/react";
+import { Box, Flex, Grid ,Link,} from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import backLogo from "assets/svg/BgImage.svg";
 import React, { useEffect, useState } from "react";
@@ -16,6 +16,7 @@ import { getSearchDatas, setSearchHeats } from "../../../../../hook/hook";
 import Swiper from "swiper";
 import "swiper/dist/css/swiper.min.css";
 import gameThree from "../../../../../assets/img/logo/gameThree.png";
+import AllGamePage from '../allGame/index'
 export default function Track(props) {
   const { variant, background, children, placeholder, borderRadius, ...rest } =
     props;
@@ -108,7 +109,7 @@ export default function Track(props) {
           margin:'auto'
       }}>
          <div className="Gaming">Crypto gaming for all</div>
-         <div style={{
+         <div      className='CreateBtn' style={{
            width: '159px',
            height: '73px',
            borderRadius: '20.799999237060547px',
@@ -118,7 +119,8 @@ export default function Track(props) {
            fontWeight: '700',
            textAlign: 'center',
            lineHeight: '73px',
-           marginBottom: '47.8px'
+           marginBottom: '47.8px',
+      
          }}>
            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGpIutxIjaaC3i_wnli1B3_wY5rU91o7UpNqpeISbz2AHnrg/viewform">Create Project</a>
            </div>
@@ -148,7 +150,7 @@ export default function Track(props) {
                       backgroundColor: "#111C44",
                       padding: "12px",
                       boxSizing: "border-box",
-                      boxShadow:'rgb(119 119 255 / 20%) 1px -7px 20px 0px'
+                      
                     }}
                   >
                     <div>
@@ -198,7 +200,7 @@ marginRight:'12px'
 }}></div>
    <div>{item.Viewers} Viewers</div>
  </div>
- <div style={{
+ <div className="VIewBtn" style={{
    width: '180px',
    height: '72px',
    borderRadius:' 24px',
@@ -219,7 +221,8 @@ marginRight:'12px'
         </div>
         
       </Flex>
-      <div style={ {     width: '244px',
+        <Link href="#/admin/profile/allGame">
+      <div className="ExploreBtn" style={ {     width: '244px',
         height: '71.76px',
         borderRadius: '24.959999084472656px',
         background: 'rgba(117,81,255,1)',
@@ -232,8 +235,9 @@ marginRight:'12px'
       marginTop:'113.24px'
       }
       }>
-      Explore all games
+         Explore all games
       </div>
+          </Link>
     </Box>
   )
 }

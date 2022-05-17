@@ -9,6 +9,19 @@
   margin-bottom: 47.8px;
   margin-left: 337px;
 }
+.CreateBtn {
+  transition: All 0.4s ease-in-out;
+  -webkit-transition: All 0.4s ease-in-out;
+  -moz-transition: All 0.4s ease-in-out;
+  -o-transition: All 0.4s ease-in-out;
+}
+.CreateBtn:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+}
 .challenge {
   width: 347px;
   font-style: normal;
@@ -20,6 +33,47 @@
   margin: auto;
   margin-bottom: 90px;
 }
+.VIewBtn {
+  transition: All 0.4s ease-in-out;
+  -webkit-transition: All 0.4s ease-in-out;
+  -moz-transition: All 0.4s ease-in-out;
+  -o-transition: All 0.4s ease-in-out;
+}
+.VIewBtn:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+}
+.ExploreBtn {
+  transition: All 0.4s ease-in-out;
+  -webkit-transition: All 0.4s ease-in-out;
+  -moz-transition: All 0.4s ease-in-out;
+  -o-transition: All 0.4s ease-in-out;
+}
+.ExploreBtn:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+}
 .swiper-slide-active {
+  box-shadow: #7551ff96 0px -24px 81px -15px !important;
+  border-radius: 38px!important;
+  height: 651px !important;
+  width: 369px !important;
+}
+.swiper-slide-prev {
+  box-shadow: #7551ff96 -7px 1px 19px -8px !important;
+  border-radius: 38px!important;
+  height: 651px !important;
+  width: 369px !important;
+}
+.swiper-slide-next {
+  box-shadow: #7551ff96 7px 1px 19px -8px !important;
+  border-radius: 38px!important;
+  height: 651px !important;
   width: 369px !important;
 }
