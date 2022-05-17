@@ -6,6 +6,27 @@
   "description": "hook ui",
   "glyphs": [
     {
+      "icon_id": "29735387",
+      "name": "Game (1)",
+      "font_class": "a-Game1",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "29735157",
+      "name": "Game",
+      "font_class": "Game1",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "29735115",
+      "name": "Game",
+      "font_class": "Game",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
       "icon_id": "29480631",
       "name": "Icon",
       "font_class": "Icon",

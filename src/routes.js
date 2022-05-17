@@ -98,7 +98,7 @@ const routes = [
   },
   {
     name: 'Game',
-    icon: <span className="iconfont icon-drop">&#xe601;</span>,
+    icon: <span className="iconfont icon-drop">&#xe604;</span>,
     collapse: false,
     layout: '/admin',
     component: Game,
