@@ -19,7 +19,7 @@ import Notifications from 'views/admin/main/profile/overview/components/Notifica
 import Projects from 'views/admin/main/profile/overview/components/Projects'
 import Storage from 'views/admin/main/profile/overview/components/Storage'
 import Upload from 'views/admin/main/profile/overview/components/Upload'
-import { getTxDatas } from '../../../../../hook/hook'
+import { getTxDatas, getTags } from '../../../../../hook/hook'
 // Assets
 import banner from 'assets/img/auth/banner.png'
 import avatar from 'assets/img/avatars/avatar4.png'
@@ -61,6 +61,7 @@ export default function Overview() {
   //   const [searchToken, setSearchToken] = useState([])
   const [txData, setTxData] = useState([])
   const [defiPercentage, setDefiPercentage] = useState(0)
+  const [tagArr, setTagArr] = useState([])
   const [isShowSkeleton, setIsShowSkeleton] = useState(true)
 
   const searchAddress =
@@ -99,6 +100,14 @@ export default function Overview() {
         setIsShowSkeleton(false)
       }
     })
+
+    getTags(searchAddress).then((res) => {
+      if (res.data.code == '200') {
+        const arr = res.data.data.map((item) => item.tagName)
+        setTagArr(arr)
+      }
+    })
+
     setSearchData(searchData)
     setTotal2Usd(searchData.totalPrice)
     setDefi2Usd(searchData.totalPrice_defi)
@@ -147,6 +156,7 @@ export default function Overview() {
               nft2Usd={nft2Usd?.toLocaleString()}
               defiPercentage={defiPercentage}
               nftPercentage={100 - defiPercentage}
+              tagArr={tagArr}
             />
             <Storage
               gridArea={{ base: '2 / 1 / 3 / 2', lg: '1 / 2 / 2 / 3' }}

@@ -26,6 +26,7 @@ export default function Banner(props) {
     nft2Usd,
     defiPercentage,
     nftPercentage,
+    tagArr,
   } = props
 
   const cyberAddress = 'https://www.cyber.xyz/@'
@@ -33,7 +34,7 @@ export default function Banner(props) {
   // Chakra Color Mode
   const textColorPrimary = useColorModeValue('secondaryGray.900', 'white')
   const textColorSecondary = 'gray.400'
-  const iconMap = ['NFT collector', 'Opensea']
+
   const borderColor = useColorModeValue(
     'white !important',
     '#111C44 !important'
@@ -67,7 +68,7 @@ export default function Banner(props) {
       </Flex>
 
       <Flex w="max-content" mx="auto" mt="10px" marginBottom="20px">
-        {iconMap.map((res, index) => {
+        {tagArr.map((res, index) => {
           return (
             <Box
               marginRight="7px"

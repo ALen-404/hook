@@ -95,3 +95,6 @@ export const sendCode = (email) => {
 export const forgotPwd = (email) => {
   return forgotPassword({ email })
 }
+export const getTags = (address) => {
+  return getTag({ address })
+}

@@ -1,66 +1,66 @@
-import "./index.css";
-import { Box, Flex, Grid ,Link,} from "@chakra-ui/react";
-import { Image } from "@chakra-ui/react";
-import backLogo from "assets/svg/BgImage.svg";
-import React, { useEffect, useState } from "react";
+import './index.css'
+import { Box, Flex, Grid, Link } from '@chakra-ui/react'
+import { Image } from '@chakra-ui/react'
+import backLogo from 'assets/svg/BgImage.svg'
+import React, { useEffect, useState } from 'react'
 import {
   IconButton,
   Input,
   InputGroup,
   InputLeftElement,
   useColorModeValue,
-} from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons";
-import { useHistory } from "react-router-dom";
-import { getSearchDatas, setSearchHeats } from "../../../../../hook/hook";
-import Swiper from "swiper";
-import "swiper/dist/css/swiper.min.css";
-import gameThree from "../../../../../assets/img/logo/gameThree.png";
+} from '@chakra-ui/react'
+import { SearchIcon } from '@chakra-ui/icons'
+import { useHistory } from 'react-router-dom'
+import { getSearchDatas, setSearchHeats } from '../../../../../hook/hook'
+import Swiper from 'swiper'
+import 'swiper/dist/css/swiper.min.css'
+import gameThree from '../../../../../assets/img/logo/gameThree.png'
 import AllGamePage from '../allGame/index'
 export default function Track(props) {
   const { variant, background, children, placeholder, borderRadius, ...rest } =
-    props;
+    props
   // Chakra Color Mode
-  const searchIconColor = useColorModeValue("gray.700", "white");
-  const inputBg = useColorModeValue("secondaryGray.300", "navy.900");
-  const inputText = useColorModeValue("gray.700", "gray.100");
-  const [inputValue, setInputValue] = useState("");
-  const history = useHistory();
+  const searchIconColor = useColorModeValue('gray.700', 'white')
+  const inputBg = useColorModeValue('secondaryGray.300', 'navy.900')
+  const inputText = useColorModeValue('gray.700', 'gray.100')
+  const [inputValue, setInputValue] = useState('')
+  const history = useHistory()
   const [swiperData, setSwiperData] = useState([
     {
-      Shooter: "Shooter",
-      gameName: "Axie Infinity",
-      img:gameThree,
-      Viewers:'4.9k',
+      Shooter: 'Shooter',
+      gameName: 'Axie Infinity',
+      img: gameThree,
+      Viewers: '4.9k',
     },
     {
-      Shooter: "Shooter",
-      gameName: "Axie Infinity",
-      img:gameThree,
-      Viewers:'4.9k',
+      Shooter: 'Shooter',
+      gameName: 'Axie Infinity',
+      img: gameThree,
+      Viewers: '4.9k',
     },
     {
-      Shooter: "Shooter",
-      gameName: "Axie Infinity",
-      img:gameThree,
-      Viewers:'4.9k',
+      Shooter: 'Shooter',
+      gameName: 'Axie Infinity',
+      img: gameThree,
+      Viewers: '4.9k',
     },
     {
-      Shooter: "Shooter",
-      gameName: "Axie Infinity",
-      img:gameThree,
-      Viewers:'4.9k',
+      Shooter: 'Shooter',
+      gameName: 'Axie Infinity',
+      img: gameThree,
+      Viewers: '4.9k',
     },
     {
-      Shooter: "Shooter",
-      gameName: "Axie Infinity",
-      img:gameThree,
-      Viewers:'4.9k',
+      Shooter: 'Shooter',
+      gameName: 'Axie Infinity',
+      img: gameThree,
+      Viewers: '4.9k',
     },
-  ]);
+  ])
   const swiper = () => {
-    new Swiper(".swiper-container1", {
-      effect: "coverflow",
+    new Swiper('.swiper-container1', {
+      effect: 'coverflow',
       grabCursor: true,
       centeredSlides: true,
       slidesPerView: 2,
@@ -73,8 +73,8 @@ export default function Track(props) {
         slideShadows: true,
       },
       navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       },
       breakpoints: {
         1024: {
@@ -94,48 +94,55 @@ export default function Track(props) {
           spaceBetween: 0,
         },
       },
-    });
-  };
+    })
+  }
 
   useEffect(() => {
-    swiper();
-  }, []);
+    swiper()
+  }, [])
   return (
-    <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
-      <div style={{
+    <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
+      <div
+        style={{
           display: 'flex',
-          alignItems: 'center',  
+          alignItems: 'center',
           justifyContent: 'space-around',
-          margin:'auto'
-      }}>
-         <div className="Gaming">Crypto gaming for all</div>
-         <div      className='CreateBtn' style={{
-           width: '159px',
-           height: '73px',
-           borderRadius: '20.799999237060547px',
-           background: 'rgba(207,200,255,1)',
-           color: 'rgba(95,117,238,1)',
-           fontSize: '18.2px',
-           fontWeight: '700',
-           textAlign: 'center',
-           lineHeight: '73px',
-           marginBottom: '47.8px',
-      
-         }}>
-           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGpIutxIjaaC3i_wnli1B3_wY5rU91o7UpNqpeISbz2AHnrg/viewform">Create Project</a>
-           </div>
+          margin: 'auto',
+        }}
+      >
+        <div className="Gaming">Crypto gaming for all</div>
+        <div
+          className="CreateBtn"
+          style={{
+            width: '159px',
+            height: '73px',
+            borderRadius: '20.799999237060547px',
+            background: 'rgba(207,200,255,1)',
+            color: 'rgba(95,117,238,1)',
+            fontSize: '18.2px',
+            fontWeight: '700',
+            textAlign: 'center',
+            lineHeight: '73px',
+            marginBottom: '47.8px',
+          }}
+        >
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGpIutxIjaaC3i_wnli1B3_wY5rU91o7UpNqpeISbz2AHnrg/viewform">
+            Create Project
+          </a>
+        </div>
       </div>
-     
+
       <div className=" challenge">
         challenge your gaming skills through a fun and rewarding experience
       </div>
+
       <Flex justifyContent="center">
         <div
           className="swiper-container1"
           style={{
-            width: "670px",
-            height: "660px",
-            display: "flex",
+            width: '670px',
+            height: '660px',
+            display: 'flex',
           }}
         >
           <div className="swiper-wrapper">
@@ -144,74 +151,82 @@ export default function Track(props) {
                 <div className="swiper-slide">
                   <div
                     style={{
-                      height: "651px",
-                      width: "369px",
-                      borderRadius: "38px",
-                      backgroundColor: "#111C44",
-                      padding: "12px",
-                      boxSizing: "border-box",
-                      
+                      height: '651px',
+                      width: '369px',
+                      borderRadius: '38px',
+                      backgroundColor: '#111C44',
+                      padding: '12px',
+                      boxSizing: 'border-box',
                     }}
                   >
                     <div>
-                      <img
-                        width="345px"
-                        height="330px"
-                        src={item.img}
-                        alt=""
-
-                      />
+                      <img width="345px" height="330px" src={item.img} alt="" />
                     </div>
 
-                    <div style={{ marginTop: "48px", marginLeft: "39px" }}>
+                    <div style={{ marginTop: '48px', marginLeft: '39px' }}>
                       <div
                         style={{
-                          width: "135px",
-                          height: "36px",
-                          borderRadius: "12px",
-                          opacity: "0.5",
-                          background: "rgba(108,93,211,1)",
-                          color: " rgb(210 217 255)",
-                          fontSize: "19.5px",
-                          textAlign: " center",
-                          lineHeight: " 38px",
-                          fontWeight: " 400",
+                          width: '135px',
+                          height: '36px',
+                          borderRadius: '12px',
+                          opacity: '0.5',
+                          background: 'rgba(108,93,211,1)',
+                          color: ' rgb(210 217 255)',
+                          fontSize: '19.5px',
+                          textAlign: ' center',
+                          lineHeight: ' 38px',
+                          fontWeight: ' 400',
                         }}
                       >
                         {item.Shooter}
                       </div>
-                      <div style={{ color: 'rgba(255,255,255,1)',
- fontSize: '27px',
- fontWeight: '500',
- textAlign: 'left',
- marginTop:'12px',
- lineHeight: '36px',}}>{item.gameName}</div>
- <div style={{
-       display: 'flex',
-       alignItems: 'center',  
- marginTop:'12px',
-
- }}>
-   <div style={{width: '12px',
-height: '12px',
-background:' #69F85D',
-borderRadius:'50%',
-marginRight:'12px'
-}}></div>
-   <div>{item.Viewers} Viewers</div>
- </div>
- <div className="VIewBtn" style={{
-   width: '180px',
-   height: '72px',
-   borderRadius:' 24px',
-   background: 'rgba(117,81,255,1)',
-   color: 'rgba(255,255,255,1)',
-   fontSize: '21px',
-   fontWeight: '400',
-   textAlign:' center',
-   lineHeight: '72px',
-   marginTop:'18px'
- }}>VIew</div>
+                      <div
+                        style={{
+                          color: 'rgba(255,255,255,1)',
+                          fontSize: '27px',
+                          fontWeight: '500',
+                          textAlign: 'left',
+                          marginTop: '12px',
+                          lineHeight: '36px',
+                        }}
+                      >
+                        {item.gameName}
+                      </div>
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          marginTop: '12px',
+                        }}
+                      >
+                        <div
+                          style={{
+                            width: '12px',
+                            height: '12px',
+                            background: ' #69F85D',
+                            borderRadius: '50%',
+                            marginRight: '12px',
+                          }}
+                        ></div>
+                        <div>{item.Viewers} Viewers</div>
+                      </div>
+                      <div
+                        className="VIewBtn"
+                        style={{
+                          width: '180px',
+                          height: '72px',
+                          borderRadius: ' 24px',
+                          background: 'rgba(117,81,255,1)',
+                          color: 'rgba(255,255,255,1)',
+                          fontSize: '21px',
+                          fontWeight: '400',
+                          textAlign: ' center',
+                          lineHeight: '72px',
+                          marginTop: '18px',
+                        }}
+                      >
+                        VIew
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -219,25 +234,27 @@ marginRight:'12px'
             })}
           </div>
         </div>
-        
       </Flex>
-        <Link href="#/admin/profile/allGame">
-      <div className="ExploreBtn" style={ {     width: '244px',
-        height: '71.76px',
-        borderRadius: '24.959999084472656px',
-        background: 'rgba(117,81,255,1)',
-      margin:'auto',
-      color:' rgba(255,255,255,1)',
-      fontSize:' 21.84px',
-      fontWeight: '400',
-      textAlign: 'center',
-      lineHeight: '71.76px',
-      marginTop:'113.24px'
-      }
-      }>
-         Explore all games
-      </div>
-          </Link>
+      <Link href="#/admin/profile/allGame">
+        <div
+          className="ExploreBtn"
+          style={{
+            width: '244px',
+            height: '71.76px',
+            borderRadius: '24.959999084472656px',
+            background: 'rgba(117,81,255,1)',
+            margin: 'auto',
+            color: ' rgba(255,255,255,1)',
+            fontSize: ' 21.84px',
+            fontWeight: '400',
+            textAlign: 'center',
+            lineHeight: '71.76px',
+            marginTop: '113.24px',
+          }}
+        >
+          Explore all games
+        </div>
+      </Link>
     </Box>
   )
 }

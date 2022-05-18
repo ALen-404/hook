@@ -5,7 +5,7 @@
   line-height: 82px;
   text-align: center;
   letter-spacing: -1.0625px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 47.8px;
   margin-left: 337px;
 }
@@ -29,7 +29,7 @@
   font-size: 18px;
   line-height: 26px;
   text-align: center;
-  color: #8D8CAB;
+  color: #8d8cab;
   margin: auto;
   margin-bottom: 90px;
 }
@@ -61,19 +61,19 @@
 }
 .swiper-slide-active {
   box-shadow: #7551ff96 0px -24px 150px -15px !important;
-  border-radius: 38px!important;
+  border-radius: 38px !important;
   height: 651px !important;
   width: 369px !important;
 }
 .swiper-slide-prev {
   box-shadow: #7551ff96 -7px 1px 19px -8px !important;
-  border-radius: 38px!important;
+  border-radius: 38px !important;
   height: 651px !important;
   width: 369px !important;
 }
 .swiper-slide-next {
   box-shadow: #7551ff96 7px 1px 19px -8px !important;
-  border-radius: 38px!important;
+  border-radius: 38px !important;
   height: 651px !important;
   width: 369px !important;
 }

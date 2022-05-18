@@ -84,9 +84,6 @@ function ForgotPassword() {
               fontWeight="500"
               color={textColor}
               mb="8px"
-              onChange={(e) => {
-                setEmail(e.target.value)
-              }}
             >
               Email<Text color={brandStars}>*</Text>
             </FormLabel>
@@ -98,6 +95,9 @@ function ForgotPassword() {
               placeholder="mail@theapis.xyz"
               mb="24px"
               size="lg"
+              onChange={(e) => {
+                setEmail(e.target.value)
+              }}
             />
             <Button
               fontSize="sm"
@@ -108,7 +108,7 @@ function ForgotPassword() {
               mb="24px"
               onClick={() => {
                 setIsPending(true)
-
+                console.log(email)
                 forgotPwd(email).then((res) => {
                   if (res.data.code == 200) {
                     localStorage.setItem('token', res.data.data)
