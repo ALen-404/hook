@@ -198,7 +198,7 @@ export function SidebarLinks(props) {
                       }
                       fontWeight="500"
                     >
-                      {route. }
+                      {route.name}
                     </Text>
                   </Flex>
                 </HStack>
