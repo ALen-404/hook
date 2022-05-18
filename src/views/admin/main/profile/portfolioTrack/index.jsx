@@ -25,10 +25,10 @@ export default function Track(props) {
   return (
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
       <Image src={backLogo} alt="Horizon UI" height="250px" w="100%" />
-      <div className="PortfolioText">Portfolio Track</div>
-      <div className="VisualizeText">
+      <Box className="PortfolioText">Portfolio Track</Box>
+      <Box className="VisualizeText">
         Visualize crypto assets, recent activities and more.
-      </div>
+      </Box>
       <InputGroup
         w={{ base: '100%', md: '860px' }}
         borderRadius="20px"

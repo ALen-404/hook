@@ -22,10 +22,38 @@ export default function TrendingGames() {
      
       introduce:'The massive free-to-playexperience from the world of Modern Warfare.'
     },
+    {
+     
+        gameName: "Call of Duty",
+        img: gameThree,
+       
+        introduce:'The massive free-to-playexperience from the world of Modern Warfare.'
+      },
+      {
+     
+        gameName: "Call of Duty",
+        img: gameThree,
+       
+        introduce:'The massive free-to-playexperience from the world of Modern Warfare.'
+      },
+      {
+     
+        gameName: "Call of Duty",
+        img: gameThree,
+       
+        introduce:'The massive free-to-playexperience from the world of Modern Warfare.'
+      },
+      {
+     
+        gameName: "Call of Duty",
+        img: gameThree,
+       
+        introduce:'The massive free-to-playexperience from the world of Modern Warfare.'
+      },
   ]);
   return (
     <Box>
-      <div
+      <Box
         style={{
           color: " rgba(255,255,255,1)",
           fontSize: "24px",
@@ -35,12 +63,12 @@ export default function TrendingGames() {
           marginBottom:'32px'
         }}
       >
-        Trending Games
-      </div>
-      <div >
+        Ranking
+      </Box>
+      <Box >
         {TrendingData.map((item, index) => {
           return (
-            <div style={{
+            <Box style={{
                 display:'flex',
                 alignItems:'center',
                 width: '491px',
@@ -48,25 +76,25 @@ export default function TrendingGames() {
       marginBottom:'24px',
       
             }}>
-              <div  >
+              <Box  >
                 <img style={{
                     width: '115.05px',
                     height: '100px',
                     borderRadius: '12px',
                 }}  src={item.img} alt="" />
-              </div>
-              <div style={{
+              </Box>
+              <Box style={{
                   pandingTop:'13px',
                   marginLeft:'34.92px'
               }}>
-                <div style={{
+                <Box style={{
                      color: 'rgba(255,255,255,1)',
                      fontSize: '13px',
                      fontWeight: '400',
                      textAlign:' left',
                      lineHeight: '18px',
-                }}>{item.gameName}®</div>
-                <div style={{
+                }}>{item.gameName}®</Box>
+                <Box style={{
                      width: '173px',
                      color: 'rgba(128,129,145,1)',
                      fontSize: '12px',
@@ -76,13 +104,27 @@ export default function TrendingGames() {
                    
                 }}>
                     {item.introduce}
-                </div>
+                </Box>
                
-              </div>
-            </div>
+              </Box>
+            </Box>
           )
         })}
-      </div>
+      </Box>
+      <Box style={{
+          width: '491px',
+          height: '56px',
+          borderRadius: '16px',
+          background: 'rgba(108,93,211,1)',
+          color: 'rgba(255,255,255,1)',
+          fontSize: '14px',
+          fontWeight: '400',
+          textAlign:' center',
+          lineHeight: '56px',
+          marginTop:'38px'
+      }}>
+      Discover More
+      </Box>
     </Box>
   );
 }

@@ -101,43 +101,36 @@ export default function Track(props) {
     swiper()
   }, [])
   return (
-    <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
-      <div
-        style={{
+    <Box pt={{ base: "130px", md: "80px", xl: "80px" }}>
+      <Box style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-around',
-          margin: 'auto',
-        }}
-      >
-        <div className="Gaming">Crypto gaming for all</div>
-        <div
-          className="CreateBtn"
-          style={{
-            width: '159px',
-            height: '73px',
-            borderRadius: '20.799999237060547px',
-            background: 'rgba(207,200,255,1)',
-            color: 'rgba(95,117,238,1)',
-            fontSize: '18.2px',
-            fontWeight: '700',
-            textAlign: 'center',
-            lineHeight: '73px',
-            marginBottom: '47.8px',
-          }}
-        >
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGpIutxIjaaC3i_wnli1B3_wY5rU91o7UpNqpeISbz2AHnrg/viewform">
-            Create Project
-          </a>
-        </div>
-      </div>
-
-      <div className=" challenge">
+          margin:'auto'
+      }}>
+         <Box className="Gaming">Crypto gaming for all</Box>
+         <Box      className='CreateBtn' style={{
+           width: '159px',
+           height: '73px',
+           borderRadius: '20.799999237060547px',
+           background: 'rgba(207,200,255,1)',
+           color: 'rgba(95,117,238,1)',
+           fontSize: '18.2px',
+           fontWeight: '700',
+           textAlign: 'center',
+           lineHeight: '73px',
+           marginBottom: '47.8px',
+      
+         }}>
+           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGpIutxIjaaC3i_wnli1B3_wY5rU91o7UpNqpeISbz2AHnrg/viewform">Create Project</a>
+           </Box>
+      </Box>
+     
+      <Box className=" challenge">
         challenge your gaming skills through a fun and rewarding experience
-      </div>
-
+      </Box>
       <Flex justifyContent="center">
-        <div
+        <Box
           className="swiper-container1"
           style={{
             width: '670px',
@@ -145,11 +138,11 @@ export default function Track(props) {
             display: 'flex',
           }}
         >
-          <div className="swiper-wrapper">
+          <Box className="swiper-wrapper">
             {swiperData.map((item, index) => {
               return (
-                <div className="swiper-slide">
-                  <div
+                <Box className="swiper-slide">
+                  <Box
                     style={{
                       height: '651px',
                       width: '369px',
@@ -159,12 +152,18 @@ export default function Track(props) {
                       boxSizing: 'border-box',
                     }}
                   >
-                    <div>
-                      <img width="345px" height="330px" src={item.img} alt="" />
-                    </div>
+                    <Box>
+                      <img
+                        width="345px"
+                        height="330px"
+                        src={item.img}
+                        alt=""
 
-                    <div style={{ marginTop: '48px', marginLeft: '39px' }}>
-                      <div
+                      />
+                    </Box>
+
+                    <Box style={{ marginTop: "48px", marginLeft: "39px" }}>
+                      <Box
                         style={{
                           width: '135px',
                           height: '36px',
@@ -179,82 +178,65 @@ export default function Track(props) {
                         }}
                       >
                         {item.Shooter}
-                      </div>
-                      <div
-                        style={{
-                          color: 'rgba(255,255,255,1)',
-                          fontSize: '27px',
-                          fontWeight: '500',
-                          textAlign: 'left',
-                          marginTop: '12px',
-                          lineHeight: '36px',
-                        }}
-                      >
-                        {item.gameName}
-                      </div>
-                      <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          marginTop: '12px',
-                        }}
-                      >
-                        <div
-                          style={{
-                            width: '12px',
-                            height: '12px',
-                            background: ' #69F85D',
-                            borderRadius: '50%',
-                            marginRight: '12px',
-                          }}
-                        ></div>
-                        <div>{item.Viewers} Viewers</div>
-                      </div>
-                      <div
-                        className="VIewBtn"
-                        style={{
-                          width: '180px',
-                          height: '72px',
-                          borderRadius: ' 24px',
-                          background: 'rgba(117,81,255,1)',
-                          color: 'rgba(255,255,255,1)',
-                          fontSize: '21px',
-                          fontWeight: '400',
-                          textAlign: ' center',
-                          lineHeight: '72px',
-                          marginTop: '18px',
-                        }}
-                      >
-                        VIew
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                      </Box>
+                      <Box style={{ color: 'rgba(255,255,255,1)',
+ fontSize: '27px',
+ fontWeight: '500',
+ textAlign: 'left',
+ marginTop:'12px',
+ lineHeight: '36px',}}>{item.gameName}</Box>
+ <Box style={{
+       display: 'flex',
+       alignItems: 'center',  
+ marginTop:'12px',
+
+ }}>
+   <Box style={{width: '12px',
+height: '12px',
+background:' #69F85D',
+borderRadius:'50%',
+marginRight:'12px'
+}}></Box>
+   <Box>{item.Viewers} Viewers</Box>
+ </Box>
+ <Box className="VIewBtn" style={{
+   width: '180px',
+   height: '72px',
+   borderRadius:' 24px',
+   background: 'rgba(117,81,255,1)',
+   color: 'rgba(255,255,255,1)',
+   fontSize: '21px',
+   fontWeight: '400',
+   textAlign:' center',
+   lineHeight: '72px',
+   marginTop:'18px'
+ }}>VIew</Box>
+                    </Box>
+                  </Box>
+                </Box>
               )
             })}
-          </div>
-        </div>
+          </Box>
+        </Box>
+        
       </Flex>
-      <Link href="#/admin/profile/allGame">
-        <div
-          className="ExploreBtn"
-          style={{
-            width: '244px',
-            height: '71.76px',
-            borderRadius: '24.959999084472656px',
-            background: 'rgba(117,81,255,1)',
-            margin: 'auto',
-            color: ' rgba(255,255,255,1)',
-            fontSize: ' 21.84px',
-            fontWeight: '400',
-            textAlign: 'center',
-            lineHeight: '71.76px',
-            marginTop: '113.24px',
-          }}
-        >
-          Explore all games
-        </div>
-      </Link>
+        <Link href="#/admin/profile/allGame">
+      <Box className="ExploreBtn" style={ {     width: '244px',
+        height: '71.76px',
+        borderRadius: '24.959999084472656px',
+        background: 'rgba(117,81,255,1)',
+      margin:'auto',
+      color:' rgba(255,255,255,1)',
+      fontSize:' 21.84px',
+      fontWeight: '400',
+      textAlign: 'center',
+      lineHeight: '71.76px',
+      marginTop:'113.24px'
+      }
+      }>
+         Explore all games
+      </Box>
+          </Link>
     </Box>
   )
 }
